@@ -17,7 +17,7 @@
   home.stateVersion = "21.11";
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-manager.enable = true; 
 
   nixpkgs.config.allowUnfree = true;
 
@@ -25,6 +25,7 @@
 
   home.packages = with pkgs; [ 
     alacritty
+    google-chrome
     firefox 
     neovim
     tree

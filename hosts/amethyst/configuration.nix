@@ -21,7 +21,12 @@
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes 
+  '';
+
+  networking.hostName = "amethyst"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -92,6 +97,7 @@
     systemPackages = with pkgs; [
       wget # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       nano
+      kitty
       networkmanager
       xclip
       dash
