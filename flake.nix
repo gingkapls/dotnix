@@ -7,8 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -22,17 +21,16 @@
     in {
       nixosConfigurations = {
         amethyst = lib.nixosSystem {
+        inherit system;
         modules = [
           ./hosts/amethyst/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useUserPkgs = true;
+          home-manager.nixosModules.home-manager {
+            home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
-            home-manager.users.gin = import ./hm/default.nix
-          }
+            home-manager.users.gin = import ./hm/home.nix;
+	  }
         ];
-        };
-      };
+      };   
     };
   };
 }
