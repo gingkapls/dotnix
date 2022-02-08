@@ -4,11 +4,8 @@
   # Neovim
   programs.nixvim = {
     enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
 
-    colorscheme.base16 = {
+    colorschemes.base16 = {
       enable = true;
       colorscheme = "horizon-dark";
     };

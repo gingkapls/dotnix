@@ -5,7 +5,11 @@
     nixpkgs.url = "nixpkgs/nixos-21.11";
     home-manager.url = "github:nix-community/home-manager/release-21.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.url = "github:pta2002/nixvim";
+    nixvim = {
+      url = "github:pta2002/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; 
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -28,7 +32,12 @@
           home-manager.nixosModules.home-manager {
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
-            home-manager.users.gin = import ./hm/home.nix;
+            home-manager.users.gin = { 
+              imports = [ 
+                ./hm/home.nix
+	        inputs.nixvim.homeManagerModules.nixvim
+	      ];
+	    }; 
 	  }
         ];
       };   
