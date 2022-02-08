@@ -21,13 +21,22 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  imports = [ ./shell.nix ];
+  imports = [
+    ./shell.nix 
+    ./nvim.nix
+  ];
+
+
+  # Configs
+
+  home.file = {
+     ".config/awesome".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotnix/config/awesome";
+  };
 
   home.packages = with pkgs; [ 
     alacritty
     google-chrome
     firefox 
-    neovim
     tree
     wine
     lutris
@@ -41,5 +50,6 @@
     git
     git-crypt
     gnupg
+    lolcat
   ];
 }
