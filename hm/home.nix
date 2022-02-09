@@ -50,6 +50,5 @@
     git
     git-crypt
     gnupg
-    lolcat
   ];
 }

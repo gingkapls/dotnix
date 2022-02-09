@@ -4,6 +4,16 @@
 
 { config, pkgs, ... }:
 
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -112,6 +122,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
 
+    videoDrivers = [ "nvidia" ];
+
+
     displayManager = {
       lightdm.enable = true;
       defaultSession = "none+awesome";
@@ -124,6 +137,7 @@
         luadbi-mysql
       ];
     };
+
   };
 
 
@@ -136,7 +150,15 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  hardware = {
+    pulseaudio.enable = true;
+    nvidia.prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -156,6 +178,7 @@
       networkmanager
       xclip
       dash
+      nvidia-offload
     ];
 
     binsh = "${pkgs.dash}/bin/dash";

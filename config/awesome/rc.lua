@@ -45,8 +45,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-home = os.getenv("HOME") or "/home/gin"
-beautiful.init( home .. "/.config/awesome/amethyst_theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -66,15 +66,15 @@ awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
-    -- awful.layout.suit.fair,
-    -- awful.layout.suit.fair.horizontal,
-    -- awful.layout.suit.spiral,
-    -- awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    -- awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -171,14 +171,14 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-    local names = { "www", "dev", "3" , "4", "5", "6", "7", "8", "9" }
-    local l = awful.layout.suit 
-    local layouts = { l.magnifier, l.fair, l.floating, l.floating, l.floating , l.floating , l.floating , l.floating , l.floating }
-    awful.tag(names, s, layouts)
 
+     local names = { "www", "dev", "skype", "gimp", "office", "im", "7", "8", "9" }
+     local l = awful.layout.suit  -- Just to save some typing: use an alias.
+     local layouts = { l.tile.left, l.tile, l.floating, l.fair, l.max, l.floating, l.tile.left, l.floating, l.floating }
+     awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
-    s.mypromptboxr = awful.widget.prompt()
+    s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
