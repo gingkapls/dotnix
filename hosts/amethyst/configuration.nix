@@ -28,8 +28,15 @@ in
     supportedFilesystems = [ "btrfs" ];
   };
 
-  hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
+
+  };
 
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = ''
@@ -152,12 +159,25 @@ in
   sound.enable = true;
 
   hardware = {
+    enableAllFirmware = true;
     pulseaudio.enable = true;
+
+    opengl = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
+
     nvidia.prime = {
       offload.enable = true;
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
+
   };
 
 
