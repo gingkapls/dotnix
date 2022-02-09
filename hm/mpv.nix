@@ -28,6 +28,7 @@
       audio-pitch-correction = "yes";
       audio-channels = "auto-safe";
       cache = "yes";
+      alang = "jap";
       slang = "en";
       sub-auto = "fuzzy";
       yt-dl-raw-options = "sub-format=en,write-srt=";
