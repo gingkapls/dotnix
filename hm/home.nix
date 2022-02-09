@@ -24,6 +24,7 @@
   imports = [
     ./shell.nix 
     ./nvim.nix
+    ./mpv.nix
   ];
 
 
