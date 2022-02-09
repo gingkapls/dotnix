@@ -5,52 +5,14 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a717bea2-75ef-4917-a952-bc8111235509";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress-force=zstd" "noatime" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/a717bea2-75ef-4917-a952-bc8111235509";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress-force=zstd" "noatime" ]; 
-    };
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/a717bea2-75ef-4917-a952-bc8111235509";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress-force=zstd" "noatime" ];
-    };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/a717bea2-75ef-4917-a952-bc8111235509";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress-force=zstd" "noatime" ];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/a717bea2-75ef-4917-a952-bc8111235509";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress-force=zstd" "noatime" ];
-      neededForBoot = true;
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6E15-B41B";
-      fsType = "vfat";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/9a2a34f9-4add-4bee-954d-925a191826f3"; }
-    ];
-
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

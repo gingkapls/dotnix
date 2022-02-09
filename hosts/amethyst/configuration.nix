@@ -26,17 +26,72 @@
     experimental-features = nix-command flakes 
   '';
 
-  networking.hostName = "amethyst"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+ 
+  networking = {
+    hostName = "amethyst"; # Define your hostname.
+    useDHCP = false;
+    dhcpcd.enable = false;
+
+    interfaces = { 
+      enp6s0f1.useDHCP = true;
+      wlan0.useDHCP = true;
+    };
+
+    networkmanager = {
+      enable = true;
+#      dns = "none";
+      wifi.backend = "iwd";
+    };
+    
+    wireless.iwd = {
+      enable = true;
+      settings.Settings.Autoconnect = true;
+    };
+
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+ 
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+ 
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+ 
+  fileSystems."/mnt/data/files" =
+    { device = "/dev/disk/by-label/data";
+      fsType = "btrfs";
+      options = [ "subvol=files" ];
+    };
+ 
+  fileSystems."/mnt/data/games" =
+    { device = "/dev/disk/by-label/data";
+      fsType = "btrfs";
+      options = [ "subvol=games" ];
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/13caff81-4afe-4038-9fb8-e3fa40fc3198"; }
+    ];
+
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp1s0.useDHCP = true;
+  # networking.useDHCP = false;
+  # networking.interfaces.enp1s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -87,7 +142,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     initialPassword = "123456";
     shell = pkgs.zsh;
   };
