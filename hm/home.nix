@@ -50,6 +50,7 @@
     gh
     git
     git-crypt
+    mangohud
     gnupg
   ];
 }

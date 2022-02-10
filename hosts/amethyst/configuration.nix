@@ -24,7 +24,7 @@ in
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
+#    kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "btrfs" ];
   };
 
@@ -158,9 +158,31 @@ in
   # Enable sound.
   sound.enable = true;
 
+  services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+
+    pulse.enable = true;
+
+#    lowLatency = {
+#      enable = true;
+#      quantum = 32;
+#      rate = 48000;
+#    };
+
+#    wireplumber.enable = true;
+    media-session.enable = true;
+
+  };
+
+  security.rtkit.enable = true;
+
   hardware = {
     enableAllFirmware = true;
-    pulseaudio.enable = true;
+    pulseaudio.enable = false;
 
     opengl = {
       enable = true;
@@ -170,6 +192,7 @@ in
         vaapiVdpau
         libvdpau-va-gl
       ];
+      driSupport32Bit = true;
     };
 
     nvidia.prime = {
@@ -184,7 +207,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "video" ]; # Enable ‘sudo’ for the user.
     initialPassword = "123456";
     shell = pkgs.zsh;
   };
@@ -199,6 +222,13 @@ in
       xclip
       dash
       nvidia-offload
+      mesa
+      vulkan-loader
+      vulkan-tools
+      wineWowPackages.staging
+      pulseaudioLight
+      brightnessctl
+      #  wineWowPackages.stable
     ];
 
     binsh = "${pkgs.dash}/bin/dash";

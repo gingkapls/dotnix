@@ -2,6 +2,11 @@
 
 {
   # Shell
+  programs.nix-index = { 
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.bash.enable = true;
   programs.zsh = {
     enable = true;

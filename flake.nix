@@ -27,20 +27,25 @@
       nixosConfigurations = {
         amethyst = lib.nixosSystem {
         inherit system;
+
         modules = [
           ./hosts/amethyst/configuration.nix
+
           home-manager.nixosModules.home-manager {
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.users.gin = { 
               imports = [ 
                 ./hm/home.nix
-	        inputs.nixvim.homeManagerModules.nixvim
-	      ];
-	    }; 
-	  }
+	              inputs.nixvim.homeManagerModules.nixvim
+	            ];
+	          }; 
+	        }
+
         ];
+
       };   
+
     };
   };
 }

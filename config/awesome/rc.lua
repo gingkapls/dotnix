@@ -279,6 +279,33 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
+    -- Media Keys
+    awful.key({}, "XF86AudioRaiseVolume", function()
+      awful.spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+    end),
+
+    awful.key({}, "XF86AudioLowerVolume", function()
+      awful.spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    end),
+
+    awful.key({}, "XF86AudioRaiseVolume", function()
+      awful.spawn "pactl set-sink-volume @DEFAULT_SINK@ +1%"
+    end),
+
+    awful.key({"Shift"}, "XF86AudioLowerVolume", function()
+      awful.spawn "pactl set-sink-volume @DEFAULT_SINK@ -1%"
+    end),
+
+    -- Brightness
+     awful.key({}, "XF86MonBrightnessUp", function()
+      awful.spawn "brightnessctl -e s +4%" -- Exponential curve
+    end),
+
+   awful.key({}, "XF86MonBrightnessDown", function()
+      awful.spawn "brightnessctl -e s 4%-" -- Exponential curve
+    end),
+
+
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
@@ -317,7 +344,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey },            "d",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
