@@ -25,7 +25,9 @@ in
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
 #    kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" ];
+    supportedFilesystems = [ "btrfs" "ntfs" ];
+
+    cleanTmpDir = true;
   };
 
 
@@ -38,10 +40,25 @@ in
 
   };
 
-  nix.package = pkgs.nixFlakes;
-  nix.extraOptions = ''
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
     experimental-features = nix-command flakes 
   '';
+
+    allowedUsers = [ "gin" ];
+    autoOptimiseStore = true;
+    checkConfig = true;
+
+    gc = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
+    optimise.automatic = true;
+  };
 
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
  
@@ -64,6 +81,10 @@ in
     wireless.iwd = {
       enable = true;
       settings.Settings.Autoconnect = true;
+    };
+
+    firewall = {
+      enable = true;
     };
 
   };
@@ -122,31 +143,41 @@ in
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbOptions = "caps:swapescape";
-  # Enable touchpad support (enabled default in most desktopManager).
-    libinput.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      layout = "us";
+      xkbOptions = "caps:swapescape";
+    # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
 
-    videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "nvidia" ];
 
 
-    displayManager = {
-      lightdm.enable = true;
-      defaultSession = "none+awesome";
+      displayManager = {
+        lightdm.enable = true;
+        defaultSession = "none+i3";
+      };
+      
+      windowManager.fvwm = {
+        enable = false; 
+      };
+
+      windowManager.i3 = {
+        enable = true; 
+        package = pkgs.i3-gaps;
+        extraPackages = with pkgs; [
+          i3status
+          dmenu
+          i3lock-color
+        ];
+      };
+
     };
-    
-    windowManager.awesome = {
-      enable = true; 
-      luaModules = with pkgs.luaPackages; [
-        luarocks
-        luadbi-mysql
-      ];
-    };
+
+    logind.lidSwitch = "suspend";
 
   };
-
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
@@ -226,8 +257,11 @@ in
       vulkan-loader
       vulkan-tools
       wineWowPackages.staging
+      lutris
+      winetricks
       pulseaudioLight
       brightnessctl
+      python3
       #  wineWowPackages.stable
     ];
 
@@ -236,6 +270,7 @@ in
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
+      FVWM_USERDIR = "$HOME/.config/fvwm";    
     };
 
   };
@@ -259,7 +294,6 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

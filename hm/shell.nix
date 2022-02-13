@@ -25,6 +25,9 @@
       ip = "ip -c";
       perl-rename = "perl-rename --interactive";
     };
+    initExtraFirst = ''
+      setopt nocaseglob
+    '';
     autocd = true;
     history.save = 50000;
     history.share = true;

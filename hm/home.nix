@@ -3,44 +3,20 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "gin";
-  home.homeDirectory = "/home/gin";
+  home = {
+    username = "gin";
+    homeDirectory = "/home/gin";
 
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "21.11";
+    # sessionVariables = {
+    #   FVWM_USERDIR = "$HOME/.config/fvwm";
+    # };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true; 
-
-  nixpkgs.config.allowUnfree = true;
-
-  imports = [
-    ./shell.nix 
-    ./nvim.nix
-    ./mpv.nix
-  ];
-
-
-  # Configs
-
-#  home.file = {
-#     ".config/awesome".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotnix/config/awesome";
-#  };
-
-  home.packages = with pkgs; [ 
+    packages = with pkgs; [ 
     alacritty
     google-chrome
     firefox 
+    gnome.nautilus
     tree
-    wine
-    lutris
     blender
     gimp
     imv
@@ -52,5 +28,45 @@
     git-crypt
     mangohud
     gnupg
+    iosevka
+    python39Packages.i3ipc
+    playerctl
+    dunst
+    jq
+    picom
   ];
+
+    # Configs
+
+    #  home.file = {
+    #     ".config/awesome".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotnix/config/awesome";
+    #  };
+
+
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+  
+    stateVersion = "21.11";
+  };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true; 
+
+  nixpkgs.config.allowUnfree = true;
+
+  imports = [
+    ./shell.nix 
+    ./nvim.nix
+    ./mpv.nix
+    ./i3.nix
+  ];
+
+
+
 }
