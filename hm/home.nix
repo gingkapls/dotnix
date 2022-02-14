@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-colors, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
+  colorscheme = nix-colors.colorSchemes.eighties;
+
   home = {
     username = "gin";
     homeDirectory = "/home/gin";
+
 
     # sessionVariables = {
     #   FVWM_USERDIR = "$HOME/.config/fvwm";
@@ -34,6 +37,7 @@
     dunst
     jq
     picom
+    networkmanagerapplet
   ];
 
     # Configs
@@ -65,8 +69,8 @@
     ./nvim.nix
     ./mpv.nix
     ./i3.nix
+    ./alacritty.nix
+    nix-colors.homeManagerModule
   ];
-
-
 
 }

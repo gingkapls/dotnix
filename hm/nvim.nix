@@ -7,7 +7,7 @@
 
     colorschemes.base16 = {
       enable = true;
-      colorscheme = "horizon-dark";
+      colorscheme = "eighties";
     };
 
     plugins = {

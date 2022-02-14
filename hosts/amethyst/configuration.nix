@@ -24,7 +24,7 @@ in
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-#    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "btrfs" "ntfs" ];
 
     cleanTmpDir = true;
@@ -84,7 +84,7 @@ in
     };
 
     firewall = {
-      enable = true;
+      enable = false;
     };
 
   };
@@ -159,20 +159,29 @@ in
         defaultSession = "none+i3";
       };
       
-      windowManager.fvwm = {
-        enable = false; 
-      };
+      windowManager = {
+        fvwm = {
+         enable = false; 
+        };
 
-      windowManager.i3 = {
-        enable = true; 
-        package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [
-          i3status
-          dmenu
-          i3lock-color
-        ];
+        i3 = {
+          enable = true; 
+          package = pkgs.i3-gaps;
+          extraPackages = with pkgs; [
+            i3status
+            dmenu
+            i3lock-color
+          ];
+        };
+      
       };
-
+     
+    };
+ 
+    undervolt = {
+      enable = true;
+      coreOffset = -150;
+      gpuOffset = -95;
     };
 
     logind.lidSwitch = "suspend";
@@ -272,6 +281,31 @@ in
       VISUAL = "nvim";
       FVWM_USERDIR = "$HOME/.config/fvwm";    
     };
+
+  };
+
+  fonts = {
+    fonts = with pkgs; [ 
+      inter
+      iosevka
+      fira-code
+      scientifica
+      twemoji-color-font
+      paratype-pt-serif
+    ];
+
+    fontconfig = {
+      enable = true;
+
+      defaultFonts = {
+        serif = [ "Paratype Pt Serif" ];
+        sansSerif = [ "Inter" ];
+        monospace = [ "Iosevka Slab" ];
+
+        emoji = [ "Twitter Color Emoji" ];
+      };
+    };
+
 
   };
 
