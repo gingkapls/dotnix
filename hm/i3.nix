@@ -21,7 +21,7 @@ in
 
       startup = [
         { command = "nm-applet"; notification = false; }
-        { command = "xss-lock --transfer-sleep-lock -- i3lock --nofork"; notification = false; }
+        { command = "xss-lock --transfer-sleep-lock -- i3lock-color --nofork"; notification = false; }
         { command = "picom"; notification = false; }
       ];
 
@@ -162,7 +162,7 @@ in
           # "XF86AudioMicMute" = "${pkgs.pactl}/bin/pactl set-source @DEFAULT_SOURCE@ toggle";
 
           # Lock
-          "${modifier}+Ctrl+l" = "exec ${pkgs.i3lock-color}/bin/i3lock";
+          "${modifier}+Ctrl+l" = "exec ${pkgs.i3lock-color}/bin/i3lock-color";
 
       };
 
