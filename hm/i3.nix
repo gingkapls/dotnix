@@ -98,6 +98,7 @@ in
           volume = action: "exec set-volume ${action}";
           brightness = action: "exec set-brightness ${action}";
           player = action: "exec ${pkgs.playerctl}/bin/playerctl ${action}";
+          screenshot = action: "exec screenshot ${action}";
 
         in lib.mkOptionDefault {
           "${modifier}+Return" = "exec ${terminal}";
@@ -163,6 +164,14 @@ in
           # Brightness
           "XF86MonBrightnessUp" = brightness "up";
           "XF86MonBrightnessDown" = brightness "down";
+
+          # Screenshots
+          "Print" = screenshot "screen";
+          "Ctrl+Print" = screenshot "select";
+          "Shift+Print" = screenshot "window";
+          "Alt+Print" = screenshot "color-picker";
+          "Ctrl+Shift+Print" = screenshot "select-window";
+          "Ctrl+Alt+Print" = screenshot "ocr";
 
           # "XF86AudioMicMute" = "${pkgs.pactl}/bin/pactl set-source @DEFAULT_SOURCE@ toggle";
 

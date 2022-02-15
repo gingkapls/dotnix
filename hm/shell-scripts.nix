@@ -32,31 +32,75 @@ let
   set-volume = pkgs.writeShellScriptBin "set-volume" ''
     case $1 in
       "up")
-        pamixer --increase 5;;
+        ${pkgs.pamixer}/bin/pamixer --increase 5;;
       "down")
-        pamixer --decrease 5;;
+        ${pkgs.pamixer}/bin/pamixer --decrease 5;;
     esac
     
-    vol="$(pamixer --get-volume)"
+    vol="$(${pkgs.pamixer}/bin/pamixer --get-volume)"
     
     case $vol in
       "0")
-      notify-send "  Muted" -i none -h string:synchronous:volume -t 1000 --app-name="volume" ;;
+      ${pkgs.libnotify}/bin/notify-send "  Muted" -i none -h string:synchronous:volume -t 1000 --app-name="volume" ;;
       *)
-      notify-send "  $vol%" -i none -h int:value:$vol -h string:synchronous:volume -t 1000 --app-name="volume" ;;
+      ${pkgs.libnotify}/bin/notify-send "  $vol%" -i none -h int:value:$vol -h string:synchronous:volume -t 1000 --app-name="volume" ;;
     esac
   '';
   set-brightness = pkgs.writeShellScriptBin "set-brightness" ''
     case $1 in
       "up")
-        brightnessctl -q set 5%+;;
+        ${pkgs.brightnessctl}/bin/brightnessctl -q set 5%+;;
       "down")
-        brightnessctl -q set 5%-;;
+        ${pkgs.brightnessctl}/bin/brightnessctl -q set 5%-;;
     esac
 
-    brightness=$(($(brightnessctl g)*100/120000))
-    notify-send "  $brightness%" -i none -h int:value:$brightness -h string:synchronous:brightness -t 1000 --app-name="brightness"
+    brightness=$(($(${pkgs.brightnessctl}/bin/brightnessctl g)*100/120000))
+    ${pkgs.libnotify}/bin/notify-send "  $brightness%" -i none -h int:value:$brightness -h string:synchronous:brightness -t 1000 --app-name="brightness"
   '';
+
+  screenshot = pkgs.writeShellScriptBin "screenshot" ''
+    shotDir="$HOME/Pictures/Shots"
+    name="$(date +"%F_%H:%M:%S")-$(${pkgs.xdotool}/bin/xdotool getactivewindow getwindowname).png"
+    ocrCommand="while pgrep ${pkgs.maim}/bin/maim; do wait; done; ${pkgs.tesseract}/bin/tesseract $shotDir/$name - 2>/dev/null| ${pkgs.xclip}/bin/xclip -selection primary"
+    
+    case $1 in
+      "screen")
+        ${pkgs.maim}/bin/maim | tee "$shotDir/$name" | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
+        eval "$ocrCommand"
+        ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" -i "$shotDir/$name" --app-name "screenshot"
+      ;;
+
+      "window")
+        ${pkgs.maim}/bin/maim -i $(${pkgs.xdotool}/bin/xdotool getactivewindow) | tee "$shotDir/$name" | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
+        eval "$ocrCommand"
+        ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" -i "$shotDir/$name" --app-name "screenshot"
+      ;;
+    
+      "select-window")
+        ${pkgs.maim}/bin/maim -l -b 4 -st 9999999 | tee "$shotDir/$name" | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
+        eval "$ocrCommand"
+        ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" -i "$shotDir/$name" --app-name "screenshot"
+      ;;
+      "select")
+        ${pkgs.maim}/bin/maim -b 4 -s | tee "$shotDir/$name" | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
+        eval "$ocrCommand"
+        ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" -i "$shotDir/$name" --app-name "screenshot"
+      ;;
+      "color-picker")
+        ${pkgs.maim}/bin/maim -st 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-
+      ;;
+      "ocr")
+        ${pkgs.maim}/bin/maim -b -4 -s /tmp/ocrfile 
+        ${pkgs.tesseract}/bin/tesseract /tmp/ocrfile | ${pkgs.xclip}/bin/xclip -selection primary
+        ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" --app-name "screenshot"
+        rm /tmp/ocrfile
+      ;;
+      *)
+        false
+      ;;
+    esac
+  '';
+
 in
 
   {
@@ -64,6 +108,7 @@ in
       i3-floating-decor
       set-volume
       set-brightness
+      screenshot
     ];
 
   }

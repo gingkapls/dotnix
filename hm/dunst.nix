@@ -7,6 +7,7 @@ in
 {
   services.dunst = {
     enable = true;
+
     settings = {
       global = {
         monitor = 0;
@@ -35,6 +36,7 @@ in
         font = "Inter Medium 12";
         line_height = 0;
         markup = "full";
+        max_icon_size = "64";
 
         format = "<b>%s</b>\n%b";
         alignment = "left";
