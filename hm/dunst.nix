@@ -10,7 +10,7 @@ in
     settings = {
       global = {
         monitor = 0;
-        width = 150;
+        width = 300;
         height = 300;
 
         origin = "top-right";
@@ -28,7 +28,7 @@ in
         horizontal_padding = 8;
         text_icon_padding = 8;
         frame_width = 4;
-        frame_color = "#${koko.base01}";
+        frame_color = "#${koko.base00}";
         separator_color = "frame";
 
         sort = "yes";
@@ -62,23 +62,35 @@ in
       urgency_low = {
         background = "#${koko.base01}";
         foreground = "#${koko.base03}";
+        highlight = "#${koko.base09}";
       };
 
       urgency_normal = {
         background = "#${koko.base01}";
         foreground = "#${koko.base05}";
+        highlight = "#${koko.base09}";
       };
 
       urgency_critical = {
         background = "#${koko.base01}";
         foreground = "#${koko.base08}";
         frame_color = "#${koko.base08}";
+        highlight = "#${koko.base08}";
         timeout = 0;
       };
 
       fullscreen = {
         fullscreen = "pushback";
       };
+
+      "appname='volume'" = {
+        history_ignore = true;
+      };
+
+      "appname='brightness'" = {
+        history_ignore = true;
+      };
+
     };
 
   };
