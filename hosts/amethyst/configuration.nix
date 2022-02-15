@@ -180,6 +180,7 @@ in
             dmenu
             i3lock-color
             autotiling
+            python39Packages.i3ipc
           ];
         };
       
@@ -277,7 +278,6 @@ in
       wineWowPackages.staging
       lutris
       winetricks
-      pulseaudioLight
       brightnessctl
       python3
       #  wineWowPackages.stable
@@ -302,6 +302,7 @@ in
       twemoji-color-font
       paratype-pt-serif
       material-icons
+      font-awesome
     ];
 
     fontconfig = {
