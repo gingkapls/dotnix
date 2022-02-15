@@ -84,7 +84,7 @@ in
     };
 
     firewall = {
-      enable = false;
+      enable = true;
     };
 
   };
@@ -149,7 +149,15 @@ in
       layout = "us";
       xkbOptions = "caps:swapescape";
     # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
+    libinput = {
+      enable = true;
+
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+
+    };
 
       videoDrivers = [ "nvidia" ];
 
@@ -171,6 +179,7 @@ in
             i3status
             dmenu
             i3lock-color
+            autotiling
           ];
         };
       
@@ -292,6 +301,7 @@ in
       scientifica
       twemoji-color-font
       paratype-pt-serif
+      material-icons
     ];
 
     fontconfig = {

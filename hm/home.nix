@@ -38,6 +38,8 @@
     jq
     picom
     networkmanagerapplet
+    libnotify
+    imv
   ];
 
     # Configs
@@ -70,6 +72,7 @@
     ./mpv.nix
     ./i3.nix
     ./alacritty.nix
+    ./dunst.nix
     nix-colors.homeManagerModule
   ];
 

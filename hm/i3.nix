@@ -23,6 +23,7 @@ in
         { command = "nm-applet"; notification = false; }
         { command = "xss-lock --transfer-sleep-lock -- i3lock-color --nofork"; notification = false; }
         { command = "picom"; notification = false; }
+        { command = "autotiling"; notification = false; }
       ];
 
       fonts = {
@@ -35,9 +36,33 @@ in
         background = "#${koko.base00}";
         focused = {
           background = "#${koko.base00}";
+          border = "#${koko.base09}";
+          childBorder = "#${koko.base09}";
+          indicator = "#${koko.base09}";
+          text = "#${koko.base05}";
+        };
+
+         focusedInactive = {
+          background = "#${koko.base00}";
           border = "#${koko.base01}";
           childBorder = "#${koko.base01}";
-          indicator = "#${koko.base02}";
+          indicator = "#${koko.base01}";
+          text = "#${koko.base03}";
+        };
+
+         unfocused = {
+          background = "#${koko.base00}";
+          border = "#${koko.base01}";
+          childBorder = "#${koko.base01}";
+          indicator = "#${koko.base01}";
+          text = "#${koko.base03}";
+        };
+
+         urgent = {
+          background = "#${koko.base00}";
+          border = "#${koko.base08}";
+          childBorder = "#${koko.base08}";
+          indicator = "#${koko.base08}";
           text = "#${koko.base05}";
         };
 
@@ -45,33 +70,10 @@ in
           background = "#${koko.base00}";
           border = "#${koko.base01}";
           childBorder = "#${koko.base01}";
-          indicator = "#${koko.base02}";
+          indicator = "#${koko.base01}";
           text = "#${koko.base05}";
         };
  
-         focusedInactive = {
-          background = "#${koko.base00}";
-          border = "#${koko.base03}";
-          childBorder = "#${koko.base03}";
-          indicator = "#${koko.base03}";
-          text = "#${koko.base03}";
-        };
-
-         unfocused = {
-          background = "#${koko.base00}";
-          border = "#${koko.base00}";
-          childBorder = "#${koko.base00}";
-          indicator = "#${koko.base00}";
-          text = "#${koko.base00}";
-        };
-
-         urgent = {
-          background = "#${koko.base00}";
-          border = "#${koko.base08}";
-          childBorder = "#${koko.base0A}";
-          indicator = "#${koko.base08}";
-          text = "#${koko.base05}";
-        };
       };
 
       gaps = {
@@ -89,6 +91,7 @@ in
           down = "j";
           up = "k";
           right = "l";
+          runner = "${pkgs.dmenu}/bin/dmenu_run -i -fn 'Inter Medium 12' -nb '#${koko.base00}' -nf '#${koko.base05}' -sb '#${koko.base09}' -sf '#${koko.base00}'";
 
           volume = action: "exec ${pkgs.pulseaudioLight}/bin/pactl set-sink-volume @DEFAULT_SINK@ ${if action == "up" then "+5%" else "-5%"}";
           brightness = action: "exec ${pkgs.brightnessctl}/bin/brightnessctl -q set ${if action == "up" then "5%+" else "5%-"}";
@@ -97,7 +100,7 @@ in
         in lib.mkOptionDefault {
           "${modifier}+Return" = "exec ${terminal}";
           "${modifier}+q" = "kill";
-          "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+          "${modifier}+d" = "exec ${runner}";
           "${modifier}+Shift+r" = "reload";
           "${modifier}+Shift+c" = "restart";
 
@@ -200,32 +203,39 @@ in
         mode = "hide";
         statusCommand = "${pkgs.i3status}/bin/i3status ";
         position = "bottom";
+        fonts = {
+          names = [ "Inter" "Material Icons" ];
+          style = "Medium";
+          size = 12.0;
+        };
         workspaceNumbers = true;
          colors = {
-           # The colors for the workspace button for an active workspace.
-           activeWorkspace = {
-             background = "#${koko.base00}";
-             border = "#${koko.base00}";
-             text = "#${koko.base00}";
-           };
    
            # The background color of the bar.
            background = "#${koko.base00}";
+           separator = "#${koko.base00}";
    
            # The colors for binding mode indicators.
            bindingMode = {
              background = "#${koko.base00}";
              border = "#${koko.base01}";
-             text = "#${koko.base08}";
+             text = "#${koko.base07}";
            };
    
            # The colors for focused workspaces.
            focusedWorkspace = {
-             background = "#${koko.base0A}";
+             background = "#${koko.base09}";
              border = "#${koko.base01}";
-             text = "#${koko.base05}";
+             text = "#${koko.base00}";
            };
-   
+
+           # The colors for the workspace button for an active workspace.
+            activeWorkspace = {
+             background = "#${koko.base00}";
+             border = "#${koko.base00}";
+             text = "#${koko.base03}";
+           };
+  
            # The colors for inactive workspaces.
            inactiveWorkspace = {
              background = "#${koko.base01}";

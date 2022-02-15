@@ -1,12 +1,26 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, nix-colors, lib, ... }:
+
+let 
+  koko = config.colorscheme.colors;
+in
 
 {
   programs.i3status = {
     enable = true; 
     enableDefault = false;
+
+    general = {
+      colors = true;
+      color_good = "#${koko.base09}";
+      color_degraded = "#${koko.base08}";
+      color_bad = "#${koko.base0A}";
+      separator = " ";
+      interval = 1;
+    };
+
     modules = {
       "wireless wlan0" = {
-        enable = true;
+        enable = false;
         position = 0;
         settings = {
           format_up = "%essid";
@@ -22,10 +36,10 @@
           format = "%status %percentage";
           integer_battery_capacity = true;
           format_down = "No battery";
-          status_chr = "⚡";
-          status_bat = "🔋 BAT";
-          status_unk = "? UNK";
-          status_full = "☻ ";
+          status_chr = "";
+          status_bat = "";
+          status_unk = "";
+          status_full = "";
           path = "/sys/class/power_supply/BAT1/uevent";
           low_threshold = 30;
         };
