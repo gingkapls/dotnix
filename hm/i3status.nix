@@ -37,7 +37,7 @@ in
           integer_battery_capacity = true;
           format_down = "No battery";
           status_chr = "";
-          status_bat = "";
+          status_bat = "";
           status_unk = "";
           status_full = "";
           path = "/sys/class/power_supply/BAT1/uevent";

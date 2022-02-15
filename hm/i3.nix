@@ -20,30 +20,32 @@ in
       defaultWorkspace = "1";
 
       startup = [
-        { command = "nm-applet"; notification = false; }
-        { command = "xss-lock --transfer-sleep-lock -- i3lock-color --nofork"; notification = false; }
-        { command = "picom"; notification = false; }
-        { command = "autotiling"; notification = false; }
+        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; notification = false; }
+        { command = "xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock-color --nofork"; notification = false; }
+        { command = "${pkgs.picom}/bin/picom"; notification = false; }
+        { command = "${pkgs.autotiling}/bin/autotiling"; notification = false; }
+        { command = "${pkgs.playerctl}/bin/playerctld"; notification = false; }
+        { command = "i3-floating-decor"; notification = false; }
       ];
 
       fonts = {
         names = [ "Iosevka Slab" ];
-        style = "Heavy";
+        style = "Medium";
         size = 12.0;
       };
 
       colors = {
-        background = "#${koko.base00}";
+        background = "#${koko.base09}";
         focused = {
-          background = "#${koko.base00}";
+          background = "#${koko.base09}";
           border = "#${koko.base09}";
           childBorder = "#${koko.base09}";
           indicator = "#${koko.base09}";
-          text = "#${koko.base05}";
+          text = "#${koko.base00}";
         };
 
          focusedInactive = {
-          background = "#${koko.base00}";
+          background = "#${koko.base01}";
           border = "#${koko.base01}";
           childBorder = "#${koko.base01}";
           indicator = "#${koko.base01}";
@@ -51,7 +53,7 @@ in
         };
 
          unfocused = {
-          background = "#${koko.base00}";
+          background = "#${koko.base01}";
           border = "#${koko.base01}";
           childBorder = "#${koko.base01}";
           indicator = "#${koko.base01}";
@@ -59,11 +61,11 @@ in
         };
 
          urgent = {
-          background = "#${koko.base00}";
+          background = "#${koko.base08}";
           border = "#${koko.base08}";
           childBorder = "#${koko.base08}";
           indicator = "#${koko.base08}";
-          text = "#${koko.base05}";
+          text = "#${koko.base00}";
         };
 
          placeholder = {
@@ -93,8 +95,8 @@ in
           right = "l";
           runner = "${pkgs.dmenu}/bin/dmenu_run -i -fn 'Inter Medium 12' -nb '#${koko.base00}' -nf '#${koko.base05}' -sb '#${koko.base09}' -sf '#${koko.base00}'";
 
-          volume = action: "exec ${pkgs.pulseaudioLight}/bin/pactl set-sink-volume @DEFAULT_SINK@ ${if action == "up" then "+5%" else "-5%"}";
-          brightness = action: "exec ${pkgs.brightnessctl}/bin/brightnessctl -q set ${if action == "up" then "5%+" else "5%-"}";
+          volume = action: "exec set-volume ${action}";
+          brightness = action: "exec set-brightness ${action}";
           player = action: "exec ${pkgs.playerctl}/bin/playerctl ${action}";
 
         in lib.mkOptionDefault {
@@ -246,8 +248,11 @@ in
  
        }
        ];
-
     };
+
+    extraConfig = ''
+      title_align center
+    '';
 
   };
 
