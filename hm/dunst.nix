@@ -36,7 +36,8 @@ in
         font = "Inter Medium 12";
         line_height = 0;
         markup = "full";
-        max_icon_size = "64";
+        min_icon_size = "32";
+        max_icon_size = "128";
 
         format = "<b>%s</b>\n%b";
         alignment = "left";
