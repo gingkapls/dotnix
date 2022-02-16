@@ -178,13 +178,13 @@ with config.colorscheme.colors; {
 
       modes = {
         resize = { 
-          "h"      = "resize shrink width 10 px or 10 ppt";
-          "j"      = "resize grow height 10 px or 10 ppt";
-          "k"      = "resize shrink height 10 px or 10 ppt";
-          "l"      = "resize grow width 10 px or 10 ppt";
+          "h"      = "resize shrink width 5 px or 5 ppt";
+          "j"      = "resize grow height 5 px or 5 ppt";
+          "k"      = "resize shrink height 5 px or 5 ppt";
+          "l"      = "resize grow width 5 px or 5 ppt";
 
-          "i"      = "resize grow width 10px, resize grow height 10px";
-          "o"      = "resize shrink width 10px, resize shrink height 10px";
+          "i"      = "resize grow width 5px, resize grow height 5px";
+          "o"      = "resize shrink width 5px, resize shrink height 5px";
           "equal"  = "resize set width 50ppt height 50pp, mode default";
           "Return" = "mode default";
           "Escape" = "mode default";

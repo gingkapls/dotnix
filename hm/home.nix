@@ -60,12 +60,13 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./shell.nix 
+    ./zsh.nix 
     ./nvim.nix
     ./mpv.nix
     ./i3.nix
     ./alacritty.nix
     ./dunst.nix
+    ./zathura.nix
     ./shell-scripts.nix
     nix-colors.homeManagerModule
   ];
