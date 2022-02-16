@@ -1,4 +1,6 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, nix-colors, inputs, lib, ... }:
+
+with config.colorscheme.colors;
 
 let
   i3-floating-decor = pkgs.writers.writePython3Bin "i3-floating-decor" { libraries = [ pkgs.python39Packages.i3ipc ]; }
@@ -93,6 +95,15 @@ let
     esac
   '';
 
+  meme-menu = pkgs.writeShellScriptBin "meme-menu" ''
+    memeDir="$HOME/Pictures/Memes"
+    meme="$(ls "$memeDir" | dmenu -i -fn 'Inter Medium 12' -nb '#${base00}' -nf '#${base05}' -sb '#${base09}' -sf '#${base00}')"
+    if [ ! -z $meme ]; then
+      xclip -t image/png -selection clipboard "$memeDir/$meme"
+    else
+      false
+    fi
+    '';
 in
 
   {
@@ -101,6 +112,7 @@ in
       set-volume
       set-brightness
       screenshot
+      meme-menu
     ];
 
   }

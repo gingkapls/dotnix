@@ -100,6 +100,7 @@ with config.colorscheme.colors; {
           "${modifier}+Return" = "exec ${terminal}";
           "${modifier}+q" = "kill";
           "${modifier}+d" = "exec ${runner}";
+          "${modifier}+m" = "exec meme-menu";
           "${modifier}+Shift+r" = "reload";
           "${modifier}+Shift+c" = "restart";
 
@@ -133,11 +134,10 @@ with config.colorscheme.colors; {
           "${modifier}+Shift+0"  = "move container to workspace number 10, workspace number 10";
 
           # Layout
-          "${modifier}+a" = "split toggle";
-          "${modifier}+e" = "layout toggle split | tabbed";
+          "${modifier}+e" = "layout toggle tabbed split";
           "${modifier}+f" = "fullscreen";
           "${modifier}+s" = "floating toggle";
-          "${modifier}+c" = "layout toggle stacking | split";
+          "${modifier}+c" = "layout toggle stacking split";
           "${modifier}+space" = "focus mode_toggle";
 
           # Scratchpad
@@ -174,6 +174,10 @@ with config.colorscheme.colors; {
           # Lock
           "${modifier}+Ctrl+l" = "exec ${pkgs.i3lock-color}/bin/i3lock-color";
 
+          # Modes
+          "${modifier}+r" = "mode resize";
+          "${modifier}+g" = "mode gaps";
+          "${modifier}+a" = "mode applications";
       };
 
       modes = {
@@ -201,6 +205,14 @@ with config.colorscheme.colors; {
           "Escape" = "mode default";
 
           "r" = "gaps outer current set 5, gaps inner current set 5, mode default";
+        };
+
+        applications = {
+          "m" = "exec meme-menu, mode default";
+          "g" = "exec google-chrome-stable, mode default";
+          "f" = "exec nautilus, mode default";
+          "Return" = "mode default";
+          "Escape" = "mode default";
         };
       };
 
