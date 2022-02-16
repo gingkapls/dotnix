@@ -1,19 +1,16 @@
 { config, pkgs, nix-colors, lib, ... }:
 
-let 
-  koko = config.colorscheme.colors;
-in
+with config.colorscheme.colors; {
 
-{
   programs.i3status = {
     enable = true; 
     enableDefault = false;
 
     general = {
       colors = true;
-      color_good = "#${koko.base09}";
-      color_degraded = "#${koko.base08}";
-      color_bad = "#${koko.base0A}";
+      color_good = "#${base09}";
+      color_degraded = "#${base08}";
+      color_bad = "#${base0A}";
       separator = " ";
       interval = 1;
     };

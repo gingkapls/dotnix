@@ -1,10 +1,7 @@
-{ pkgs, config, nix-colors, ... }: 
+{ config, pkgs, nix-colors, ... }: 
 
-let
-  koko = config.colorscheme.colors;
-in
+with config.colorscheme.colors; {
 
-{
   programs.alacritty = {
     enable = true;
     settings = {
@@ -56,40 +53,40 @@ in
 
       colors = {
         cursor = {
-          text = "#${koko.base00}";
-          cursor = "#${koko.base05}";
+          text = "0x${base00}";
+          cursor = "0x${base05}";
         };
 
         selection = {
-          text = "#${koko.base00}";
-          background = "#${koko.base05}";
+          text = "0x${base00}";
+          background = "0x${base05}";
         };
 
         primary = {
-          background = "#${koko.base00}";
-          foreground = "#${koko.base05}";
+          background = "0x${base00}";
+          foreground = "0x${base05}";
         };
 
         normal = {
-          black = "#${koko.base00}";
-          red = "#${koko.base08}";
-          green = "#${koko.base0B}";
-          yellow = "#${koko.base0A}";
-          blue = "#${koko.base0D}";
-          magenta = "#${koko.base0E}";
-          cyan = "#${koko.base0C}";
-          white = "#${koko.base05}";
+          black = "0x${base00}";
+          red = "0x${base08}";
+          green = "0x${base0B}";
+          yellow = "0x${base0A}";
+          blue = "0x${base0D}";
+          magenta = "0x${base0E}";
+          cyan = "0x${base0C}";
+          white = "0x${base05}";
         };
 
         bright = {
-          black = "#${koko.base03}";
-          red = "#${koko.base09}";
-          green = "#${koko.base01}";
-          yellow = "#${koko.base02}";
-          blue = "#${koko.base04}";
-          magenta = "#${koko.base06}";
-          cyan = "#${koko.base0F}";
-          white = "#${koko.base07}";
+          black = "0x${base03}";
+          red = "0x${base09}";
+          green = "0x${base01}";
+          yellow = "0x${base02}";
+          blue = "0x${base04}";
+          magenta = "0x${base06}";
+          cyan = "0x${base0F}";
+          white = "0x${base07}";
         };
         
       };
@@ -106,8 +103,6 @@ in
       mouse.hide_when_typing = true;
     };
 
-
   };
-
 
 }

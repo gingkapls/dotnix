@@ -1,10 +1,6 @@
 { config, pkgs, nix-colors, lib, ... }:
 
-let 
-  koko = config.colorscheme.colors;
-in
-
-{
+with config.colorscheme.colors; {
   # Status bar
   imports = [ ./i3status.nix ];
 
@@ -35,45 +31,45 @@ in
       };
 
       colors = {
-        background = "#${koko.base09}";
+        background = "#${base09}";
         focused = {
-          background = "#${koko.base09}";
-          border = "#${koko.base09}";
-          childBorder = "#${koko.base09}";
-          indicator = "#${koko.base09}";
-          text = "#${koko.base00}";
+          background = "#${base09}";
+          border = "#${base09}";
+          childBorder = "#${base09}";
+          indicator = "#${base09}";
+          text = "#${base00}";
         };
 
          focusedInactive = {
-          background = "#${koko.base01}";
-          border = "#${koko.base01}";
-          childBorder = "#${koko.base01}";
-          indicator = "#${koko.base01}";
-          text = "#${koko.base03}";
+          background = "#${base01}";
+          border = "#${base01}";
+          childBorder = "#${base01}";
+          indicator = "#${base01}";
+          text = "#${base03}";
         };
 
          unfocused = {
-          background = "#${koko.base01}";
-          border = "#${koko.base01}";
-          childBorder = "#${koko.base01}";
-          indicator = "#${koko.base01}";
-          text = "#${koko.base03}";
+          background = "#${base01}";
+          border = "#${base01}";
+          childBorder = "#${base01}";
+          indicator = "#${base01}";
+          text = "#${base03}";
         };
 
          urgent = {
-          background = "#${koko.base08}";
-          border = "#${koko.base08}";
-          childBorder = "#${koko.base08}";
-          indicator = "#${koko.base08}";
-          text = "#${koko.base00}";
+          background = "#${base08}";
+          border = "#${base08}";
+          childBorder = "#${base08}";
+          indicator = "#${base08}";
+          text = "#${base00}";
         };
 
          placeholder = {
-          background = "#${koko.base00}";
-          border = "#${koko.base01}";
-          childBorder = "#${koko.base01}";
-          indicator = "#${koko.base01}";
-          text = "#${koko.base05}";
+          background = "#${base00}";
+          border = "#${base01}";
+          childBorder = "#${base01}";
+          indicator = "#${base01}";
+          text = "#${base05}";
         };
  
       };
@@ -93,7 +89,7 @@ in
           down = "j";
           up = "k";
           right = "l";
-          runner = "${pkgs.dmenu}/bin/dmenu_run -i -fn 'Inter Medium 12' -nb '#${koko.base00}' -nf '#${koko.base05}' -sb '#${koko.base09}' -sf '#${koko.base00}'";
+          runner = "${pkgs.dmenu}/bin/dmenu_run -i -fn 'Inter Medium 12' -nb '#${base00}' -nf '#${base05}' -sb '#${base09}' -sf '#${base00}'";
 
           volume = action: "exec set-volume ${action}";
           brightness = action: "exec set-brightness ${action}";
@@ -223,35 +219,35 @@ in
          colors = {
    
            # The background color of the bar.
-           background = "#${koko.base00}";
-           separator = "#${koko.base00}";
+           background = "#${base00}";
+           separator = "#${base00}";
    
            # The colors for binding mode indicators.
            bindingMode = {
-             background = "#${koko.base00}";
-             border = "#${koko.base01}";
-             text = "#${koko.base07}";
+             background = "#${base00}";
+             border = "#${base01}";
+             text = "#${base07}";
            };
    
            # The colors for focused workspaces.
            focusedWorkspace = {
-             background = "#${koko.base09}";
-             border = "#${koko.base01}";
-             text = "#${koko.base00}";
+             background = "#${base09}";
+             border = "#${base01}";
+             text = "#${base00}";
            };
 
            # The colors for the workspace button for an active workspace.
             activeWorkspace = {
-             background = "#${koko.base00}";
-             border = "#${koko.base00}";
-             text = "#${koko.base03}";
+             background = "#${base00}";
+             border = "#${base00}";
+             text = "#${base03}";
            };
   
            # The colors for inactive workspaces.
            inactiveWorkspace = {
-             background = "#${koko.base01}";
-             border = "#${koko.base01}";
-             text = "#${koko.base03}";
+             background = "#${base01}";
+             border = "#${base01}";
+             text = "#${base03}";
            };
          };
  

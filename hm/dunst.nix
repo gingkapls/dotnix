@@ -1,10 +1,6 @@
 { config, pkgs, nix-colors, lib, ... }:
 
-let 
-  koko = config.colorscheme.colors;
-in
-
-{
+with config.colorscheme.colors; {
   services.dunst = {
     enable = true;
 
@@ -29,7 +25,7 @@ in
         horizontal_padding = 8;
         text_icon_padding = 8;
         frame_width = 4;
-        frame_color = "#${koko.base00}";
+        frame_color = "#${base00}";
         separator_color = "frame";
 
         sort = "yes";
@@ -63,22 +59,22 @@ in
       };
 
       urgency_low = {
-        background = "#${koko.base01}";
-        foreground = "#${koko.base03}";
-        highlight = "#${koko.base09}";
+        background = "#${base01}";
+        foreground = "#${base03}";
+        highlight = "#${base09}";
       };
 
       urgency_normal = {
-        background = "#${koko.base01}";
-        foreground = "#${koko.base05}";
-        highlight = "#${koko.base09}";
+        background = "#${base01}";
+        foreground = "#${base05}";
+        highlight = "#${base09}";
       };
 
       urgency_critical = {
-        background = "#${koko.base01}";
-        foreground = "#${koko.base08}";
-        frame_color = "#${koko.base08}";
-        highlight = "#${koko.base08}";
+        background = "#${base01}";
+        foreground = "#${base08}";
+        frame_color = "#${base08}";
+        highlight = "#${base08}";
         timeout = 0;
       };
 
