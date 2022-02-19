@@ -200,6 +200,7 @@ in
     };
 
     logind.lidSwitch = "suspend";
+    gvfs.enable = true;
 
   };
 

@@ -7,7 +7,7 @@
 
     colorschemes.base16 = {
       enable = true;
-      colorscheme = "eighties";
+      colorscheme = "material";
     };
 
     plugins = {

@@ -9,7 +9,10 @@
     fadeDelta = 4;
     shadow = true;
     shadowOffsets = [ (-10) (-5) ] ;
-    shadowOpacity = "0.50";
+    shadowExclude = [
+      "class_g = 'i3-frame'"
+    ];
+    shadowOpacity = "0.35";
     vSync = true;
   };
 

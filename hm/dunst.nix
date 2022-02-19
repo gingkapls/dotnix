@@ -20,7 +20,7 @@ with config.colorscheme.colors; {
         progress_bar_max_width = 300;
         indicate_hidden = "yes";
         transparency = 0;
-        separator_height = 2;
+        separator_height = 4;
         padding = 8;
         horizontal_padding = 8;
         text_icon_padding = 8;
@@ -32,11 +32,11 @@ with config.colorscheme.colors; {
         font = "Inter Medium 12";
         line_height = 0;
         markup = "full";
-        min_icon_size = "32";
+        min_icon_size = "64";
         max_icon_size = "96";
         icon_position = "right";
 
-        format = "<b>%s</b>\n%b";
+        format = "<b>%s</b>\\n%b";
         alignment = "left";
         vertical_alignment = "center";
         show_age_threshold = 60;
@@ -81,14 +81,6 @@ with config.colorscheme.colors; {
 
       fullscreen = {
         fullscreen = "pushback";
-      };
-
-      "appname=\"volume\"" = {
-        history_ignore = true;
-      };
-
-      "appname=\"brightness\"" = {
-        history_ignore = true;
       };
 
     };

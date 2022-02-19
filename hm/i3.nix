@@ -19,9 +19,9 @@ with config.colorscheme.colors; {
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; notification = false; }
         { command = "${pkgs.xss-lock}/bin/xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock-color --nofork"; notification = false; }
         { command = "${pkgs.autotiling}/bin/autotiling"; notification = false; }
-        { command = "${pkgs.playerctl}/bin/playerctld"; notification = false; }
         { command = "i3-floating-decor"; notification = false; }
-        { command = "nitrogen --restore"; notification = false; }
+        { command = "music-notifier"; notification = false; }
+        { command = "${pkgs.nitrogen}/bin/nitrogen --restore"; notification = false; }
       ];
 
       fonts = {
@@ -31,12 +31,12 @@ with config.colorscheme.colors; {
       };
 
       colors = {
-        background = "#${base09}";
+        background = "#${base03}";
         focused = {
-          background = "#${base09}";
-          border = "#${base09}";
-          childBorder = "#${base09}";
-          indicator = "#${base09}";
+          background = "#${base03}";
+          border = "#${base03}";
+          childBorder = "#${base03}";
+          indicator = "#${base03}";
           text = "#${base00}";
         };
 
@@ -103,6 +103,7 @@ with config.colorscheme.colors; {
           "${modifier}+m" = "exec meme-menu";
           "${modifier}+Shift+r" = "reload";
           "${modifier}+Shift+c" = "restart";
+          "${modifier}+grave" = "exec dunstctl history-pop";
 
           ## Changing Focus
           "${modifier}+${left}" = "focus left";
@@ -228,7 +229,7 @@ with config.colorscheme.colors; {
         fonts = {
           names = [ "Inter" "Material Icons" ];
           style = "Medium";
-          size = 12.0;
+          size = 13.0;
         };
         workspaceNumbers = true;
          colors = {
@@ -246,8 +247,8 @@ with config.colorscheme.colors; {
    
            # The colors for focused workspaces.
            focusedWorkspace = {
-             background = "#${base09}";
-             border = "#${base01}";
+             background = "#${base0D}";
+             border = "#${base0D}";
              text = "#${base00}";
            };
 

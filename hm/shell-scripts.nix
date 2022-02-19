@@ -16,7 +16,7 @@ let
               e.container.command('border pixel 4')
               e.container.command('title_format "%title"')
           elif (e.container.floating == 'user_on'):
-              e.container.command('border normal 4')
+              e.container.command('border normal 0')
               e.container.command('title_format "<b></b>"')
 
 
@@ -28,26 +28,40 @@ let
   set-volume = pkgs.writeShellScriptBin "set-volume" ''
     case $1 in
       "up")
-        ${pkgs.pamixer}/bin/pamixer --increase 5;;
+        ${pkgs.pamixer}/bin/pamixer --increase 5
+      ;;
+
       "down")
-        ${pkgs.pamixer}/bin/pamixer --decrease 5;;
+        ${pkgs.pamixer}/bin/pamixer --decrease 5
+      ;;
     esac
     
     vol="$(${pkgs.pamixer}/bin/pamixer --get-volume)"
     
     case $vol in
       "0")
-      ${pkgs.libnotify}/bin/notify-send "  Muted" -i none -h string:synchronous:volume -t 1000 --app-name="volume" ;;
+      ${pkgs.libnotify}/bin/notify-send "  Muted" -i none -h string:synchronous:volume -t 1000 --app-name="volume"
+      ;;
+
       *)
-      ${pkgs.libnotify}/bin/notify-send "  $vol%" -i none -h int:value:$vol -h string:synchronous:volume -t 1000 --app-name="volume" ;;
+      ${pkgs.libnotify}/bin/notify-send "  $vol%" -i none -h int:value:$vol -h string:synchronous:volume -t 1000 --app-name="volume"
+      ;;
     esac
   '';
+  
   set-brightness = pkgs.writeShellScriptBin "set-brightness" ''
     case $1 in
       "up")
-        ${pkgs.brightnessctl}/bin/brightnessctl -q set 5%+;;
+        ${pkgs.brightnessctl}/bin/brightnessctl -q set 5%+
+      ;;
+
       "down")
-        ${pkgs.brightnessctl}/bin/brightnessctl -q set 5%-;;
+        ${pkgs.brightnessctl}/bin/brightnessctl -q set 5%-
+      ;;
+
+      *)
+      false
+      ;;
     esac
 
     brightness=$(($(${pkgs.brightnessctl}/bin/brightnessctl g)*100/120000))
@@ -77,20 +91,24 @@ let
         eval "$ocrCommand"
         ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" -i "$shotDir/$name" --app-name "screenshot"
       ;;
+
       "select")
         ${pkgs.maim}/bin/maim -b 4 -s | tee "$shotDir/$name" | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png
         eval "$ocrCommand"
         ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" -i "$shotDir/$name" --app-name "screenshot"
       ;;
+
       "color-picker")
         ${pkgs.maim}/bin/maim -st 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:-
       ;;
+
       "ocr")
         ${pkgs.maim}/bin/maim -b -4 -s /tmp/ocrfile 
         ${pkgs.tesseract}/bin/tesseract /tmp/ocrfile | ${pkgs.xclip}/bin/xclip -selection primary
         ${pkgs.libnotify}/bin/notify-send "Screenshot Captured" --app-name "screenshot"
         rm /tmp/ocrfile
       ;;
+
       *)
         false
       ;;
@@ -105,7 +123,27 @@ let
     else
       false
     fi
-    '';
+  '';
+  music-notifier = pkgs.writeShellScriptBin "music-notifier" ''
+    for pid in $(pidof -x playerctl-daemon.sh); do
+        if [ $pid != $$ ]; then
+            kill -9 $pid
+        fi 
+    done >/dev/null
+    
+    killall -9 playerctl 2>/dev/null
+    
+    exec playerctl -Fsp playerctld metadata -f '{"class": "{{status}}", "text": "{{title}}", "alt": "{{status}}", "tooltip": "{{artist}} // {{album}}"}' 2>/dev/null | while read -r data
+
+      do echo $data | sed 's/&/&amp;/g'
+        notify-send "$(playerctl metadata title)" \
+          "$(playerctl metadata -f "{{artist}} - {{album}}")" \
+          --expire-time "2000" \
+          --app-name "MusicNotif" \
+          --icon "$(playerctl metadata mpris:artUrl)"
+      done >/dev/null ## The &amp is used to escape & in markup
+  '';
+
 in
 
   {
@@ -115,6 +153,7 @@ in
       set-brightness
       screenshot
       meme-menu
+      music-notifier
     ];
 
   }
