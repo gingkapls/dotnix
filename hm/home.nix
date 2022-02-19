@@ -25,14 +25,16 @@
     blender
     gimp krita inkscape imagemagick
     zathura
-    mpv imv
+    mpv imv nitrogen
     gh git git-crypt gnupg
     playerctl pamixer
     picom
     networkmanagerapplet
     slop maim xdotool tesseract
     dunst libnotify
+    qbittorrent
     mangohud
+    dconf
   ];
 
     # Configs
@@ -68,6 +70,9 @@
     ./dunst.nix
     ./zathura.nix
     ./shell-scripts.nix
+    ./firefox.nix
+    ./gtk.nix
+    ./picom.nix
     nix-colors.homeManagerModule
   ];
 

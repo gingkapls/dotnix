@@ -17,11 +17,11 @@ with config.colorscheme.colors; {
 
       startup = [
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; notification = false; }
-        { command = "xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock-color --nofork"; notification = false; }
-        { command = "${pkgs.picom}/bin/picom"; notification = false; }
+        { command = "${pkgs.xss-lock}/bin/xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock-color --nofork"; notification = false; }
         { command = "${pkgs.autotiling}/bin/autotiling"; notification = false; }
         { command = "${pkgs.playerctl}/bin/playerctld"; notification = false; }
         { command = "i3-floating-decor"; notification = false; }
+        { command = "nitrogen --restore"; notification = false; }
       ];
 
       fonts = {
@@ -120,6 +120,9 @@ with config.colorscheme.colors; {
           "${modifier}+Tab"  = "workspace back_and_forth";
           "${modifier}+bracketleft"  = "workspace prev";
           "${modifier}+bracketright"  = "workspace right";
+
+          "${modifier}+ button4 --whole-window"  = "workspace next";
+          "${modifier}+ button5 --whole-window"  = "workspace prev";
 
           # Move Workspaces
           "${modifier}+Shift+1"  = "move container to workspace number 1, workspace number 1";

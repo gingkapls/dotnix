@@ -33,7 +33,8 @@ with config.colorscheme.colors; {
         line_height = 0;
         markup = "full";
         min_icon_size = "32";
-        max_icon_size = "128";
+        max_icon_size = "96";
+        icon_position = "right";
 
         format = "<b>%s</b>\n%b";
         alignment = "left";
@@ -55,7 +56,7 @@ with config.colorscheme.colors; {
         mouse_left_click = "do_action, close_current";
         mouse_middle_click = "open_url, close_current";
         mouse_right_click = "context";
-        timeout = 5;
+        timeout = 3;
       };
 
       urgency_low = {
@@ -82,11 +83,11 @@ with config.colorscheme.colors; {
         fullscreen = "pushback";
       };
 
-      "appname='volume'" = {
+      "appname=\"volume\"" = {
         history_ignore = true;
       };
 
-      "appname='brightness'" = {
+      "appname=\"brightness\"" = {
         history_ignore = true;
       };
 

@@ -84,7 +84,7 @@ in
     };
 
     firewall = {
-      enable = true;
+      enable = false;
     };
 
   };
@@ -157,6 +157,10 @@ in
         disableWhileTyping = true;
       };
 
+      mouse = {
+        middleEmulation = false;
+      };
+
     };
 
       videoDrivers = [ "nvidia" ];
@@ -179,6 +183,7 @@ in
             i3status
             dmenu
             i3lock-color
+            xss-lock
             autotiling
             python39Packages.i3ipc
           ];
@@ -320,7 +325,10 @@ in
 
   };
 
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    dconf.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

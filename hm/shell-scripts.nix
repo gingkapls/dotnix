@@ -14,8 +14,10 @@ let
 
           if (e.container.floating == 'user_off'):
               e.container.command('border pixel 4')
+              e.container.command('title_format "%title"')
           elif (e.container.floating == 'user_on'):
               e.container.command('border normal 4')
+              e.container.command('title_format "<b></b>"')
 
 
       i3.on('window::floating', border_on_floating)
