@@ -6,15 +6,18 @@
 
     font = {
       name = "Inter";
-      size = "12";
+      size = 12;
     };
 
     theme = {
       name = "Plano";
-      package = "pkgs.plano";
+      package = pkgs.plano-theme;
     };
 
-    iconTheme.package = "tela-icon-theme";
+    iconTheme = {
+      package = pkgs.tela-icon-theme;
+      name = "Tela";
+    };
 
   };
 
