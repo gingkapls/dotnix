@@ -91,6 +91,7 @@
     ./firefox.nix
     ./gtk.nix
     ./picom.nix
+    ./easyeffects.nix
     nix-colors.homeManagerModule
   ];
 

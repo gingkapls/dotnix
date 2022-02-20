@@ -201,6 +201,7 @@ in
 
     logind.lidSwitch = "suspend";
     gvfs.enable = true;
+    auto-cpufreq.enable = true;
 
   };
 
@@ -211,7 +212,7 @@ in
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
+  # Sound
   sound.enable = true;
 
   services.pipewire = {
@@ -275,17 +276,13 @@ in
       nano
       kitty
       networkmanager
+      brightnessctl
       xclip
       dash
-      nvidia-offload
-      mesa
-      vulkan-loader
-      vulkan-tools
-      wineWowPackages.staging
-      lutris
-      winetricks
-      brightnessctl
+      nvidia-offload mesa vulkan-loader vulkan-tools
+      wineWowPackages.staging lutris winetricks
       python3
+      easyeffects
       #  wineWowPackages.stable
     ];
 

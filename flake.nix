@@ -41,7 +41,7 @@
               useGlobalPkgs = true;
               users.gin = { 
                 imports = [ 
-                  ./hm/home.nix
+                  ./users/gin/home.nix
 	                inputs.nixvim.homeManagerModules.nixvim
 	              ];
 	            };

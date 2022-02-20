@@ -221,7 +221,8 @@ let
         }
     }
   '';
-  base-enhanced-perfect-eq = ''
+
+  bass-enhanced-perfect-eq = ''
     {
         "output": {
             "blocklist": [],
@@ -1112,7 +1113,6 @@ in
 {
   xdg.configFile."easyeffects/output/perfect-eq.json".text = perfect-eq;
   xdg.configFile."easyeffects/output/bass-enhanced-perfect-eq.json".text = bass-enhanced-perfect-eq;
-  xdg.configFile."easyeffects/output/perfect-eq.json".text = perfect-eq;
   xdg.configFile."easyeffects/output/advanced-auto-gain.json".text = advanced-auto-gain;
 
 
