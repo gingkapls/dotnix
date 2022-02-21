@@ -66,7 +66,6 @@
         ll = "ls -l --color=auto";
         rm = "rm -i";
         cp = "cp -i --reflink=auto";
-        vim = "nvim";
         ip = "ip -c";
         perl-rename = "perl-rename --interactive";
       };

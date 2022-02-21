@@ -13,6 +13,17 @@
     plugins = {
 
       nix.enable = true;
+      nvim-autopairs.enable = true;
+
+      lualine = {
+        enable = true;
+        theme = "material";
+      };
+
+      goyo = {
+        enable = true;
+        showLineNumbers = false;
+      };
 
       lsp = {
         enable = true;
@@ -23,10 +34,6 @@
       };
 
     };
-
-    extraPlugins = with pkgs.vimPlugins; [
-      auto-pairs
-    ];
 
     options = {
       # Indentation
@@ -44,10 +51,12 @@
       ttyfast = true;
       clipboard = "unnamedplus";
       ls = 0;
-      statusline = "%#StatuslineNC#\ %n\ %#Statusline#\ %#LineNr#\ %f\ %m\ %r\ %=\ %y\ %#StatuslineNC#\ %l:%c\ %p%%";
-      # statusline = "%#StatuslineNC#\ %n\ %#Statusline#\ %#LineNr#\ %f\ %m\ %r\ %=\ %y\ %#StatuslineNC#\ %l:%c\ %p%%\";
     };
 
   };
+
+  programs.neovim.vimAlias = true;
+  programs.neovim.viAlias = true;
+
 
 }

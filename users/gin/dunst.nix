@@ -20,11 +20,11 @@ with config.colorscheme.colors; {
         progress_bar_max_width = 300;
         indicate_hidden = "yes";
         transparency = 0;
-        separator_height = 4;
+        separator_height = 8;
         padding = 8;
         horizontal_padding = 8;
         text_icon_padding = 8;
-        frame_width = 4;
+        frame_width = 8;
         frame_color = "#${base00}";
         separator_color = "frame";
 
@@ -62,13 +62,13 @@ with config.colorscheme.colors; {
       urgency_low = {
         background = "#${base01}";
         foreground = "#${base03}";
-        highlight = "#${base09}";
+        highlight = "#${base0D}";
       };
 
       urgency_normal = {
         background = "#${base01}";
         foreground = "#${base05}";
-        highlight = "#${base09}";
+        highlight = "#${base0D}";
       };
 
       urgency_critical = {

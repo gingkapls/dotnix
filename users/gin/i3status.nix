@@ -46,7 +46,7 @@ with config.colorscheme.colors; {
         position = 2;
         enable = true;
         settings = {
-          format = "%H:%M ";
+          format = "%m/%d %H:%M ";
         };
       };
       
