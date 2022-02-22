@@ -17,7 +17,7 @@ with config.colorscheme.colors; {
 
       startup = [
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; notification = false; }
-        { command = "${pkgs.xss-lock}/bin/xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock-color --nofork --clock --inside-color=${base01} --ring-color=${base03} --inside-ver-color=${base00} --ring-ver-color=${base0D} --line-color=${base01} --key-hl-color=${base03} --bs-hl-color=${base08} --separator-color=${base00} --time-pos=\"5:5\" "; notification = false; }
+#        { command = "${pkgs.xss-lock}/bin/xss-lock --transfer-sleep-lock -- ${pkgs.i3lock-color}/bin/i3lock-color --nofork --clock --inside-color=${base01} --ring-color=${base03} --inside-ver-color=${base00} --ring-ver-color=${base0D} --line-color=${base01} --key-hl-color=${base03} --bs-hl-color=${base08} --separator-color=${base00} --time-pos=\"5:5\" "; notification = false; }
         { command = "${pkgs.autotiling}/bin/autotiling"; notification = false; }
         { command = "${pkgs.nitrogen}/bin/nitrogen --restore"; notification = false; }
         { command = "i3-floating-decor"; notification = false; }
@@ -176,7 +176,7 @@ with config.colorscheme.colors; {
           # "XF86AudioMicMute" = "${pkgs.pactl}/bin/pactl set-source @DEFAULT_SOURCE@ toggle";
 
           # Lock
-          "${modifier}+Ctrl+l" = "exec ${pkgs.i3lock-color}/bin/i3lock-color";
+          "${modifier}+Ctrl+l" = "exec ${pkgs.xautolock}/bin/xautolock -locknow";
 
           # Modes
           "${modifier}+r" = "mode resize";

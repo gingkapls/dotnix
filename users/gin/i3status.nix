@@ -32,11 +32,11 @@ with config.colorscheme.colors; {
         settings = {
           format = "%status %percentage";
           integer_battery_capacity = true;
-          format_down = "No battery";
-          status_chr = "";
-          status_bat = "";
+          format_down = "";
+          status_chr = " ";
+          status_bat = "";
           status_unk = "";
-          status_full = "";
+          status_full = "";
           path = "/sys/class/power_supply/BAT1/uevent";
           low_threshold = 30;
         };
@@ -46,7 +46,7 @@ with config.colorscheme.colors; {
         position = 2;
         enable = true;
         settings = {
-          format = "%m/%d %H:%M ";
+          format = "%a %m/%d  %H:%M ";
         };
       };
       
