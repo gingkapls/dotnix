@@ -21,10 +21,10 @@ with config.colorscheme.colors; {
         indicate_hidden = "yes";
         transparency = 0;
         separator_height = 8;
-        padding = 8;
-        horizontal_padding = 8;
-        text_icon_padding = 8;
-        frame_width = 8;
+        padding = 10;
+        horizontal_padding = 10;
+        text_icon_padding = 10;
+        frame_width = 6;
         frame_color = "#${base00}";
         separator_color = "frame";
 

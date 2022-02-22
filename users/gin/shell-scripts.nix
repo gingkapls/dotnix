@@ -71,7 +71,7 @@ let
   screenshot = pkgs.writeShellScriptBin "screenshot" ''
     shotDir="$HOME/Pictures/Shots"
     name="$(date +"%F_%H:%M:%S")-$(${pkgs.xdotool}/bin/xdotool getactivewindow getwindowname).png"
-    ocrCommand="while pgrep ${pkgs.maim}/bin/maim; do wait; done; ${pkgs.tesseract}/bin/tesseract $shotDir/$name - 2>/dev/null| ${pkgs.xclip}/bin/xclip -selection primary"
+    ocrCommand="while pgrep ${pkgs.maim}/bin/maim; do wait; done; ${pkgs.tesseract}/bin/tesseract $shotDir/$name - 2>/dev/null | ${pkgs.xclip}/bin/xclip -selection primary"
     
     case $1 in
       "screen")
@@ -125,7 +125,7 @@ let
     fi
   '';
   music-notifier = pkgs.writeShellScriptBin "music-notifier" ''
-    for pid in $(pidof -x playerctl-daemon.sh); do
+    for pid in $(pidof -x music-notifier); do
         if [ $pid != $$ ]; then
             kill -9 $pid
         fi 
@@ -133,15 +133,14 @@ let
     
     killall -9 playerctl 2>/dev/null
     
-    exec playerctl -Fsp playerctld metadata -f '{"class": "{{status}}", "text": "{{title}}", "alt": "{{status}}", "tooltip": "{{artist}} // {{album}}"}' 2>/dev/null | while read -r data
+    IFS='`' ## this works well enough and i could not find a better IFS okay?
+    
+    exec ${pkgs.playerctl}/bin/playerctl -Fsp playerctld metadata -f '{{status}}`{{title}}`{{artist}}`{{album}}`{{mpris:artUrl}}' | while read -r playing title artist album art; do 
 
-      do echo $data | sed 's/&/&amp;/g'
-        notify-send "$(playerctl metadata title)" \
-          "$(playerctl metadata -f "{{artist}} - {{album}}")" \
-          --expire-time "2000" \
-          --app-name "MusicNotif" \
-          --icon "$(playerctl metadata mpris:artUrl)"
-      done >/dev/null ## The &amp is used to escape & in markup
+##      printf "%s\n%s\n%s\n%s\n%s\n" "$playing" "$title" "$artist" "$album" "$art";
+
+      [ ! -z "$art" ] && ${pkgs.libnotify}/bin/notify-send "$title" "\n''${artist%%,*} //\n$album" --expire-time "2000" --app-name "MusicNotif" --icon "$art"; ## Avoid multiple notifications due to missing album art
+    done
   '';
 
 in
