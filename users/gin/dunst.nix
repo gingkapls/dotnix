@@ -56,7 +56,7 @@ with config.colorscheme.colors; {
         mouse_left_click = "do_action, close_current";
         mouse_middle_click = "open_url, close_current";
         mouse_right_click = "context";
-        timeout = 3;
+        timeout = 5;
       };
 
       urgency_low = {

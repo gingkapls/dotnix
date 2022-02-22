@@ -30,10 +30,10 @@ with config.colorscheme.colors; {
         enable = true;
         position = 1;
         settings = {
-          format = "%status %percentage";
+          format = "%status %percentage   ";
           integer_battery_capacity = true;
           format_down = "";
-          status_chr = " ";
+          status_chr = "";
           status_bat = "";
           status_unk = "";
           status_full = "";
@@ -46,7 +46,7 @@ with config.colorscheme.colors; {
         position = 2;
         enable = true;
         settings = {
-          format = "%a %m/%d  %H:%M ";
+          format = "%a %m/%d       %H:%M  ";
         };
       };
       

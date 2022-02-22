@@ -227,8 +227,8 @@ with config.colorscheme.colors; {
         statusCommand = "${pkgs.i3status}/bin/i3status ";
         position = "bottom";
         fonts = {
-          names = [ "Inter" "Material Icons" ];
-          style = "Medium";
+          names = [ "Inter" "Font Awesome 5 Free Solid" ];
+          style = "Bold";
           size = 13.0;
         };
         workspaceNumbers = true;

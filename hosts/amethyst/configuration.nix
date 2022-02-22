@@ -149,18 +149,6 @@ in
       layout = "us";
       xkbOptions = "caps:swapescape, compose:ralt";
     # Enable touchpad support (enabled default in most desktopManager).
-      xautolock = {
-        enable = true;
-        time = 5;
-        locker = "${pkgs.i3lock}/bin/i3lock";
-        nowlocker = "${pkgs.i3lock}/bin/i3lock";
-        notify = 60;
-        notifier = "${pkgs.libnotify}/bin/notify-send 'Locking in 60 seconds";
-        
-        killtime = 10;
-        killer = "${pkgs.systemd}/bin/systemctl suspend";
-      };
-
       libinput = {
       enable = true;
 
