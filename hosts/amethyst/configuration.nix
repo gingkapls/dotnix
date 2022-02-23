@@ -282,6 +282,7 @@ in
       wineWowPackages.staging lutris winetricks
       python3
       easyeffects
+      ffmpeg nv-codec-headers
       #  wineWowPackages.stable
     ];
 
@@ -325,6 +326,7 @@ in
   programs = {
     zsh.enable = true;
     dconf.enable = true;
+    gnome-disks.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

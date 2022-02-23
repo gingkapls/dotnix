@@ -36,6 +36,8 @@
     mangohud
     dconf
     spotdl
+    ventoy-bin
+    aria2
   ];
 
     # This value determines the Home Manager release that your
