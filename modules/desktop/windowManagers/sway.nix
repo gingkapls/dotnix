@@ -59,8 +59,10 @@ in
             "xkb_options" = "caps:swapescape,compose:ralt";
 	          "repeat_rate" = "40";
           };
-
         };
+
+        output."*".bg = "$HOME/.dotnix/assets/wallpaper.png fill #${base01}";
+
 
         # terminal = "${pkgs.alacritty}/bin/alacritty";
         terminal = "${pkgs.foot}/bin/footclient";
@@ -70,8 +72,8 @@ in
   
         startup = [
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
-          { command = "${pkgs.autotiling}/bin/autotiling"; }
-          { command = "i3-floating-decor"; }
+          { command = "${pkgs.autotiling}/bin/autotiling"; always = true; }
+#          { command = "i3-floating-decor"; }
           { command = "music-notifier"; }
         ];
   

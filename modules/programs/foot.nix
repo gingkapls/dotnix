@@ -17,12 +17,12 @@ in {
     settings = {
       main = {
         term = "xterm-256color";
-        font = "Iosevka Medium:size=10";
-        font-bold = "Iosevka Heavy:size=10";
-        font-italic = "Iosevka Oblique:size=10";
+        font = "Iosevka Medium:size=12";
+        font-bold = "Iosevka Heavy:size=12";
+        font-italic = "Iosevka Oblique:size=12";
         dpi-aware = "yes";
         locked-title = "no";
-        pad = "40x40";
+        pad = "20x20";
       };
 
       scrollback.lines = 10000;
