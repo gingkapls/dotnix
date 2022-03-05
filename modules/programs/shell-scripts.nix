@@ -139,7 +139,7 @@ let
 
 ##      printf "%s\n%s\n%s\n%s\n%s\n" "$playing" "$title" "$artist" "$album" "$art";
 
-      [ ! -z "$art" ] && ${pkgs.libnotify}/bin/notify-send "$title" "\n''${artist%%,*} //\n$album" --expire-time "2000" --app-name "MusicNotif" --icon "$art"; ## Avoid multiple notifications due to missing album art
+      [ ! -z "$art" ] && ${pkgs.libnotify}/bin/notify-send "$title" "\n''${artist%%,*} //\n$album" --expire-time "2000" --app-name "music-notifier" --icon "$art"; ## Avoid multiple notifications due to missing album art
     done
   '';
 

@@ -132,12 +132,6 @@ in
 
       videoDrivers = [ "nvidia" ];
 
-
-      displayManager = {
-        lightdm.enable = true;
-        defaultSession = "none+i3";
-      };
-      
       windowManager = {
         fvwm = {
          enable = false; 
@@ -145,18 +139,22 @@ in
 
         i3 = {
           enable = true; 
-          package = pkgs.i3-gaps;
-          extraPackages = with pkgs; [
-            i3status
-            dmenu
-            i3lock-color
-            xss-lock
-            autotiling
-            python39Packages.i3ipc
-          ];
         };
       };
      
+    };
+
+    greetd = {
+      enable = true;
+
+      settings = {
+        default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+
+        initial_session = {
+          command = "sway";
+          user = "gin";
+        };
+      };
     };
  
     undervolt = {
