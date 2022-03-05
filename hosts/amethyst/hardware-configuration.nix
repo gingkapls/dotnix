@@ -13,6 +13,39 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=root,noatime,compress-force=zstd:1,space_cache=v2" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = [ "subvol=home,noatime,compress-force=zstd:1,space_cache=v2" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+
+  fileSystems."/mnt/data/files" =
+    { device = "/dev/disk/by-label/data";
+      fsType = "btrfs";
+      options = [ "subvol=files,noatime,compress-force=zstd:1,space_cache=v2" ];
+    };
+
+  fileSystems."/mnt/data/games" =
+    { device = "/dev/disk/by-label/data";
+      fsType = "btrfs";
+      options = [ "subvol=games,noatime,compress-force=zstd:1,space_cache=v2" ];
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/b601443e-455b-4935-b369-04e3718b6caa"; }
+    ];
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
