@@ -137,7 +137,8 @@ let
     
     exec ${pkgs.playerctl}/bin/playerctl -Fsp playerctld metadata -f '{{status}}`{{title}}`{{artist}}`{{album}}`{{mpris:artUrl}}' | while read -r playing title artist album art; do 
 
-##      printf "%s\n%s\n%s\n%s\n%s\n" "$playing" "$title" "$artist" "$album" "$art";
+    # printf "%s\n%s\n%s\n%s\n%s\n" "$playing" "$title" "$artist" "$album" "$art";
+    printf '{"class": "%s", "text": "%s", "alt": "%s", "tooltip": "%s // %s"}\n' "$playing" "$title" "$playing" "$artist" "$album"
 
       [ ! -z "$art" ] && ${pkgs.libnotify}/bin/notify-send "$title" "\n''${artist%%,*} //\n$album" --expire-time "2000" --app-name "music-notifier" --icon "$art"; ## Avoid multiple notifications due to missing album art
     done

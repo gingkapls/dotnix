@@ -40,6 +40,7 @@ in
 
     wayland.windowManager.sway = { 
       enable = true;
+      systemdIntegration = true;
   
       config = rec {
         workspaceAutoBackAndForth = true;
@@ -129,8 +130,12 @@ in
   
         gaps = {
           inner = 10;
-          outer = 5;
-          smartGaps = true;
+          top = 0;
+          bottom = 5;
+          left = 5;
+          right = 5;
+          
+          smartGaps = false;
           smartBorders = "on";
         };
   
@@ -272,57 +277,9 @@ in
             "Escape" = "mode default";
           };
         };
-  
-        # bars = [
-        #   {
-        #   command = "swaybar";
-        #   mode = "hide";
-        #   statusCommand = "${pkgs.i3status}/bin/i3status ";
-        #   position = "bottom";
-        #   fonts = {
-        #     names = [ "Inter" "Font Awesome 5 Free Solid" ];
-        #     style = "Bold";
-        #     size = 13.0;
-        #   };
-        #   workspaceNumbers = true;
-        #    colors = {
-     
-        #      # The background color of the bar.
-        #      background = "#${base00}";
-        #      separator = "#${base00}";
-     
-        #      # The colors for binding mode indicators.
-        #      bindingMode = {
-        #        background = "#${base00}";
-        #        border = "#${base01}";
-        #        text = "#${base07}";
-        #      };
-     
-        #      # The colors for focused workspaces.
-        #      focusedWorkspace = {
-        #        background = "#${base0D}";
-        #        border = "#${base0D}";
-        #        text = "#${base00}";
-        #      };
-  
-        #      # The colors for the workspace button for an active workspace.
-        #       activeWorkspace = {
-        #        background = "#${base00}";
-        #        border = "#${base00}";
-        #        text = "#${base03}";
-        #      };
-    
-        #      # The colors for inactive workspaces.
-        #      inactiveWorkspace = {
-        #        background = "#${base01}";
-        #        border = "#${base01}";
-        #        text = "#${base03}";
-        #      };
-        #    };
-   
-        #  }
-        #  ];
 
+        bars = [];
+  
       };
   
       extraConfig = ''

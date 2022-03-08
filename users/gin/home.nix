@@ -62,6 +62,7 @@
       dunst.enable = false;
       mako.enable = true;
       foot.enable = true;
+      waybar.enable = true;
     };
   
   };

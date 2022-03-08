@@ -17,6 +17,7 @@
     ./programs/nvim.nix
     ./programs/picom.nix
     ./programs/shell-scripts.nix
+    ./programs/waybar.nix
     ./programs/zathura.nix
     ./programs/zsh.nix
   ];

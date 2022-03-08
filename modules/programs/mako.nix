@@ -12,10 +12,10 @@ in {
   config = mkIf cfg.enable {
     programs.mako = {
       enable = true;
-      anchor = "bottom-right";
+      anchor = "top-right";
       backgroundColor = "#${base01}";
       borderColor = "#${base00}";
-      progressColor = "#${base0D}";
+      progressColor = "#${base03}";
       textColor = "#${base05}";
 
       height = 150;
