@@ -34,6 +34,8 @@ in
   nixpkgs.config = {
     allowUnfree = true;
 
+    permittedInsecurePackages = with pkgs; [ "electron-13.6.9" ]; ## cant download fix yet ;-;
+
     packageOverrides = pkgs: {
       vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
     };
@@ -194,7 +196,7 @@ in
 #      rate = 48000;
 #    };
 
-#    wireplumber.enable = true;
+#    wireplumber.enable = false;
     media-session.enable = true;
 
   };

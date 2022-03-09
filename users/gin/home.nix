@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  colorscheme = nix-colors.colorSchemes.material;
+  colorscheme = nix-colors.colorSchemes.rose-pine-dawn;
 
   home = {
     username = "gin";
@@ -13,15 +13,12 @@
     google-chrome firefox 
     gnome.nautilus
     coreutils tree jq
-    blender
-    gimp krita inkscape imagemagick
-    zathura
-    mpv imv nitrogen
+    blender gimp krita inkscape imagemagick
+    zathura mpv imv nitrogen
     gh git git-crypt gnupg
     playerctl pamixer pavucontrol
-    picom
     networkmanagerapplet
-    slop maim xdotool tesseract
+    picom slop maim xdotool tesseract
     dunst libnotify
     qbittorrent
     mangohud
@@ -31,6 +28,7 @@
     aria2
     android-tools
     tdesktop
+    obsidian 
   ];
 
     # This value determines the Home Manager release that your
@@ -84,7 +82,6 @@
     stateHome = "${config.home.homeDirectory}/.local/state";
 
     configHome = "${config.home.homeDirectory}/.config";
-#    configFile."easyeffects/output/perfect-eq.json".text = import ./easyeffects.nix;
 
     userDirs = {
       enable = true;
