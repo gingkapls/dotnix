@@ -20,8 +20,8 @@ in {
     };
 
     iconTheme = {
-      package = pkgs.tela-icon-theme;
-      name = "Tela";
+      package = pkgs.papirus-icon-theme;
+      name = if config.colorscheme.kind == "dark" then "Papirus-Dark" else "Papirus-Light";
     };
 
   };
