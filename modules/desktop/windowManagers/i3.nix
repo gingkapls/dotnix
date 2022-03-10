@@ -114,7 +114,7 @@ in {
             volume = action: "exec set-volume ${action}";
             brightness = action: "exec set-brightness ${action}";
             player = action: "exec ${pkgs.playerctl}/bin/playerctl ${action}";
-            screenshot = action: "exec screenshot ${action}";
+            screenshot = action: "exec xshot ${action}";
   
           in lib.mkOptionDefault {
             "${modifier}+Return" = "exec ${terminal}";

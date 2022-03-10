@@ -12,15 +12,12 @@ in
     config = mkIf cfg.enable {
 
       home.packages = with pkgs; [
-        swaylock
-        swayidle
+        swaylock swayidle
         wl-clipboard
         mako
-        oguri
         bemenu
-        slurp
-        wf-recorder
-        grim
+        slurp swappy grim
+        wf-recorder 
       ];
 
       # services.swayidle = {
@@ -41,6 +38,7 @@ in
     wayland.windowManager.sway = { 
       enable = true;
       systemdIntegration = true;
+      wrapperFeatures.gtk = true;
 
       extraSessionCommands = ''
         export XDG_SESSION_DESKTOP=sway
@@ -55,7 +53,7 @@ in
         export _JAVA_AWT_WM_NONREPARENTING=1
         '';
   
-      config = rec {
+      config = {
         workspaceAutoBackAndForth = true;
         window = {
           border = 4;
@@ -85,10 +83,15 @@ in
         defaultWorkspace = "1";
   
         startup = [
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
+          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.autotiling}/bin/autotiling"; always = true; }
-#          { command = "i3-floating-decor"; }
-          { command = "music-notifier"; }
+          # { command = "i3-floating-decor"; }
+          # { command = "music-notifier"; }
+          { command = "swayidle -w \\
+          timeout 300 'swaylock -f' \\
+          timeout 600 'swaymsg \"output * dpms off\"' resume 'swaymsg \"output * dpms on\"' \\
+          timeout 900 'systemctl suspend' \\
+          before-sleep 'swaylock -f' \\"; }
         ];
   
         fonts = {
@@ -142,7 +145,7 @@ in
         };
   
         gaps = {
-          inner = 10;
+          inner = 0;
           top = 0;
           bottom = 5;
           left = 5;
@@ -155,6 +158,7 @@ in
         keybindings = 
           let
             modifier = config.wayland.windowManager.sway.config.modifier;
+            terminal = config.wayland.windowManager.sway.config.terminal;
   
             left = "h";
             down = "j";
@@ -165,7 +169,8 @@ in
             volume = action: "exec set-volume ${action}";
             brightness = action: "exec set-brightness ${action}";
             player = action: "exec ${pkgs.playerctl}/bin/playerctl ${action}";
-#            screenshot = action: "exec wl-screenshot ${action}";
+            screenshot = action: "exec wlshot ${action}";
+            screenrecord = action: "exec wlrecord ${action}";
   
           in lib.mkOptionDefault {
             "${modifier}+Return" = "exec ${terminal}";
@@ -237,14 +242,17 @@ in
             "XF86MonBrightnessDown" = brightness "down";
   
             # Screenshots
-            # "Print" = screenshot "screen";
-            # "Ctrl+Print" = screenshot "select";
-            # "Shift+Print" = screenshot "window";
-            # "Alt+Print" = screenshot "color-picker";
-            # "Ctrl+Shift+Print" = screenshot "select-window";
-            # "Ctrl+Alt+Print" = screenshot "ocr";
-  
-            # "XF86AudioMicMute" = "${pkgs.pactl}/bin/pactl set-source @DEFAULT_SOURCE@ toggle";
+            "Print" = screenshot "screen";
+            "Ctrl+Print" = screenshot "select";
+            "Shift+Print" = screenshot "window";
+            "Alt+button1" = screenshot "color-picker";
+            "Ctrl+Shift+Print" = screenshot "select-window";
+            "Ctrl+Alt+Print" = screenshot "ocr";
+
+            # Screenrecords
+            "${modifier}+Print" = screenrecord "screen";
+            "${modifier}+Ctrl+Print" = screenrecord "select";
+            "${modifier}+Shift+Print" = screenrecord "window";
   
             # Lock
             "${modifier}+Ctrl+l" = "exec ${pkgs.swaylock}/bin/swaylock";

@@ -22,12 +22,12 @@ in {
           layer = "bottom";
           position = "top";
           width = 1200;
-          margin-top = 10;
-          margin-left = 360;
-          margin-right = 360;
-          margin-bottom = 5;
+          margin-top = 5;
+          margin-left = 0;
+          margin-right = 0;
+          margin-bottom = 0;
           modules-left = [ "sway/workspaces" "custom/playerctl" "sway/mode" ];
-          modules-right = [ "idle_inhibitor"  "battery" "tray" "clock" ];
+          modules-right = [ "custom/recorder" "idle_inhibitor"  "battery" "tray" "clock" ];
 
           modules = {
             "sway/workspaces" = {
@@ -42,13 +42,24 @@ in {
              	format = "{icon} {}";
              	return-type = "json";
              	on-click = "${pkgs.playerctl}/bin/playerctl -sp playerctld play-pause";
+              exec = "music-notifier";
              	max-length = 30;
              	format-icons = {
                 Playing = "";
                 Paused = "";
              	};
             };         
-  
+
+            "custom/recorder" = {
+            	format = "{}";
+            	interval = "once";
+            	exec = "printf '\n'";
+            	tooltip = false;
+            	exec-if = "pgrep 'wf-recorder'";
+            	on-click = "wlrecord";
+            	signal = 8;
+            	};
+
             idle_inhibitor = {
               format = "{icon}";
               format-icons = {
@@ -93,18 +104,20 @@ in {
             font-size: 16px;
             min-height: 0;
     	      font-weight: 700;
-    	      padding: 2px 10px;
+    	      padding: 2px 2px;
     	      /* margin: 1.8px 8px 1.8px 8px; */
           }
  
           window#waybar {
             border-radius: 0px;
-            background-color: #${base00};
+            background-color: transparent;
             transition-property: background-color;
             transition-duration: .5s;
-    	      padding: 2px 10px;
+    	      padding: 0px 0px;
+            /*
             border-bottom: 4px solid transparent;
-            /* border-top: 4px solid transparent; */
+            border-top: 4px solid transparent;
+            */
           }
   
           window#waybar.hidden {
@@ -120,49 +133,53 @@ in {
           }
       
         label:focus {
-          color: #${base00};
+          color: #${base02};
         }
   
         #workspaces button {
-          padding: 1px 10px;
-  	      margin: 1px 3px;
-          border-color: alpha (#${base00}, 0.7);
+          padding: 4px 2px;
+  	      margin: 2px 8px;
+          border-color: #${base01};
           color: #${base05};
-          background: #${base00};
-        }
-  
-        #workspaces button:hover {
-        background: #${base01};
-        border-color: #${base00};
-  	    color: #${base05};
+          background: #${base02};
         }
   
         #workspaces button.focused {
-        	border-color: #${base00};
-          background-color: #${base01};
+        	border-color: #${base02};
+        	color: #${base02};
+          background-color: #${base05};
         }
   
         #workspaces button.urgent {
           background-color: #${base09};
         }
+
+        #workspaces button:hover {
+        background: #${base03};
+        border-color: #${base02};
+  	    color: #${base05};
+        }
+
   
         #clock,
         #battery,
         #pulseaudio,
         #custom-weather,
         #custom-theme-toggle,
-        #custom-wf-recorder {
+        #custom-playerctl,
+        #mode,
+        #idle_inhibitor,
+        #tray,
+        #custom-recorder {
         	color: #${base05};
-        }
-  
-        #mode {
-          background-color: #${base01};
-          color: #${base05};
+          background: #${base02};
+          padding: 4px 12px;
+          margin: 2px 8px;
         }
   
         @keyframes blink {
             to {
-                background-color: #${base00};
+                background-color: #${base02};
                 color: #${base07};
             }
         }
@@ -180,21 +197,8 @@ in {
             color: #${base03};
         }
   
-        #custom-playerctl {
-        	color: #${base05};
-        }
-  
-        #idle_inhibitor {
-          color: #${base03};
-        }
-  
         #idle_inhibitor.activated {
             color: #${base0D};
-        }
-  
-        #custom-wf-recorder {
-          background: #${base00};
-        	color: #${base0D};
         }
       '';
       

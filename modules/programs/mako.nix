@@ -12,21 +12,23 @@ in {
   config = mkIf cfg.enable {
     programs.mako = {
       enable = true;
+
       anchor = "top-right";
-      backgroundColor = "#${base01}";
-      borderColor = "#${base00}";
+      backgroundColor = "#${base02}";
+      borderColor = "#${base02}";
       progressColor = "#${base03}";
       textColor = "#${base05}";
 
       height = 150;
       width = 300;
-      borderRadius = 8;
+      borderRadius = 4;
       borderSize = 4;
-      defaultTimeout = 3;
+      defaultTimeout = 5000;
 
       font = "Inter Medium 14";
       format = "<b>%s</b>\\n%b";
       icons = true;
+      maxIconSize = 96;
       layer = "top";
       margin = "10";
       maxVisible = 5;

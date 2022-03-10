@@ -16,7 +16,9 @@
     ./programs/mpv.nix
     ./programs/nvim.nix
     ./programs/picom.nix
-    ./programs/shell-scripts.nix
+    ./programs/scripts.nix
+    ./programs/swappy.nix
+    ./programs/swaylock.nix
     ./programs/waybar.nix
     ./programs/zathura.nix
     ./programs/zsh.nix
