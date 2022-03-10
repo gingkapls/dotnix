@@ -26,7 +26,13 @@ in
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "btrfs" "ntfs" ];
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+      "systemd.show_status=0"
+    ];
 
+    tmpOnTmpfs = true;
     cleanTmpDir = true;
   };
 
@@ -294,6 +300,7 @@ in
     zsh.enable = true;
     dconf.enable = true;
     gnome-disks.enable = true;
+    sway.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

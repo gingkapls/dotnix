@@ -27,6 +27,14 @@ in {
 
       lualine = {
         enable = true;
+        sectionSeparators = {
+          left = "" ;
+          right = "" ;
+        };
+        componentSeparators = {
+          left = "" ;
+          right = "" ;
+        };
       };
 
       goyo = {

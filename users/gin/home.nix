@@ -29,6 +29,7 @@
     android-tools
     tdesktop
     obsidian 
+    rhythmbox
   ];
 
     # This value determines the Home Manager release that your
@@ -76,7 +77,19 @@
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+        "image/gif" = [ "imv.desktop" ];
+        "image/svg+xml" = [ "imv.desktop" ];
+        "application/pdf" = [ "zathura.desktop" ];
+        "application/json" = [ "nvim.desktop" ];
+        "application/x-yaml" = [ "nvim.desktop" ];
+      };
+    
+    };
 
     dataHome = "${config.home.homeDirectory}/.local/share";
     stateHome = "${config.home.homeDirectory}/.local/state";
