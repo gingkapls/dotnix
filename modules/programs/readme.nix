@@ -3,7 +3,8 @@
 with config.colorscheme.colors;
 {
   home.file."README.md" = {
-    target = ".cache/README.md";
+    target = "${config.xdg.cacheHome}/README.md";
+    onChange = "cp -f '${config.home.file."README.md".target}' '${config.home.homeDirectory}/.dotnix/README.md'";
     
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
@@ -12,15 +13,17 @@ with config.colorscheme.colors;
       
       |                     |                                                                                                               |
       | ------------------- | ------------------------------------------------------------------------------------------------------------- |
-      | OS                  | [NixOS 21.11](https://nixos.org/)                                                                                   |
-      | Terminal            | [Foot](https://codeberg.org/dnkl/foot) [Alacritty](https://github.com/alacritty/alacritty)                    |
+      | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
       | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-      | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-      | Terminal Font       | [Iosevka](https://github.com/be5invis/Iosevka)                                                                |
-      | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
       | GTK Theme           | [Materia Nix-colors](https://github.com/lassekongo83/plano-theme)                                             |
-      | Icon Theme          | [Tela](https://github.com/vinceliuice/Tela-icon-theme)                                                        |
-      | Wallpaper           | [By Teté Gallardo Batista](https://unsplash.com/photos/-wwRgAQxOgw)                                           |
+      | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
+      | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
+      | Terminal            | [Foot](https://codeberg.org/dnkl/foot) [Alacritty](https://github.com/alacritty/alacritty)                    |
+      | Terminal Font       | [Iosevka](https://github.com/be5invis/Iosevka)                                                                |
+      | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
+      | Editor              | [Neovim](https://neovim.io/)                                                                                  |
+      | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
+      | Wallpaper           | [Nodame Cantabile](./assets/wallpaper.png)                                                                    |
       | Colorscheme         | [Rosé Pine Dawn](https://github.com/rose-pine/)                                                               |
 
       # Color Palette
@@ -37,10 +40,10 @@ with config.colorscheme.colors;
       '';
   };
 
-  home.activation = {
-    generateReadme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      cp "${config.xdg.cacheHome}/README.md" "${config.home.homeDirectory}/.dotnix/README.md" -f
-    '';
-  };
+  #home.activation = {
+  #  generateReadme = lib.hm.dag.entryAfter [ "home.file.README.md" ] ''
+  #    cp -f "${config.xdg.cacheHome}/README.md" "${config.home.homeDirectory}/.dotnix/README.md"
+  #  '';
+  #};
 
 }
