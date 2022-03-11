@@ -80,12 +80,13 @@
     mime.enable = true;
     mimeApps = {
       enable = true;
+
       defaultApplications = {
         "image/jpeg" = [ "imv.desktop" ];
         "image/png" = [ "imv.desktop" ];
         "image/gif" = [ "imv.desktop" ];
         "image/svg+xml" = [ "imv.desktop" ];
-        "application/pdf" = [ "zathura.desktop" ];
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
         "application/json" = [ "nvim.desktop" ];
         "application/x-yaml" = [ "nvim.desktop" ];
       };

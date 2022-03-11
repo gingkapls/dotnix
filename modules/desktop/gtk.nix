@@ -24,5 +24,7 @@ in {
       name = if config.colorscheme.kind == "dark" then "Papirus-Dark" else "Papirus-Light";
     };
 
+    gtk3.bookmarks = [ "file:///mnt/data/files/Anime" "file:////mnt/data/files" "file:////mnt/data/games" ];
+
   };
 }

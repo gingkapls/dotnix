@@ -8,6 +8,7 @@
     ./foot.nix
     ./mpv.nix
     ./nvim.nix
+    ./readme.nix
     ./swappy.nix
     ./zathura.nix
   ];

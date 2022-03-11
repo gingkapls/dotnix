@@ -22,14 +22,14 @@ with config.colorscheme.colors; {
       notification-warning-bg = "#${base09}";
       notification-warning-fg = "#${base09}";
 
-      hightlight-color = "#${base0A}";
-      hightlight-active-color = "#${base0D}";
+      highlight-color = "#${base0A}";
+      highlight-active-color = "#${base0D}";
 
       completion-bg = "#${base01}";
       completion-fg = "#${base0D}";
 
-      completition-highlight-bg = "#${base05}";
-      completition-highlight-fg = "#${base00}";
+      completion-highlight-bg = "#${base05}";
+      completion-highlight-fg = "#${base00}";
 
       recolor-lightcolor = "#${base00}";
       recolor-darkcolor = "#${base05}";
