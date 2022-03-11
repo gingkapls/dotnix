@@ -31,8 +31,12 @@
       alang = "jap";
       slang = "en";
       sub-auto = "fuzzy";
-      yt-dl-raw-options = "sub-format=en,write-srt=";
+      osd-bar = "no";
+      osd-on-seek = "msg";
+      border = "no";
     };
 
   };
+
+  xdg.configFile."mpv/scripts/mordenx.lua".text = import ../../config/mordenx.nix;
 }

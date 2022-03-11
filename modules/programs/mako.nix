@@ -14,8 +14,8 @@ in {
       enable = true;
 
       anchor = "top-right";
-      backgroundColor = "#${base02}";
-      borderColor = "#${base02}";
+      backgroundColor = "#${base00}";
+      borderColor = "#${base00}";
       progressColor = "#${base03}";
       textColor = "#${base05}";
 
@@ -30,7 +30,7 @@ in {
       icons = true;
       maxIconSize = 96;
       layer = "top";
-      margin = "10";
+      margin = "12";
       maxVisible = 5;
       padding = "10";
       groupBy = "app-name";

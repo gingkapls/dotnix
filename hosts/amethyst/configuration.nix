@@ -278,6 +278,7 @@ in
       twemoji-color-font
       paratype-pt-serif
       material-icons
+      material-design-icons
       font-awesome
     ];
 
