@@ -7,8 +7,6 @@ with config.colorscheme.colors; {
 
     fzf = {
       enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = false;
       enableZshIntegration = true;
     };
 
@@ -18,6 +16,11 @@ with config.colorscheme.colors; {
     };
 
     starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    zoxide = {
       enable = true;
       enableZshIntegration = true;
     };
@@ -86,10 +89,9 @@ with config.colorscheme.colors; {
         la = "ls --all --color=auto";
         ll = "ls -l --color=auto";
         rm = "rm -i";
-        cp = "cp -i --reflink=auto";
+        cp = "cp -i";
         ip = "ip -c";
         perl-rename = "perl-rename --interactive";
-        gen-modules = "pushd $HOME/.dotnix/modules && printf \"%s\n\n%s\n  %s\n%s\n  %s\n%s\n\" \"{ config, ...}:\" \"{\" \"imports = [\" \"$(find ./*/* -type f -name \"*.nix\" -printf \"    %p\n\")\" \"];\" \"}\"  > ./module-list.nix && popd";
       };
     };
   };
