@@ -1,12 +1,7 @@
-{ config, pkgs, nix-colors, lib, ... }:
+{ config, pkgs, nix-colors, ... }:
 
 with config.colorscheme.colors; 
-with lib;
-
-let cfg = config.modules.desktop.windowManager.i3;
-
-in {
-  config = mkIf cfg.enable {
+{
     programs.i3status = {
       enable = true; 
       enableDefault = false;
@@ -78,8 +73,5 @@ in {
         };
       };
   
-  
     };
-  
-  };
 }

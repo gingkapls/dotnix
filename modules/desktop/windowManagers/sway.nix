@@ -101,13 +101,13 @@ in
         };
   
         colors = {
-          background = "#${base03}";
+          background = "#${base02}";
           focused = {
-            background = "#${base03}";
-            border = "#${base03}";
-            childBorder = "#${base03}";
-            indicator = "#${base03}";
-            text = "#${base00}";
+            background = "#${base02}";
+            border = "#${base02}";
+            childBorder = "#${base02}";
+            indicator = "#${base02}";
+            text = "#${base02}";
           };
   
            focusedInactive = {
@@ -115,7 +115,7 @@ in
             border = "#${base01}";
             childBorder = "#${base01}";
             indicator = "#${base01}";
-            text = "#${base03}";
+            text = "#${base01}";
           };
   
            unfocused = {
@@ -123,7 +123,7 @@ in
             border = "#${base01}";
             childBorder = "#${base01}";
             indicator = "#${base01}";
-            text = "#${base03}";
+            text = "#${base01}";
           };
   
            urgent = {
@@ -131,7 +131,7 @@ in
             border = "#${base08}";
             childBorder = "#${base08}";
             indicator = "#${base08}";
-            text = "#${base00}";
+            text = "#${base08}";
           };
   
            placeholder = {

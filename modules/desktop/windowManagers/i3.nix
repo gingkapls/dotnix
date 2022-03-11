@@ -13,7 +13,6 @@ in {
 
   config = mkIf cfg.enable {
     # Status bar
-    #imports = [ ../../programs/i3status.nix ];
 
     home.packages = with pkgs; [ 
       i3status

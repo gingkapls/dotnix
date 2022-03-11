@@ -244,9 +244,7 @@ let
     done
   '';
 
-in
-
-  {
+in {
     home.packages = [
       i3-floating-decor
       set-volume
@@ -258,4 +256,4 @@ in
       music-notifier
     ];
 
-  }
+}

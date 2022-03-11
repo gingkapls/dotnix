@@ -4,9 +4,9 @@ with config.colorscheme.colors;
 with lib;
 
 let 
-  cfg = config.modules.programs.waybar;
+  cfg = config.modules.desktop.waybar;
 in {
-  options.modules.programs.waybar = {
+  options.modules.desktop.waybar = {
     enable = mkEnableOption "Enable waybar";
   };
 

@@ -2,9 +2,9 @@
 
 with lib;
 let
-  cfg = config.modules.programs.picom;
+  cfg = config.modules.desktop.picom;
 in {
-  options.modules.programs.picom = {
+  options.modules.desktop.picom = {
     enable = mkEnableOption "Enable Picom compositor";
   };
 

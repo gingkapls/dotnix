@@ -13,6 +13,7 @@
     google-chrome firefox 
     gnome.nautilus
     coreutils tree jq
+    pulseaudioLight
     blender gimp krita inkscape imagemagick
     zathura mpv imv nitrogen
     gh git git-crypt gnupg
@@ -53,18 +54,17 @@
   modules = {
 
     desktop = {
-      windowManager.i3.enable = true;
+      windowManager.i3.enable = false;
       windowManager.sway.enable = true;
-    };
-
-    programs = {
       picom.enable = true;
       dunst.enable = false;
       mako.enable = true;
-      foot.enable = true;
       waybar.enable = true;
     };
-  
+
+    programs = {
+      foot.enable = true;
+    };
   };
 
   services = {
@@ -105,7 +105,7 @@
   };
 
   imports = [
-    ../../modules/module-list.nix 
+    ../../modules
     nix-colors.homeManagerModule
   ];
 }

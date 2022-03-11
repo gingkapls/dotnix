@@ -3,9 +3,9 @@
 with config.colorscheme.colors;
 with lib;
 
-let cfg = config.modules.programs.mako;
+let cfg = config.modules.desktop.mako;
 in {
-  options.modules.programs.mako = {
+  options.modules.desktop.mako = {
     enable = mkEnableOption "Enable mako the lightweight notification daemon for Wayland";
   };
 

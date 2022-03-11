@@ -4,10 +4,10 @@ with config.colorscheme.colors;
 with lib;
 
 let
-  cfg = config.modules.programs.dunst;
+  cfg = config.modules.desktop.dunst;
 in {
 
-  options.modules.programs.dunst = {
+  options.modules.desktop.dunst = {
     enable = mkEnableOption "Enable Dunst the lightweight notification daemon";
   };
 
