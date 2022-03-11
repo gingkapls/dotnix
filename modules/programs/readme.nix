@@ -37,10 +37,10 @@ with config.colorscheme.colors;
       '';
   };
 
-  home.activation = {
-    generateReadme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      cp "${config.xdg.cacheHome}/README.md" "${config.home.homeDirectory}/.dotnix/README.md"
-    '';
-  };
+  #home.activation = {
+  #  generateReadme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  #    cp "${config.xdg.cacheHome}/README.md" "${config.home.homeDirectory}/.dotnix/README.md"
+  #  '';
+  #};
 
 }
