@@ -3,7 +3,7 @@
 with config.colorscheme.colors;
 {
   home.file."README.md" = {
-    target = ".dotnix/README.md";
+    target = ".cache/README.md";
     
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
@@ -35,6 +35,12 @@ with config.colorscheme.colors;
       | ![#${base06}](https://via.placeholder.com/15/${base06}/000000?text=+) `#${base06}` | ![#${base0E}](https://via.placeholder.com/15/${base0E}/000000?text=+) `#${base0E}`  |
       | ![#${base07}](https://via.placeholder.com/15/${base07}/000000?text=+) `#${base07}` | ![#${base0F}](https://via.placeholder.com/15/${base0F}/000000?text=+) `#${base0F}`  |
       '';
+  };
+
+  home.activation = {
+    generateReadme = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      cp "${config.xdg.cacheHome}/README.md" "${config.home.homeDirectory}/.dotnix/README.md"
+    '';
   };
 
 }
