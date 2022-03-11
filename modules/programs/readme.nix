@@ -17,6 +17,7 @@ with config.colorscheme.colors;
       | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
       | GTK Theme           | [Materia Nix-colors](https://github.com/lassekongo83/plano-theme)                                             |
       | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
+      | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
       | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
       | Terminal            | [Foot](https://codeberg.org/dnkl/foot) [Alacritty](https://github.com/alacritty/alacritty)                    |
       | Terminal Font       | [Iosevka](https://github.com/be5invis/Iosevka)                                                                |
