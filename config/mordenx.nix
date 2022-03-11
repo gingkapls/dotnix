@@ -45,7 +45,7 @@ local user_opts = {
     jumpiconnumber = true,      -- show different icon when jumpamount is 5, 10, or 30
     jumpmode = 'exact',         -- seek mode for jump buttons. e.g.
                                 -- 'exact', 'relative+keyframes', etc.
-    title = '$${media-title}',   -- string compatible with property-expansion
+    title = "''${media-title}",   -- string compatible with property-expansion
                                 -- to be shown as OSC title
     showtitle = true,		-- show title in OSC
     showonpause = true,         -- whether to disable the hide timeout on pause
