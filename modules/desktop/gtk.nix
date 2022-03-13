@@ -9,6 +9,7 @@ in {
 
     font = {
       name = "Inter";
+      package = pkgs.inter;
       size = 12;
     };
 

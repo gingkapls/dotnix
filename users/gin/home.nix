@@ -55,6 +55,7 @@
 
     desktop = {
       windowManager.i3.enable = false;
+      windowManager.awesome.enable = true;
       windowManager.sway.enable = true;
       picom.enable = true;
       dunst.enable = false;

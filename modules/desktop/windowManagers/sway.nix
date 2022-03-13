@@ -53,7 +53,7 @@ in
         export _JAVA_AWT_WM_NONREPARENTING=1
         '';
   
-      config = {
+      config = rec {
         workspaceAutoBackAndForth = true;
         window = {
           border = 4;
@@ -157,8 +157,8 @@ in
   
         keybindings = 
           let
-            modifier = config.wayland.windowManager.sway.config.modifier;
-            terminal = config.wayland.windowManager.sway.config.terminal;
+            #modifier = config.wayland.windowManager.sway.config.modifier;
+            #terminal = config.wayland.windowManager.sway.config.terminal;
   
             left = "h";
             down = "j";
@@ -260,7 +260,8 @@ in
             # Modes
             "${modifier}+r" = "mode resize";
             "${modifier}+g" = "mode gaps";
-            "${modifier}+a" = "mode applications";
+            "${modifier}+Escape" = "mode applications";
+            "${modifier}+Shift+Ctrl+V" = "mode virtualization";
         };
   
         modes = {
@@ -288,6 +289,12 @@ in
             "Escape" = "mode default";
   
             "r" = "gaps outer current set 5, gaps inner current set 5, mode default";
+          };
+
+          virtualization = {
+            "${modifier}+Ctrl+Shift+Escape" = "mode default";
+            "${modifier}+Ctrl+Shift+v" = "mode default";
+            "${modifier}+Ctrl+Shift+Return" = "mode default";
           };
   
           applications = {

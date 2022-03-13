@@ -75,20 +75,33 @@
           #sidebar-box #sidebar-header {
               visibility: collapse;
           }
+
+          #main-window #TabsToolbar {
+            height: 40px !important;
+            overflow: hidden;
+            transition: height .3s .3s !important;
+          }
           
+          #main-window[titlepreface*="Sideberry"] #TabsToolbar {
+            height: 0 !important;
+          }
+          #main-window[titlepreface*="Sideberry"] #tabbrowser-tabs {
+            z-index: 0 !important;
+          }
+
           #sidebar #sidebar-search-container {
            display:none!important;
           }
           
           /* Shrink sidebar until hovered */
           :root {
-              --thin-tab-width: 60px;
+              --thin-tab-width: 80px;
               --wide-tab-width: 300px;
           }
           
           #sidebar-box {
               position: relative !important;
-              transition: all 100ms !important;
+              transition: all 5000ms !important;
               min-width: var(--thin-tab-width) !important;
               max-width: var(--thin-tab-width) !important;
           }

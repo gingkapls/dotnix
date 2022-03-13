@@ -1,10 +1,11 @@
 { config, lib, nix-colors, ... }:
 
 with config.colorscheme.colors;
+with config;
 {
   home.file."README.md" = {
-    target = "${config.xdg.cacheHome}/README.md";
-    onChange = "cp -f '${config.home.file."README.md".target}' '${config.home.homeDirectory}/.dotnix/README.md'";
+    target = "${xdg.cacheHome}/README.md";
+    onChange = "cp -f '${home.file."README.md".target}' '${home.homeDirectory}/.dotnix/README.md'";
     
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
@@ -15,7 +16,7 @@ with config.colorscheme.colors;
       | ------------------- | ------------------------------------------------------------------------------------------------------------- |
       | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
       | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-      | GTK Theme           | [Materia Nix-colors](https://github.com/lassekongo83/plano-theme)                                             |
+      | GTK Theme           | [Materia Nix-colors](https://github.com/Misterio77/nix-colors)                                                |
       | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
       | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
       | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
