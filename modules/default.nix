@@ -4,6 +4,7 @@
   imports = [
     ./desktop
     ./programs
+    ./services
     ./shell
   ];
 

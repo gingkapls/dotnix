@@ -5,8 +5,8 @@ let
   cfg = config.modules.programs.vscode;
 in
 {
-  options = options.modules.programs.vscode {
-    enable = true;
+  options.modules.programs.vscode = {
+    enable = mkEnableOption "Enable Visual Studio Code";
   };
 
   config = mkIf cfg.enable {
@@ -16,8 +16,9 @@ in
       extensions = with pkgs.vscode-extensions; [
         asvetliakov.vscode-neovim
         jnoortheen.nix-ide
-        cpptools
+        ms-vscode.cpptools
         matklad.rust-analyzer
+        mvllow.rose-pine
       ];
 
     };

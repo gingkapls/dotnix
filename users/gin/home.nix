@@ -24,14 +24,12 @@
     qbittorrent
     mangohud
     dconf
-    spotdl
+    rhythmbox lollypop spotdl cava
     ventoy-bin
-    aria2
+    aria2 rclone
     android-tools
     tdesktop
     obsidian 
-    rhythmbox
-    lollypop
   ];
 
     # This value determines the Home Manager release that your
@@ -54,7 +52,7 @@
   modules = {
 
     desktop = {
-      windowManager.i3.enable = false;
+      windowManager.i3.enable = true;
       windowManager.awesome.enable = true;
       windowManager.sway.enable = true;
       picom.enable = true;
@@ -65,6 +63,7 @@
 
     programs = {
       foot.enable = true;
+      vscode.enable = true;
     };
   };
 

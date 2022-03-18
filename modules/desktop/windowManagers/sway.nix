@@ -196,7 +196,7 @@ in
             # Workspaces
             "${modifier}+Tab"  = "workspace back_and_forth";
             "${modifier}+bracketleft"  = "workspace prev";
-            "${modifier}+bracketright"  = "workspace right";
+            "${modifier}+bracketright"  = "workspace next";
   
             "${modifier}+button4 --whole-window"  = "workspace next";
             "${modifier}+button5 --whole-window"  = "workspace prev";

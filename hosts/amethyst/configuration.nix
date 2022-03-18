@@ -82,7 +82,7 @@ in
 
     networkmanager = {
       enable = true;
-#      dns = "none";
+      #dns = "none";
       wifi.backend = "iwd";
     };
     
@@ -140,13 +140,17 @@ in
 
       videoDrivers = [ "nvidia" ];
 
+      displayManager = {
+        lightdm.enable = false;
+      };
+
       windowManager = {
         fvwm = {
          enable = false; 
         };
 
         i3 = {
-          enable = true; 
+          enable = false; 
         };
       };
      
@@ -171,7 +175,12 @@ in
       gpuOffset = -95;
     };
 
-    logind.lidSwitch = "suspend";
+    logind = {
+      lidSwitch = "suspend";
+      extraConfig = "HandlePowerKey=ignore";
+    };
+
+    gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     auto-cpufreq.enable = true;
 

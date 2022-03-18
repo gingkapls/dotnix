@@ -10,6 +10,7 @@
     ./nvim.nix
     ./readme.nix
     ./swappy.nix
+    ./vscode.nix
     ./zathura.nix
   ];
 }
