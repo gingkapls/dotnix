@@ -142,6 +142,7 @@ in
 
       displayManager = {
         lightdm.enable = false;
+        #gdm.enable = true;
       };
 
       windowManager = {
@@ -150,20 +151,39 @@ in
         };
 
         i3 = {
-          enable = false; 
+          enable = true; 
         };
       };
-     
+
+      # Not launching wayland session :(
+      #desktopManager = {
+      #  gnome = {
+      #    enable = true;
+      #    #extraGSettingsOverrides = import ../../modules/desktop/desktopManagers/gnome/gnomeGSettingsOverrides.nix;
+      #  };
+      #};
+
+           
     };
+
+    #gnome = {
+    #  #core-utilities.enable = false;
+    #  games.enable = false;
+    #  #gnome-initial-setup.enable = false;
+    #};
+
 
     greetd = {
       enable = true;
 
       settings = {
-        default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+          user = "greeter";
+        };
 
         initial_session = {
-          command = "sway";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
           user = "gin";
         };
       };
@@ -218,9 +238,20 @@ in
 
   security.rtkit.enable = true;
 
+  # Systemd 
+  systemd = {
+    services = {
+      "NetworkManager-wait-online".enable = false;
+    };
+  };
+
   hardware = {
     enableAllFirmware = true;
     pulseaudio.enable = false;
+
+    bluetooth = {
+      enable = false;
+    };
 
     opengl = {
       enable = true;
@@ -298,7 +329,6 @@ in
         serif = [ "Paratype Pt Serif" ];
         sansSerif = [ "Inter" ];
         monospace = [ "Iosevka Slab" ];
-
         emoji = [ "Twitter Color Emoji" ];
       };
     };

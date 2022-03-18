@@ -10,7 +10,7 @@
     homeDirectory = "/home/gin";
 
     packages = with pkgs; [ 
-    google-chrome firefox 
+    google-chrome 
     gnome.nautilus
     coreutils tree jq
     pulseaudioLight
