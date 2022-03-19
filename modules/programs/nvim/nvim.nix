@@ -1,6 +1,4 @@
-{ config, pkgs, nixvim, ... }:
-
-with config.colorscheme.colors;
+{ config, pkgs, nixvim, nix-colors, ... }:
 
 let
   #rose-pine = pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -19,13 +17,11 @@ let
 in {
   # Neovim
 
-  xdg.configFile."neovim/colors/base16.vim".text = import ./base16-vim.nix;
-
   programs.nixvim = {
     enable = true;
 
     # Use default till we make our own colorscheme
-     colorscheme = "${config.colorscheme.slug}";
+     colorscheme = "base16-${config.colorscheme.slug}";
 
     plugins = {
 
@@ -63,7 +59,7 @@ in {
 
     };
 
-    extraPlugins = with pkgs.vimPlugins; [ rose-pine ];
+    # extraPlugins = with pkgs.vimPlugins; [ rose-pine ];
 
     options = {
       # Indentation

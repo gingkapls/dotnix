@@ -21,11 +21,11 @@
 # Color Palette
 |                                                                           |                                                                                              |
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| ![#faf4ed](https://via.placeholder.com/15/faf4ed/000000?text=+) `#faf4ed` | ![#1f1d2e](https://via.placeholder.com/15/1f1d2e/000000?text=+) `#1f1d2e`  |
-| ![#fffaf3](https://via.placeholder.com/15/fffaf3/000000?text=+) `#fffaf3` | ![#b4637a](https://via.placeholder.com/15/b4637a/000000?text=+) `#b4637a`  |
-| ![#f2e9de](https://via.placeholder.com/15/f2e9de/000000?text=+) `#f2e9de` | ![#ea9d34](https://via.placeholder.com/15/ea9d34/000000?text=+) `#ea9d34`  |
-| ![#9893a5](https://via.placeholder.com/15/9893a5/000000?text=+) `#9893a5` | ![#d7827e](https://via.placeholder.com/15/d7827e/000000?text=+) `#d7827e`  |
-| ![#6e6a86](https://via.placeholder.com/15/6e6a86/000000?text=+) `#6e6a86` | ![#286983](https://via.placeholder.com/15/286983/000000?text=+) `#286983`  |
-| ![#575279](https://via.placeholder.com/15/575279/000000?text=+) `#575279` | ![#56949f](https://via.placeholder.com/15/56949f/000000?text=+) `#56949f`  |
-| ![#555169](https://via.placeholder.com/15/555169/000000?text=+) `#555169` | ![#907aa9](https://via.placeholder.com/15/907aa9/000000?text=+) `#907aa9`  |
-| ![#26233a](https://via.placeholder.com/15/26233a/000000?text=+) `#26233a` | ![#c5c3ce](https://via.placeholder.com/15/c5c3ce/000000?text=+) `#c5c3ce`  |
+| ![#2b3339](https://via.placeholder.com/15/2b3339/000000?text=+) `#2b3339` | ![#e67e80](https://via.placeholder.com/15/e67e80/000000?text=+) `#e67e80`  |
+| ![#323c41](https://via.placeholder.com/15/323c41/000000?text=+) `#323c41` | ![#e69875](https://via.placeholder.com/15/e69875/000000?text=+) `#e69875`  |
+| ![#3a4248](https://via.placeholder.com/15/3a4248/000000?text=+) `#3a4248` | ![#dbbc7f](https://via.placeholder.com/15/dbbc7f/000000?text=+) `#dbbc7f`  |
+| ![#868d80](https://via.placeholder.com/15/868d80/000000?text=+) `#868d80` | ![#a7c080](https://via.placeholder.com/15/a7c080/000000?text=+) `#a7c080`  |
+| ![#a59572](https://via.placeholder.com/15/a59572/000000?text=+) `#a59572` | ![#83c092](https://via.placeholder.com/15/83c092/000000?text=+) `#83c092`  |
+| ![#d3c6aa](https://via.placeholder.com/15/d3c6aa/000000?text=+) `#d3c6aa` | ![#7fbbb3](https://via.placeholder.com/15/7fbbb3/000000?text=+) `#7fbbb3`  |
+| ![#e9e8d2](https://via.placeholder.com/15/e9e8d2/000000?text=+) `#e9e8d2` | ![#d699b6](https://via.placeholder.com/15/d699b6/000000?text=+) `#d699b6`  |
+| ![#fff9e8](https://via.placeholder.com/15/fff9e8/000000?text=+) `#fff9e8` | ![#d699b6](https://via.placeholder.com/15/d699b6/000000?text=+) `#d699b6`  |
