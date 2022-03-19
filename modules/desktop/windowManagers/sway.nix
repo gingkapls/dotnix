@@ -39,7 +39,6 @@ in
       enable = true;
       systemdIntegration = true;
       wrapperFeatures.gtk = true;
-      package = null;
 
       extraSessionCommands = ''
         export XDG_SESSION_DESKTOP=sway
@@ -57,7 +56,7 @@ in
       config = rec {
         workspaceAutoBackAndForth = true;
         window = {
-          border = 4;
+          border = 10;
         };
 
         input = {
@@ -75,6 +74,11 @@ in
         };
 
         output."*".bg = "$HOME/.dotnix/assets/wallpaper.png fill #${base01}";
+
+        assigns = {
+          "0" = [ { app_id = "^firefox$"; }];
+          "5" = [ { app_id = "^lollypop$"; }];
+        };
 
 
         # terminal = "${pkgs.alacritty}/bin/alacritty";

@@ -93,7 +93,7 @@
            display:none!important;
           }
           
-          /* Shrink sidebar until hovered */
+          /* Shrink sidebar until hovered 
           :root {
               --thin-tab-width: 80px;
               --wide-tab-width: 300px;
@@ -113,6 +113,7 @@
               margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
               z-index: 1;
           }
+          */
         '';
       };
 
