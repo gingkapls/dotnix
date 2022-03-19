@@ -235,7 +235,7 @@ let
     
     IFS='`' # good enough
     
-    exec ${pkgs.playerctl}/bin/playerctl -Fsp playerctld metadata -f '{{status}}`{{title}}`{{artist}}`{{album}}`{{mpris:artUrl}}' | sed -u 's/&/&amp;/g' | while read -r playing title artist album art; do # & -> &amp to fix pango funky
+    exec ${pkgs.playerctl}/bin/playerctl -Fsp playerctld metadata -f '{{status}}`{{title}}`{{artist}}`{{album}}`{{mpris:artUrl}}' | sed -u "s/&/and/g; s/\"/\'/g" | while read -r playing title artist album art; do # & -> and to fix pango funky
 
     # printf "%s\n%s\n%s\n%s\n%s\n" "$playing" "$title" "$artist" "$album" "$art";
     printf '{"class": "%s", "text": "%s", "alt": "%s", "tooltip": "%s // %s"}\n' "$playing" "$title" "$playing" "$artist" "$album"
