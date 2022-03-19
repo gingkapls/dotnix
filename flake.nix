@@ -54,6 +54,6 @@
 
     };
 
-    devShells.${system}.default = pkgs.callPackage ./shell.nix {};
+    devShell.${system} = pkgs.callPackage ./shell.nix {};
   };
 }
