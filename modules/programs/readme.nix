@@ -16,7 +16,7 @@ with config;
       | ------------------- | ------------------------------------------------------------------------------------------------------------- |
       | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
       | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-      | GTK Theme           | [Materia ${config.colorscheme.slug}](https://github.com/Misterio77/nix-colors)                                |
+      | GTK Theme           | [Materia ${config.colorscheme.name}](https://github.com/Misterio77/nix-colors)                                |
       | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
       | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
       | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
@@ -26,7 +26,7 @@ with config;
       | Editor              | [Neovim](https://neovim.io/)                                                                                  |
       | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
       | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                          |
-      | Colorscheme         | ${config.colorscheme.slug}                                                                                    |
+      | Colorscheme         | [${config.colorscheme.name}](${config.colorscheme.author})                                                                                    |
 
       # Color Palette
       |                                                                           |                                                                                              |
