@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
@@ -66,6 +66,10 @@ in
     };
 
     optimise.automatic = true;
+    registry = lib.mapAttrs' (n: v:
+      lib.nameValuePair (n) ({ flake = v; })
+    ) inputs;
+
   };
 
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

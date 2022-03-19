@@ -38,5 +38,4 @@
 
   };
 
-  xdg.configFile."mpv/scripts/mordenx.lua".text = import ../../config/mordenx.nix;
 }

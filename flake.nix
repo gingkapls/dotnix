@@ -33,7 +33,9 @@
       nixosConfigurations = {
         amethyst = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit nix-colors; };
+        specialArgs = {
+          inherit inputs self nix-colors; 
+        };
 
         modules = [
           ./hosts/amethyst/configuration.nix

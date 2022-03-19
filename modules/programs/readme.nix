@@ -16,7 +16,7 @@ with config;
       | ------------------- | ------------------------------------------------------------------------------------------------------------- |
       | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
       | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-      | GTK Theme           | [Materia Nix-colors](https://github.com/Misterio77/nix-colors)                                                |
+      | GTK Theme           | [Materia ${config.colorscheme.slug}](https://github.com/Misterio77/nix-colors)                                |
       | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
       | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
       | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
@@ -25,7 +25,7 @@ with config;
       | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
       | Editor              | [Neovim](https://neovim.io/)                                                                                  |
       | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-      | Wallpaper           | [By Eberhard Grossgasteiger](./assets/wallpaper.png)                                                          |
+      | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                          |
       | Colorscheme         | ${config.colorscheme.slug}                                                                                    |
 
       # Color Palette
