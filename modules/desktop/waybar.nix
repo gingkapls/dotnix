@@ -21,8 +21,8 @@ in {
       settings = [ {
           layer = "bottom";
           position = "top";
-          width = 1200;
-          margin-top = 5;
+          width = 1920;
+          margin-top = 0;
           margin-left = 0;
           margin-right = 0;
           margin-bottom = 0;
@@ -69,7 +69,8 @@ in {
             };
   
             tray = {
-              spacing = 10;
+              # This does nothing
+              spacing = 12;
             };
   
            clock = {
@@ -104,13 +105,13 @@ in {
             font-size: 16px;
             min-height: 0;
     	      font-weight: 700;
-    	      padding: 2px 2px;
+    	      padding: 0px 2px;
     	      /* margin: 1.8px 8px 1.8px 8px; */
           }
  
           window#waybar {
             border-radius: 0px;
-            background-color: transparent;
+            background-color: #${base00};
             transition-property: background-color;
             transition-duration: .5s;
     	      padding: 0px 0px;
@@ -137,28 +138,29 @@ in {
         }
   
         #workspaces button {
-          padding: 4px 2px;
-  	      margin: 2px 8px;
-          border-color: #${base01};
-          color: #${base05};
-          background: #${base02};
+          padding: 0px 2px;
+  	      margin: 0px 4px;
+          border-color: #${base00};
+          color: #${base02};
+          background: #${base00};
         }
-  
-        #workspaces button.focused {
-        	border-color: #${base02};
-        	color: #${base02};
-          background-color: #${base05};
+         
+        #workspaces button:hover {
+        background: #${base00};
+        border-color: #${base00};
+  	    color: #${base03};
         }
-  
+
+         #workspaces button.focused {
+        	border-color: #${base00};
+        	color: #${base05};
+          background-color: #${base00};
+        }
+
         #workspaces button.urgent {
           background-color: #${base09};
         }
 
-        #workspaces button:hover {
-        background: #${base03};
-        border-color: #${base02};
-  	    color: #${base05};
-        }
 
   
         #clock,
@@ -172,15 +174,15 @@ in {
         #tray,
         #custom-recorder {
         	color: #${base05};
-          background: #${base02};
-          padding: 4px 12px;
-          margin: 2px 8px;
+          background: #${base00};
+          padding: 8px 8px;
+          margin: 2px 6px;
         }
   
         @keyframes blink {
             to {
-                background-color: #${base02};
-                color: #${base07};
+                background-color: #${base00};
+                color: #${base05};
             }
         }
   
@@ -198,7 +200,7 @@ in {
         }
   
         #idle_inhibitor.activated {
-            color: #${base0D};
+            color: #${base0A};
         }
       '';
       

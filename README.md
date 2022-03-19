@@ -16,16 +16,16 @@
 | Editor              | [Neovim](https://neovim.io/)                                                                                  |
 | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
 | Wallpaper           | [By Eberhard Grossgasteiger](./assets/wallpaper.png)                                                          |
-| Colorscheme         | everforest                                                                                    |
+| Colorscheme         | eighties                                                                                    |
 
 # Color Palette
 |                                                                           |                                                                                              |
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| ![#2b3339](https://via.placeholder.com/15/2b3339/000000?text=+) `#2b3339` | ![#e67e80](https://via.placeholder.com/15/e67e80/000000?text=+) `#e67e80`  |
-| ![#323c41](https://via.placeholder.com/15/323c41/000000?text=+) `#323c41` | ![#e69875](https://via.placeholder.com/15/e69875/000000?text=+) `#e69875`  |
-| ![#3a4248](https://via.placeholder.com/15/3a4248/000000?text=+) `#3a4248` | ![#dbbc7f](https://via.placeholder.com/15/dbbc7f/000000?text=+) `#dbbc7f`  |
-| ![#868d80](https://via.placeholder.com/15/868d80/000000?text=+) `#868d80` | ![#a7c080](https://via.placeholder.com/15/a7c080/000000?text=+) `#a7c080`  |
-| ![#a59572](https://via.placeholder.com/15/a59572/000000?text=+) `#a59572` | ![#83c092](https://via.placeholder.com/15/83c092/000000?text=+) `#83c092`  |
-| ![#d3c6aa](https://via.placeholder.com/15/d3c6aa/000000?text=+) `#d3c6aa` | ![#7fbbb3](https://via.placeholder.com/15/7fbbb3/000000?text=+) `#7fbbb3`  |
-| ![#e9e8d2](https://via.placeholder.com/15/e9e8d2/000000?text=+) `#e9e8d2` | ![#d699b6](https://via.placeholder.com/15/d699b6/000000?text=+) `#d699b6`  |
-| ![#fff9e8](https://via.placeholder.com/15/fff9e8/000000?text=+) `#fff9e8` | ![#d699b6](https://via.placeholder.com/15/d699b6/000000?text=+) `#d699b6`  |
+| ![#2d2d2d](https://via.placeholder.com/15/2d2d2d/000000?text=+) `#2d2d2d` | ![#f2777a](https://via.placeholder.com/15/f2777a/000000?text=+) `#f2777a`  |
+| ![#393939](https://via.placeholder.com/15/393939/000000?text=+) `#393939` | ![#f99157](https://via.placeholder.com/15/f99157/000000?text=+) `#f99157`  |
+| ![#515151](https://via.placeholder.com/15/515151/000000?text=+) `#515151` | ![#ffcc66](https://via.placeholder.com/15/ffcc66/000000?text=+) `#ffcc66`  |
+| ![#747369](https://via.placeholder.com/15/747369/000000?text=+) `#747369` | ![#99cc99](https://via.placeholder.com/15/99cc99/000000?text=+) `#99cc99`  |
+| ![#a09f93](https://via.placeholder.com/15/a09f93/000000?text=+) `#a09f93` | ![#66cccc](https://via.placeholder.com/15/66cccc/000000?text=+) `#66cccc`  |
+| ![#d3d0c8](https://via.placeholder.com/15/d3d0c8/000000?text=+) `#d3d0c8` | ![#6699cc](https://via.placeholder.com/15/6699cc/000000?text=+) `#6699cc`  |
+| ![#e8e6df](https://via.placeholder.com/15/e8e6df/000000?text=+) `#e8e6df` | ![#cc99cc](https://via.placeholder.com/15/cc99cc/000000?text=+) `#cc99cc`  |
+| ![#f2f0ec](https://via.placeholder.com/15/f2f0ec/000000?text=+) `#f2f0ec` | ![#d27b53](https://via.placeholder.com/15/d27b53/000000?text=+) `#d27b53`  |

@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  colorscheme = nix-colors.colorSchemes.everforest;
+  colorscheme = nix-colors.colorSchemes.eighties;
 
   home = {
     username = "gin";
