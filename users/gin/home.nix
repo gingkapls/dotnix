@@ -16,7 +16,7 @@
     pulseaudioLight
     blender gimp krita inkscape imagemagick
     zathura mpv imv nitrogen
-    gh git git-crypt gnupg
+    gh git git-crypt gnupg openssl
     playerctl pamixer pavucontrol
     networkmanagerapplet
     picom slop maim xdotool tesseract
