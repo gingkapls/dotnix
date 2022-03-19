@@ -3,9 +3,9 @@
 with config.colorscheme.colors;
 with config;
 {
-  home.file."README.md" = {
+  home.file."README-md" = {
     target = "${xdg.cacheHome}/README.md";
-    onChange = "cp -f '${home.file."README.md".target}' '${home.homeDirectory}/.dotnix/README.md'";
+    onChange = "cp -f '${home.file."README-md".target}' '${home.homeDirectory}/.dotnix/README.md'";
     
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
@@ -25,8 +25,8 @@ with config;
       | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
       | Editor              | [Neovim](https://neovim.io/)                                                                                  |
       | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-      | Wallpaper           | [Nodame Cantabile](./assets/wallpaper.png)                                                                    |
-      | Colorscheme         | [Rosé Pine Dawn](https://github.com/rose-pine/)                                                               |
+      | Wallpaper           | [By Eberhard Grossgasteiger](./assets/wallpaper.png)                                                          |
+      | Colorscheme         | ${config.colorscheme.slug}                                                                                    |
 
       # Color Palette
       |                                                                           |                                                                                              |

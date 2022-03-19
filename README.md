@@ -15,8 +15,8 @@
 | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
 | Editor              | [Neovim](https://neovim.io/)                                                                                  |
 | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-| Wallpaper           | [Nodame Cantabile](./assets/wallpaper.png)                                                                    |
-| Colorscheme         | [Rosé Pine Dawn](https://github.com/rose-pine/)                                                               |
+| Wallpaper           | [By Eberhard Grossgasteiger](./assets/wallpaper.png)                                                          |
+| Colorscheme         | everforest                                                                                    |
 
 # Color Palette
 |                                                                           |                                                                                              |
