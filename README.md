@@ -9,7 +9,7 @@
 | GTK Theme           | [Materia Nix-colors](https://github.com/Misterio77/nix-colors)                                                |
 | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
 | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
-| UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
+| UI Font             | [Inter](https://github.com/rsms/inter)                                                                        |
 | Terminal            | [Foot](https://codeberg.org/dnkl/foot) [Alacritty](https://github.com/alacritty/alacritty)                    |
 | Terminal Font       | [Iosevka](https://github.com/be5invis/Iosevka)                                                                |
 | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |

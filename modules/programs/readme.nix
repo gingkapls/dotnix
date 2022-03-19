@@ -3,15 +3,15 @@
 with config.colorscheme.colors;
 with config;
 {
-  home.file."README.md" = {
+  home.file."README-md" = {
     target = "${xdg.cacheHome}/README.md";
     onChange = "cp -f '${home.file."README.md".target}' '${home.homeDirectory}/.dotnix/README.md'";
-    
+
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
-      
+
       ![My rice!](./assets/rice.png "My rice!")
-      
+
       |                     |                                                                                                               |
       | ------------------- | ------------------------------------------------------------------------------------------------------------- |
       | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
@@ -19,7 +19,7 @@ with config;
       | GTK Theme           | [Materia Nix-colors](https://github.com/Misterio77/nix-colors)                                                |
       | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
       | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
-      | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
+      | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        |
       | Terminal            | [Foot](https://codeberg.org/dnkl/foot) [Alacritty](https://github.com/alacritty/alacritty)                    |
       | Terminal Font       | [Iosevka](https://github.com/be5invis/Iosevka)                                                                |
       | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
