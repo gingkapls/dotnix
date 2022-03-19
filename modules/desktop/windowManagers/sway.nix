@@ -39,6 +39,7 @@ in
       enable = true;
       systemdIntegration = true;
       wrapperFeatures.gtk = true;
+      package = null;
 
       extraSessionCommands = ''
         export XDG_SESSION_DESKTOP=sway
@@ -310,14 +311,15 @@ in
   
       };
   
-      extraConfig = ''
-        title_align center
-        titlebar_padding 10 2
-        for_window [ app_id="firefox" title=".*Picture-in-Picture.*" ] floating enable, sticky enable resize set width 600 height 500
-        for_window [ app_id="org.gnome.Nautilus" ] floating enable, resize set width 800 set height 600
-        for_window [ app_id="gcolor3" ] floating enable, resize set width 800 set height 600
-        for_window [ app_id="imv" ] floating enable, resize set width 800 set height 600
-      '';
+      extraConfig =
+          ''
+            title_align center
+            titlebar_padding 10 2
+            for_window [ app_id="firefox" title=".*Picture-in-Picture.*" ] floating enable, sticky enable resize set width 600 height 500
+            for_window [ app_id="org.gnome.Nautilus" ] floating enable, resize set width 800 set height 600
+            for_window [ app_id="gcolor3" ] floating enable, resize set width 800 set height 600
+            for_window [ app_id="imv" ] floating enable, resize set width 800 set height 600
+          '';
     };
   
   };

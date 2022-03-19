@@ -142,7 +142,7 @@ in
 
       displayManager = {
         lightdm.enable = false;
-        #gdm.enable = true;
+        gdm.enable = false;
       };
 
       windowManager = {
@@ -152,6 +152,11 @@ in
 
         i3 = {
           enable = true; 
+        };
+
+        awesome = {
+          enable = false;
+          luaModules = [ pkgs.luaPackages.luarocks ];
         };
       };
 

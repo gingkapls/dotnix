@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, ... }:
+{ config, inputs, pkgs, nix-colors, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the

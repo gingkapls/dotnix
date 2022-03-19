@@ -12,8 +12,6 @@ in {
   config = mkIf cfg.enable {
     xsession.windowManager.awesome = {
       enable = true;
-      package = pkgs.awesome;
-      luaModules = [ pkgs.luarocks ];
       noArgb = true;
     };
   };

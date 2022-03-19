@@ -2,10 +2,14 @@
   description = "A very basic flake";
   
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-21.11";
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-colors.url = "github:misterio77/nix-colors";
+    nixpkgs = { url = "nixpkgs/nixos-21.11";};
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-21.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-colors = { url = "github:misterio77/nix-colors"; };
     
     nixvim = {
       url = "github:pta2002/nixvim";
@@ -36,7 +40,11 @@
 
           home-manager.nixosModules.home-manager {
             home-manager = {
-              extraSpecialArgs = { inherit nix-colors; };
+
+              extraSpecialArgs = {
+                inherit inputs self nix-colors; 
+              };
+
               useUserPackages = true;
               useGlobalPkgs = true;
               users.gin = { 
