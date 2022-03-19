@@ -15,8 +15,8 @@
 | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
 | Editor              | [Neovim](https://neovim.io/)                                                                                  |
 | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-| Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                          |
-| Colorscheme         | [Eighties](Chris Kempson (http://chriskempson.com))                                                                                    |
+| Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
+| Colorscheme         | [Eighties](http://chriskempson.com)                                                         |
 
 # Color Palette
 |                                                                           |                                                                                              |

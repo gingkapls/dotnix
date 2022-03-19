@@ -8,7 +8,7 @@
     ./firefox.nix
     ./foot.nix
     ./mpv.nix
-    ./readme.nix
+    ./mkreadme.nix
     ./swappy.nix
     ./vscode.nix
     ./zathura.nix

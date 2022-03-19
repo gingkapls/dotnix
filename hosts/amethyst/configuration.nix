@@ -66,6 +66,7 @@ in
     };
 
     optimise.automatic = true;
+
     registry = lib.mapAttrs' (n: v:
       lib.nameValuePair (n) ({ flake = v; })
     ) inputs;

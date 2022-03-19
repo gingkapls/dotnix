@@ -25,8 +25,8 @@ with config;
       | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
       | Editor              | [Neovim](https://neovim.io/)                                                                                  |
       | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-      | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                          |
-      | Colorscheme         | [${config.colorscheme.name}](${config.colorscheme.author})                                                                                    |
+      | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
+      | Colorscheme         | [${config.colorscheme.name}](http://chriskempson.com)                                                         |
 
       # Color Palette
       |                                                                           |                                                                                              |
