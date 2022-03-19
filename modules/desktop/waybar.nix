@@ -138,8 +138,8 @@ in {
         }
   
         #workspaces button {
-          padding: 0px 2px;
-  	      margin: 0px 4px;
+          padding: 8px 2px;
+  	      margin: 0px 0px;
           border-color: #${base00};
           color: #${base02};
           background: #${base00};
