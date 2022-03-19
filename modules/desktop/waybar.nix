@@ -178,6 +178,11 @@ in {
           padding: 8px 8px;
           margin: 2px 6px;
         }
+
+        #tray {
+          margin: 0px 0px;
+        }
+
   
         @keyframes blink {
             to {
