@@ -155,7 +155,7 @@ let
     		if [ ! -z "$color_code" ]; then
     			${pkgs.wl-clipboard}/bin/wl-copy "$color_code"
     			${pkgs.imagemagick}/bin/convert -size 96x96 xc:"$color_code" "$tmp_file"
-    			${pkgs.libnotify}/bin/notify-send "$(${pkgs.wl-clipboard}/bin/wl-paste)" -i /tmp/color.png --app-name=colorpicker 
+    			${pkgs.libnotify}/bin/notify-send "$color_code" -i "$tmp_file" --app-name=colorpicker 
           rm "$tmp_file"
         else
           false

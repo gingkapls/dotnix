@@ -203,8 +203,8 @@ in
             "${modifier}+bracketleft"  = "workspace prev";
             "${modifier}+bracketright"  = "workspace next";
   
-            "${modifier}+button4 --whole-window"  = "workspace next";
-            "${modifier}+button5 --whole-window"  = "workspace prev";
+            "--whole-window ${modifier}+button4 "  = "workspace next";
+            "--whole-window ${modifier}+button5 "  = "workspace prev";
   
             # Move Workspaces
             "${modifier}+Shift+1"  = "move container to workspace number 1, workspace number 1";
@@ -250,9 +250,9 @@ in
             "Print" = screenshot "screen";
             "Ctrl+Print" = screenshot "select";
             "Shift+Print" = screenshot "window";
-            "Alt+button1" = screenshot "color-picker";
             "Ctrl+Shift+Print" = screenshot "select-window";
-            "Ctrl+Alt+Print" = screenshot "ocr";
+            "Ctrl+Mod1+Print" = screenshot "ocr";
+            "--whole-window Mod1+button1" = screenshot "color-picker";
 
             # Screenrecords
             "${modifier}+Print" = screenrecord "screen";
