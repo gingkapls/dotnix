@@ -1,24 +1,31 @@
 { config, pkgs, nixvim, ... }:
 
+with config.colorscheme.colors;
+
 let
-  rose-pine = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "rose-pine.nvim";
-    version = "v1.0.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "rose-pine";
-      repo = "neovim";
-      rev = "v1.0.0";
-      sha256 = "m6l5yjQiX5kclw34xzGwbLmh10oL+4F0kKB/b+TOMQ4=";
-    };
-    meta.homepage = "https://github.com/rose-pine/neovim/";
-  };
+  #rose-pine = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  #  pname = "rose-pine.nvim";
+  #  version = "v1.0.0";
+  #  src = pkgs.fetchFromGitHub {
+  #    owner = "rose-pine";
+  #    repo = "neovim";
+  #    rev = "v1.0.0";
+  #    sha256 = "m6l5yjQiX5kclw34xzGwbLmh10oL+4F0kKB/b+TOMQ4=";
+  #  };
+  #  meta.homepage = "https://github.com/rose-pine/neovim/";
+  #};
+  test = test;
 
 in {
   # Neovim
+
+  xdg.configFile."neovim/colors/base16.vim".text = import ./base16-vim.nix;
+
   programs.nixvim = {
     enable = true;
 
-    colorscheme = "rose-pine";
+    # Use default till we make our own colorscheme
+     colorscheme = "${config.colorscheme.slug}";
 
     plugins = {
 
@@ -27,14 +34,18 @@ in {
 
       lualine = {
         enable = true;
+
         sectionSeparators = {
           left = "" ;
           right = "" ;
         };
+
         componentSeparators = {
           left = "" ;
           right = "" ;
         };
+
+        theme = "auto";
       };
 
       goyo = {
@@ -69,13 +80,12 @@ in {
       relativenumber = true;
       ttyfast = true;
       clipboard = "unnamedplus";
-      background = config.colorscheme.kind;
+      # background = config.colorscheme.kind;
     };
 
   };
 
   programs.neovim.vimAlias = true;
   programs.neovim.viAlias = true;
-
 
 }
