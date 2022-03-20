@@ -9,6 +9,7 @@
     ./foot.nix
     ./mpv.nix
     ./mkreadme.nix
+    ./obsidian
     ./swappy.nix
     ./vscode.nix
     ./zathura.nix

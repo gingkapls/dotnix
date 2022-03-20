@@ -1,11 +1,10 @@
 { config, lib, nix-colors, ... }:
 
 with config.colorscheme.colors;
-with config;
 {
   home.file."README-md" = {
-    target = "${xdg.cacheHome}/README.md";
-    onChange = "cp -f '${home.file."README-md".target}' '${home.homeDirectory}/.dotnix/README.md'";
+    target = "${config.xdg.cacheHome}/README.md";
+    onChange = "cp -f '${config.home.file."README-md".target}' '${config.home.homeDirectory}/.dotnix/README.md'";
     
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
