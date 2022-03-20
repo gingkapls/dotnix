@@ -7,16 +7,16 @@ with config.colorscheme.colors;
     onChange = "cp -f '${config.home.file."README-md".target}' '${config.home.homeDirectory}/.dotnix/README.md'";
     
     text = ''
-      ### Welcome traveller to the disarray that are my dotfiles!
+      # Welcome traveller to the disarray that are my dotfiles!
 
-      ##### Credits
-      [gammons/base16-obsidian](https://github.com/gammons/base16-obsidian)  
-      [Misterio77/nix-colors](https://github.com/Misterio77/nix-colors)  
-      [Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-config/blob/minimal/configuration.nix)  
-      [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)  
-      [legendofmiracles/dotnix](https://github.com/legendofmiracles/dotnix)  
-      [nuxshed/dotfiles](https://github.com/nuxshed/dotfiles)  
-      [viperML/dotfiles](https://github.com/viperML/dotfiles)  
+      ## Credits
+      - [gammons/base16-obsidian](https://github.com/gammons/base16-obsidian)
+      - [Misterio77/nix-colors](https://github.com/Misterio77/nix-colors)
+      - [Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-config/blob/minimal/configuration.nix)
+      - [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
+      - [legendofmiracles/dotnix](https://github.com/legendofmiracles/dotnix)
+      - [nuxshed/dotfiles](https://github.com/nuxshed/dotfiles)
+      - [viperML/dotfiles](https://github.com/viperML/dotfiles)
       
       ![My rice!](./assets/rice.png "My rice!")
       
@@ -36,7 +36,7 @@ with config.colorscheme.colors;
       | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
       | Colorscheme         | [${config.colorscheme.name}](http://chriskempson.com)                                                         |
 
-      # Color Palette
+      ## Color Palette
       |                                Colorscheme                                |                               ${config.colorscheme.name}                                     |
       |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
       | ![#${base00}](https://via.placeholder.com/15/${base00}/000000?text=+) `#${base00}` | ![#${base08}](https://via.placeholder.com/15/${base08}/000000?text=+) `#${base08}`  |
