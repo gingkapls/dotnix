@@ -8,6 +8,15 @@ with config.colorscheme.colors;
     
     text = ''
       ### Welcome traveller to the disarray that are my dotfiles!
+
+      ##### Credits
+      [gammons/base16-obsidian](https://github.com/gammons/base16-obsidian)
+      [Misterio77/nix-colors](https://github.com/Misterio77/nix-colors)
+      [Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-config/blob/minimal/configuration.nix)
+      [fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
+      [legendofmiracles/dotnix](https://github.com/legendofmiracles/dotnix)
+      [nuxshed/dotfiles](https://github.com/nuxshed/dotfiles)
+      [viperML/dotfiles](https://github.com/viperML/dotfiles)
       
       ![My rice!](./assets/rice.png "My rice!")
       
@@ -28,7 +37,7 @@ with config.colorscheme.colors;
       | Colorscheme         | [${config.colorscheme.name}](http://chriskempson.com)                                                         |
 
       # Color Palette
-      |                                                                           |                                                                                              |
+      |                                Colorscheme                                |                               ${config.colorscheme.name}                                     |
       |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
       | ![#${base00}](https://via.placeholder.com/15/${base00}/000000?text=+) `#${base00}` | ![#${base08}](https://via.placeholder.com/15/${base08}/000000?text=+) `#${base08}`  |
       | ![#${base01}](https://via.placeholder.com/15/${base01}/000000?text=+) `#${base01}` | ![#${base09}](https://via.placeholder.com/15/${base09}/000000?text=+) `#${base09}`  |

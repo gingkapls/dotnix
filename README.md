@@ -1,5 +1,14 @@
 ### Welcome traveller to the disarray that are my dotfiles!
 
+##### Credits
+[gammons/base16-obsidian](https://github.com/gammons/base16-obsidian)
+[Misterio77/nix-colors](https://github.com/Misterio77/nix-colors)
+[Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-config/blob/minimal/configuration.nix)
+[fortuneteller2k/nix-config](https://github.com/fortuneteller2k/nix-config)
+[legendofmiracles/dotnix](https://github.com/legendofmiracles/dotnix)
+[nuxshed/dotfiles](https://github.com/nuxshed/dotfiles)
+[viperML/dotfiles](https://github.com/viperML/dotfiles)
+
 ![My rice!](./assets/rice.png "My rice!")
 
 |                     |                                                                                                               |
@@ -19,7 +28,7 @@
 | Colorscheme         | [Woodland](http://chriskempson.com)                                                         |
 
 # Color Palette
-|                                                                           |                                                                                              |
+|                                Colorscheme                                |                               Woodland                                     |
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | ![#231e18](https://via.placeholder.com/15/231e18/000000?text=+) `#231e18` | ![#d35c5c](https://via.placeholder.com/15/d35c5c/000000?text=+) `#d35c5c`  |
 | ![#302b25](https://via.placeholder.com/15/302b25/000000?text=+) `#302b25` | ![#ca7f32](https://via.placeholder.com/15/ca7f32/000000?text=+) `#ca7f32`  |
