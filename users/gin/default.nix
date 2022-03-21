@@ -1,57 +1,113 @@
-{
-  description = "A very basic flake";
-  
-  inputs = {
-    nixpkgs.url = "nixpkgs/nixos-21.11";
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-colors.url = "github:misterio77/nix-colors";
-    
-    nixvim = {
-      url = "github:pta2002/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; 
+{ config, inputs, pkgs, nix-colors, lib, ... }:
 
+{
+  # Home Manager needs a bit of information about you and the
+  # paths it should manage.
+  colorscheme = nix-colors.colorSchemes.atelier-sulphurpool-light;
+
+  home = {
+    username = "gin";
+    homeDirectory = "/home/gin";
+
+    packages = with pkgs; [ 
+    google-chrome 
+    gnome.nautilus
+    coreutils tree jq
+    pulseaudioLight
+    blender gimp krita inkscape imagemagick
+    zathura mpv imv nitrogen
+    gh git git-crypt gnupg openssl
+    playerctl pamixer pavucontrol
+    networkmanagerapplet
+    picom slop maim xdotool tesseract
+    dunst libnotify
+    mangohud
+    dconf
+    rhythmbox lollypop spotdl cava
+    qbittorrent
+    ventoy-bin
+    aria2 rclone
+    # android-tools enable programs.adb instead
+    android-udev-rules
+    tdesktop
+    obsidian 
+  ];
+
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+  
+    stateVersion = "21.11";
   };
 
-  outputs = { self, nixpkgs, nix-colors, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true; 
 
-      pkgs = import nixpkgs {
-        inherit system;
-        config = { allowUnfree = true; };
-      };
+  nixpkgs.config.allowUnfree = true;
 
-      lib = nixpkgs.lib;
+  modules = {
 
-    in {
-      nixosConfigurations = {
-        amethyst = lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit nix-colors; };
+    desktop = {
+      windowManager.i3.enable = true;
+      windowManager.awesome.enable = true;
+      windowManager.sway.enable = true;
+      picom.enable = true;
+      dunst.enable = false;
+      mako.enable = true;
+      waybar.enable = true;
+    };
 
-        modules = [
-          ./hosts/amethyst/configuration.nix
-
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              extraSpecialArgs = { inherit nix-colors; };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users.gin = { 
-                imports = [ 
-                  ./users/gin
-	                inputs.nixvim.homeManagerModules.nixvim
-	              ];
-	            };
-            }; 
-	        }
-
-        ];
-
-      };   
-
+    programs = {
+      foot.enable = true;
+      vscode.enable = true;
     };
   };
+
+  services = {
+    easyeffects = {
+      enable = true;
+      preset = "perfect-eq";
+    };
+
+  };
+
+  xdg = {
+    enable = true;
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+
+      defaultApplications = {
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+        "image/gif" = [ "imv.desktop" ];
+        "image/svg+xml" = [ "imv.desktop" ];
+        "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+        "application/json" = [ "nvim.desktop" ];
+        "application/x-yaml" = [ "nvim.desktop" ];
+      };
+    
+    };
+
+    dataHome = "${config.home.homeDirectory}/.local/share";
+    stateHome = "${config.home.homeDirectory}/.local/state";
+    cacheHome = "${config.home.homeDirectory}/.cache";
+    configHome = "${config.home.homeDirectory}/.config";
+
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+
+  };
+
+  imports = [
+    ../../modules
+    nix-colors.homeManagerModule
+  ];
 }

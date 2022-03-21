@@ -4,28 +4,6 @@
 with config.colorscheme.colors; {
   # Shell
   programs = {
-
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    nix-index = { 
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-  
-    bash.enable = true;
     zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -69,6 +47,7 @@ with config.colorscheme.colors; {
         bindkey '^F' autosuggest-accept
         export KEYTIMEOUT=1
         ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
+        eval "$(direnv hook zsh)"
       '';
 
       plugins = [ 

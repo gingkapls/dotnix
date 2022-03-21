@@ -52,6 +52,8 @@ in
     package = pkgs.nixFlakes;
     extraOptions = ''
     experimental-features = nix-command flakes 
+      keep-outputs = true
+      keep-derivations = true
   '';
 
     allowedUsers = [ "gin" ];
@@ -351,6 +353,7 @@ in
     dconf.enable = true;
     gnome-disks.enable = true;
     sway.enable = true;
+    adb.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
