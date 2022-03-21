@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./rclone-sync.nix
+    ./rclone-sync
   ];
 }

@@ -1,6 +1,4 @@
-{ config, pkgs, nix-colors, inputs, lib, ... }:
-
-with config.colorscheme.colors;
+{ config, pkgs, ... }:
 
 let
   i3-floating-decor = pkgs.writers.writePython3Bin "i3-floating-decor" { libraries = [ pkgs.python39Packages.i3ipc ]; }
@@ -137,7 +135,7 @@ let
     		eval "$OCR" ;;
     
     	"select-window") ## Window screenshot
-        dimensions="$(${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | ${pkgs.slurp}/bin/slurp -c "#${base05}")"
+        dimensions="$(${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | ${pkgs.slurp}/bin/slurp)"
     		${pkgs.grim}/bin/grim -g "$dimensions" - | ${pkgs.swappy}/bin/swappy -f - -o - | tee "$tmp_file" | ${pkgs.wl-clipboard}/bin/wl-copy
     		eval "$notify"
     		eval "$OCR" ;;

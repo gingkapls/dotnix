@@ -3,7 +3,7 @@
 {
   imports = [
     ./env.nix
-    ./scripts.nix
+    ./bin
     ./zsh.nix
   ];
 
