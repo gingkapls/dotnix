@@ -10,7 +10,7 @@
 
       Service = {
         Restart = "on-abnormal";
-        ExecStart = "${pkgs.rclone}/bin/rclone copy ${config.home.homeDirectory}/Documents gdrive:/Documents --create-empty-src-dirs --progress";
+        ExecStart = "${pkgs.rclone}/bin/rclone copy ${config.home.homeDirectory}/Documents gdrive:/Documents --create-empty-src-dirs --progress --copy-links";
         KillMode = "mixed";
         KillSignal = "SIGTERM";
         TimeoutStopSec = "5s";

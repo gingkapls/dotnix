@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  colorscheme = nix-colors.colorSchemes.woodland;
+  colorscheme = nix-colors.colorSchemes.atelier-sulphurpool-light;
 
   home = {
     username = "gin";
@@ -21,10 +21,10 @@
     networkmanagerapplet
     picom slop maim xdotool tesseract
     dunst libnotify
-    qbittorrent
     mangohud
     dconf
     rhythmbox lollypop spotdl cava
+    qbittorrent
     ventoy-bin
     aria2 rclone
     android-tools

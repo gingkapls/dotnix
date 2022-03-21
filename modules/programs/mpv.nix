@@ -34,6 +34,7 @@
       osd-bar = "no";
       osd-on-seek = "msg";
       border = "no";
+      sub-paths = "sub:subs:subtiles:Sub:Subs:Subtitles";
     };
 
   };
