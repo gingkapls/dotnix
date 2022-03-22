@@ -288,7 +288,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.gin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "video" "adbusers" ]; # Enable ‘sudo’ for the user.
     initialPassword = "123456";
     shell = pkgs.zsh;
   };
@@ -313,11 +313,12 @@ in
 
     binsh = "${pkgs.dash}/bin/dash";
 
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      FVWM_USERDIR = "$HOME/.config/fvwm";    
-    };
+    # Set them through HM
+    # variables = {
+    #   EDITOR = "nvim";
+    #   VISUAL = "nvim";
+    #   FVWM_USERDIR = "$HOME/.config/fvwm";    
+    # };
 
   };
 
