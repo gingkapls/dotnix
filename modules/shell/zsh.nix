@@ -36,6 +36,8 @@ with config.colorscheme.colors; {
 
       initExtra = ''
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        # Enable vim mode
+        bindkey -v
         # Fix backspace in insert mode
         bindkey "^?" backward-delete-char
         bindkey '^R' history-incremental-pattern-search-backward 
