@@ -15,7 +15,7 @@
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
 | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
 | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-| GTK Theme           | [Materia Atelier Sulphurpool Light](https://github.com/Misterio77/nix-colors)                                |
+| GTK Theme           | [Materia Default Light](https://github.com/Misterio77/nix-colors)                                |
 | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
 | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
 | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
@@ -25,16 +25,16 @@
 | Editor              | [Neovim](https://neovim.io/)                                                                                  |
 | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
 | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
-| Colorscheme         | [Atelier Sulphurpool Light](http://chriskempson.com)                                                         |
+| Colorscheme         | [Default Light](http://chriskempson.com)                                                         |
 
 ## Color Palette
-|                                Colorscheme                                |                               Atelier Sulphurpool Light                                     |
+|                                Colorscheme                                |                               Default Light                                     |
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| ![#f5f7ff](https://via.placeholder.com/15/f5f7ff/000000?text=+) `#f5f7ff` | ![#c94922](https://via.placeholder.com/15/c94922/000000?text=+) `#c94922`  |
-| ![#dfe2f1](https://via.placeholder.com/15/dfe2f1/000000?text=+) `#dfe2f1` | ![#c76b29](https://via.placeholder.com/15/c76b29/000000?text=+) `#c76b29`  |
-| ![#979db4](https://via.placeholder.com/15/979db4/000000?text=+) `#979db4` | ![#c08b30](https://via.placeholder.com/15/c08b30/000000?text=+) `#c08b30`  |
-| ![#898ea4](https://via.placeholder.com/15/898ea4/000000?text=+) `#898ea4` | ![#ac9739](https://via.placeholder.com/15/ac9739/000000?text=+) `#ac9739`  |
-| ![#6b7394](https://via.placeholder.com/15/6b7394/000000?text=+) `#6b7394` | ![#22a2c9](https://via.placeholder.com/15/22a2c9/000000?text=+) `#22a2c9`  |
-| ![#5e6687](https://via.placeholder.com/15/5e6687/000000?text=+) `#5e6687` | ![#3d8fd1](https://via.placeholder.com/15/3d8fd1/000000?text=+) `#3d8fd1`  |
-| ![#293256](https://via.placeholder.com/15/293256/000000?text=+) `#293256` | ![#6679cc](https://via.placeholder.com/15/6679cc/000000?text=+) `#6679cc`  |
-| ![#202746](https://via.placeholder.com/15/202746/000000?text=+) `#202746` | ![#9c637a](https://via.placeholder.com/15/9c637a/000000?text=+) `#9c637a`  |
+| ![#f8f8f8](https://via.placeholder.com/15/f8f8f8/000000?text=+) `#f8f8f8` | ![#ab4642](https://via.placeholder.com/15/ab4642/000000?text=+) `#ab4642`  |
+| ![#e8e8e8](https://via.placeholder.com/15/e8e8e8/000000?text=+) `#e8e8e8` | ![#dc9656](https://via.placeholder.com/15/dc9656/000000?text=+) `#dc9656`  |
+| ![#d8d8d8](https://via.placeholder.com/15/d8d8d8/000000?text=+) `#d8d8d8` | ![#f7ca88](https://via.placeholder.com/15/f7ca88/000000?text=+) `#f7ca88`  |
+| ![#b8b8b8](https://via.placeholder.com/15/b8b8b8/000000?text=+) `#b8b8b8` | ![#a1b56c](https://via.placeholder.com/15/a1b56c/000000?text=+) `#a1b56c`  |
+| ![#585858](https://via.placeholder.com/15/585858/000000?text=+) `#585858` | ![#86c1b9](https://via.placeholder.com/15/86c1b9/000000?text=+) `#86c1b9`  |
+| ![#383838](https://via.placeholder.com/15/383838/000000?text=+) `#383838` | ![#7cafc2](https://via.placeholder.com/15/7cafc2/000000?text=+) `#7cafc2`  |
+| ![#282828](https://via.placeholder.com/15/282828/000000?text=+) `#282828` | ![#ba8baf](https://via.placeholder.com/15/ba8baf/000000?text=+) `#ba8baf`  |
+| ![#181818](https://via.placeholder.com/15/181818/000000?text=+) `#181818` | ![#a16946](https://via.placeholder.com/15/a16946/000000?text=+) `#a16946`  |
