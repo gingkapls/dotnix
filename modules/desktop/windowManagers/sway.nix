@@ -202,6 +202,16 @@ in
             "${modifier}+Tab"  = "workspace back_and_forth";
             "${modifier}+bracketleft"  = "workspace prev";
             "${modifier}+bracketright"  = "workspace next";
+            "${modifier}+1"  = "workspace number 1";
+            "${modifier}+2"  = "workspace number 2";
+            "${modifier}+3"  = "workspace number 3";
+            "${modifier}+4"  = "workspace number 4";
+            "${modifier}+5"  = "workspace number 5";
+            "${modifier}+6"  = "workspace number 6";
+            "${modifier}+7"  = "workspace number 7";
+            "${modifier}+8"  = "workspace number 8";
+            "${modifier}+9"  = "workspace number 9";
+            "${modifier}+0"  = "workspace number 10";
   
             "--whole-window ${modifier}+button4 "  = "workspace next";
             "--whole-window ${modifier}+button5 "  = "workspace prev";

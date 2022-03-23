@@ -31,7 +31,26 @@ in {
 
           modules = {
             "sway/workspaces" = {
-              "format" =  "{name}";
+              format =  "{name} {icon}";
+              format-icons = {
+                "1" = "";
+                "2" = "";
+                "3" = "";
+                "4" = "";
+                "5" = "";
+                "6" = "";
+                "7" = " ";
+                "8" = " ";
+                "9" = " ";
+                "10" = " ";
+              };
+
+              persistent_workspaces = {
+                "1" = [];
+                "2" = [];
+                "3" = [];
+                "4" = [];
+              };
             };
   
             "sway/mode" = {
