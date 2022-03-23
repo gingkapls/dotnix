@@ -33,7 +33,7 @@ with config.colorscheme.colors;
       | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
       | Editor              | [Neovim](https://neovim.io/)                                                                                  |
       | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
-      | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
+      | Wallpaper           | [Big Ben Tower London /u/facesnz](https://www.reddit.com/r/Art/comments/tkrf34/big_ben_tower_london_me_digital_print_pen_and_ink/)                                                                           |
       | Colorscheme         | [${config.colorscheme.name}](http://chriskempson.com)                                                         |
 
       ## Color Palette
