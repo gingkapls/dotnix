@@ -224,7 +224,7 @@ with config.colorscheme.colors;
         .markdown-preview-view .task-list-item-checkbox:checked::before {
           content: ' ';
           position: absolute;
-          background-color: white;
+          background-color: var(--background-secondary);
           left:1px;
           top:1px;
           right:1px;

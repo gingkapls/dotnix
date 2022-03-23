@@ -31,6 +31,7 @@
     android-udev-rules
     tdesktop
     obsidian 
+    rmlint
   ];
 
     # This value determines the Home Manager release that your
