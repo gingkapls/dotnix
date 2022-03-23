@@ -151,7 +151,7 @@ in
 
     };
 
-      videoDrivers = [ "nvidia" ];
+      # videoDrivers = [ "nvidia" ];
 
       displayManager = {
         lightdm.enable = false;
@@ -196,12 +196,14 @@ in
 
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+          # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway'";
           user = "greeter";
         };
 
         initial_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+          # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway --my-next-gpu-wont-be-nvidia'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd 'sway'";
           user = "gin";
         };
       };
@@ -276,17 +278,17 @@ in
       extraPackages = with pkgs; [
         intel-media-driver
         vaapiIntel
-        vaapiVdpau
-        libvdpau-va-gl
+    #    vaapiVdpau
+    #    libvdpau-va-gl
       ];
       driSupport32Bit = true;
     };
 
-    nvidia.prime = {
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+    # nvidia.prime = {
+    #   offload.enable = true;
+    #   intelBusId = "PCI:0:2:0";
+    #   nvidiaBusId = "PCI:1:0:0";
+    # };
 
   };
 
