@@ -8,7 +8,7 @@ with config.colorscheme.colors; {
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      enableSyntaxHighlighting = false;
       enableVteIntegration = true;
       dotDir = "/.config/zsh";
       autocd = true;
@@ -63,6 +63,12 @@ with config.colorscheme.colors; {
             sha256 = "h/3XP/BiNnUgQI29gEBl6RFee77WDhFyvsnTi1eRbKg=";
           };
         }
+
+        {
+          name = "fast-syntax-highlighting";
+          src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/";
+        }
+
       ];
 
       shellAliases = {
