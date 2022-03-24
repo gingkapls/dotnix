@@ -2,24 +2,21 @@
 
 {
   programs = {
+
     fzf = {
       enable = true;
-      enableZshIntegration = true;
     };
 
     nix-index = { 
       enable = true;
-      enableZshIntegration = true;
     };
 
     starship = {
       enable = true;
-      enableZshIntegration = true;
     };
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
     };
 
     direnv = {
@@ -29,9 +26,9 @@
         # Only for hm 21.11 (Remove later)
         enableFlakes = true;
       };
+
     };
   
-    bash.enable = true;
   };
 
 
@@ -39,6 +36,7 @@
     ./env.nix
     ./bin
     ./zsh.nix
+    ./fish.nix
   ];
 
 

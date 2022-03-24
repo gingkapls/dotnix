@@ -63,6 +63,11 @@
       waybar.enable = true;
     };
 
+    shell = {
+      zsh.enable = false;
+      fish.enable = true;
+    };
+
     programs = {
       foot.enable = true;
       vscode.enable = true;

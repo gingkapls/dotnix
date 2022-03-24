@@ -298,28 +298,26 @@ in
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "adbusers" ]; # Enable ‘sudo’ for the user.
     initialPassword = "123456";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = { 
     systemPackages = with pkgs; [
       wget # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       nano
-      kitty
-      networkmanager
       brightnessctl
-      xclip
-      dash
       nvidia-offload mesa vulkan-loader vulkan-tools
       wineWowPackages.staging lutris winetricks
-      python3
-      easyeffects
       ffmpeg nv-codec-headers
       #  wineWowPackages.stable
     ];
 
     binsh = "${pkgs.dash}/bin/dash";
+
+    # For Zsh Completion
+    pathsToLink = [ "/share/zsh" ];
 
     # Set them through HM
     # variables = {
