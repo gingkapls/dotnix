@@ -10,7 +10,7 @@
     };
 
     nix-colors = { url = "github:misterio77/nix-colors"; };
-    
+
     nixvim = {
       url = "github:pta2002/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -20,7 +20,7 @@ in {
           perl-rename = "perl-rename -i";
         };
 
-        loginShellInit = with config.colorscheme.colors;"
+        interactiveShellInit = with config.colorscheme.colors;"
         set -g fish_greeting
         fish_vi_key_bindings 
 
@@ -54,6 +54,8 @@ in {
         set fish_pager_color_selected_description '#${base0A}' --bold
         set fish_pager_color_selected_prefix '#${base0A}' --bold
         set fish_color_valid_path
+
+        direnv hook fish | source
         ";
       };
 

@@ -73,7 +73,7 @@ in {
       showmatch = true;
       mouse = "a";
       number = true;
-      relativenumber = true;
+      relativenumber = false;
       ttyfast = true;
       clipboard = "unnamedplus";
       # background = config.colorscheme.kind;

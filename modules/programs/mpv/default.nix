@@ -33,7 +33,7 @@
       sub-auto = "fuzzy";
       osd-bar = "no";
       osd-on-seek = "msg";
-      border = "no";
+      # border = "no"; # High CPU usage on sway for some reason
       sub-paths = "sub:subs:subtiles:Sub:Subs:Subtitles";
     };
 

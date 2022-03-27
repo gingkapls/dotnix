@@ -23,15 +23,15 @@
     dunst libnotify
     mangohud
     dconf
-    rhythmbox lollypop spotdl cava
+    yt-dlp spotdl rhythmbox lollypop cava
     qbittorrent
     ventoy-bin
     aria2 rclone
     # android-tools enable programs.adb instead
     android-udev-rules
     tdesktop
-    obsidian 
-    rmlint
+    obsidian logseq
+    rmlint lm_sensors
   ];
 
     # This value determines the Home Manager release that your
