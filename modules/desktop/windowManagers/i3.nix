@@ -188,9 +188,9 @@ in {
             "Print" = screenshot "screen";
             "Ctrl+Print" = screenshot "select";
             "Shift+Print" = screenshot "window";
-            "Alt+Print" = screenshot "color-picker";
+            "Mod1+Print" = screenshot "color-picker";
             "Ctrl+Shift+Print" = screenshot "select-window";
-            "Ctrl+Alt+Print" = screenshot "ocr";
+            "Ctrl+Mod1+Print" = screenshot "ocr";
   
             # "XF86AudioMicMute" = "${pkgs.pactl}/bin/pactl set-source @DEFAULT_SOURCE@ toggle";
   

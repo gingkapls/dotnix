@@ -124,13 +124,13 @@ in {
             font-size: 16px;
             min-height: 0;
     	      font-weight: 700;
+            background-color: #${base02};
     	      padding: 0px 2px;
     	      /* margin: 1.8px 8px 1.8px 8px; */
           }
  
           window#waybar {
             border-radius: 0px;
-            background-color: #${base00};
             transition-property: background-color;
             transition-duration: .5s;
     	      padding: 0px 0px;
@@ -159,26 +159,21 @@ in {
         #workspaces button {
           padding: 8px 2px;
   	      margin: 0px 0px;
-          border-color: #${base00};
-          color: #${base02};
-          background: #${base00};
+          color: #${base03};
         }
-         
-        #workspaces button:hover {
-        background: #${base00};
-        border-color: #${base00};
-  	    color: #${base03};
-        }
-
+        
          #workspaces button.focused {
-        	border-color: #${base00};
         	color: #${base05};
-          background-color: #${base00};
         }
 
         #workspaces button.urgent {
           background-color: #${base09};
         }
+        
+        #workspaces button:hover {
+  	      color: #${base09};
+        }
+
 
 
   
@@ -193,7 +188,6 @@ in {
         #tray,
         #custom-recorder {
         	color: #${base05};
-          background: #${base00};
           padding: 8px 8px;
           margin: 2px 6px;
         }
@@ -224,7 +218,7 @@ in {
         }
   
         #idle_inhibitor.activated {
-            color: #${base0A};
+            color: #${base09};
         }
       '';
       

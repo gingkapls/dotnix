@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  colorscheme = nix-colors.colorSchemes.embers;
+  colorscheme = nix-colors.colorSchemes.rose-pine-dawn;
 
   home = {
     username = "gin";

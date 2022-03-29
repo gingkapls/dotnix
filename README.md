@@ -15,7 +15,7 @@
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
 | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
 | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-| GTK Theme           | [Materia Embers](https://github.com/Misterio77/nix-colors)                                |
+| GTK Theme           | [Materia Rosé Pine Dawn](https://github.com/Misterio77/nix-colors)                                |
 | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
 | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
 | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
@@ -25,16 +25,16 @@
 | Editor              | [Neovim](https://neovim.io/)                                                                                  |
 | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
 | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
-| Colorscheme         | [Embers](http://chriskempson.com)                                                         |
+| Colorscheme         | [Rosé Pine Dawn](http://chriskempson.com)                                                         |
 
 ## Color Palette
-|                                Colorscheme                                |                               Embers                                     |
+|                                Colorscheme                                |                               Rosé Pine Dawn                                     |
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| ![#16130F](https://via.placeholder.com/15/16130F/000000?text=+) `#16130F` | ![#826D57](https://via.placeholder.com/15/826D57/000000?text=+) `#826D57`  |
-| ![#2C2620](https://via.placeholder.com/15/2C2620/000000?text=+) `#2C2620` | ![#828257](https://via.placeholder.com/15/828257/000000?text=+) `#828257`  |
-| ![#433B32](https://via.placeholder.com/15/433B32/000000?text=+) `#433B32` | ![#6D8257](https://via.placeholder.com/15/6D8257/000000?text=+) `#6D8257`  |
-| ![#5A5047](https://via.placeholder.com/15/5A5047/000000?text=+) `#5A5047` | ![#57826D](https://via.placeholder.com/15/57826D/000000?text=+) `#57826D`  |
-| ![#8A8075](https://via.placeholder.com/15/8A8075/000000?text=+) `#8A8075` | ![#576D82](https://via.placeholder.com/15/576D82/000000?text=+) `#576D82`  |
-| ![#A39A90](https://via.placeholder.com/15/A39A90/000000?text=+) `#A39A90` | ![#6D5782](https://via.placeholder.com/15/6D5782/000000?text=+) `#6D5782`  |
-| ![#BEB6AE](https://via.placeholder.com/15/BEB6AE/000000?text=+) `#BEB6AE` | ![#82576D](https://via.placeholder.com/15/82576D/000000?text=+) `#82576D`  |
-| ![#DBD6D1](https://via.placeholder.com/15/DBD6D1/000000?text=+) `#DBD6D1` | ![#825757](https://via.placeholder.com/15/825757/000000?text=+) `#825757`  |
+| ![#faf4ed](https://via.placeholder.com/15/faf4ed/000000?text=+) `#faf4ed` | ![#1f1d2e](https://via.placeholder.com/15/1f1d2e/000000?text=+) `#1f1d2e`  |
+| ![#fffaf3](https://via.placeholder.com/15/fffaf3/000000?text=+) `#fffaf3` | ![#b4637a](https://via.placeholder.com/15/b4637a/000000?text=+) `#b4637a`  |
+| ![#f2e9de](https://via.placeholder.com/15/f2e9de/000000?text=+) `#f2e9de` | ![#ea9d34](https://via.placeholder.com/15/ea9d34/000000?text=+) `#ea9d34`  |
+| ![#9893a5](https://via.placeholder.com/15/9893a5/000000?text=+) `#9893a5` | ![#d7827e](https://via.placeholder.com/15/d7827e/000000?text=+) `#d7827e`  |
+| ![#6e6a86](https://via.placeholder.com/15/6e6a86/000000?text=+) `#6e6a86` | ![#286983](https://via.placeholder.com/15/286983/000000?text=+) `#286983`  |
+| ![#575279](https://via.placeholder.com/15/575279/000000?text=+) `#575279` | ![#56949f](https://via.placeholder.com/15/56949f/000000?text=+) `#56949f`  |
+| ![#555169](https://via.placeholder.com/15/555169/000000?text=+) `#555169` | ![#907aa9](https://via.placeholder.com/15/907aa9/000000?text=+) `#907aa9`  |
+| ![#26233a](https://via.placeholder.com/15/26233a/000000?text=+) `#26233a` | ![#c5c3ce](https://via.placeholder.com/15/c5c3ce/000000?text=+) `#c5c3ce`  |
