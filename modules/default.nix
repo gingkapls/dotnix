@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./colorschemes
+    ./colorschemes
     ./desktop
     ./programs
     ./services

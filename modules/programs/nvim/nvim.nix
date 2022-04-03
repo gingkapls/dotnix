@@ -20,9 +20,6 @@ in {
   programs.nixvim = {
     enable = true;
 
-    # Use default till we make our own colorscheme
-     colorscheme = "base16-${config.colorscheme.slug}";
-
     plugins = {
 
       nix.enable = true;
@@ -64,8 +61,8 @@ in {
     options = {
       # Indentation
       autoindent = true;
-      tabstop = 2;
-      shiftwidth = 2;
+      tabstop = 4;
+      shiftwidth = 4;
       expandtab = true;
       backspace = "indent,eol,start";
 
@@ -76,8 +73,10 @@ in {
       relativenumber = false;
       ttyfast = true;
       clipboard = "unnamedplus";
-      # background = config.colorscheme.kind;
+      background = "${config.colorscheme.kind}";
     };
+
+    colorscheme = "base16-${config.colorscheme.slug}";
 
   };
 

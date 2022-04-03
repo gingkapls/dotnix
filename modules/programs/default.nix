@@ -12,6 +12,7 @@
     ./obsidian
     ./swappy
     ./vscode
+    ./wezterm
     ./zathura
   ];
 }

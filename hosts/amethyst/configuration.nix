@@ -298,7 +298,7 @@ in
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "adbusers" ]; # Enable ‘sudo’ for the user.
     initialPassword = "123456";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
@@ -356,7 +356,7 @@ in
   };
 
   programs = {
-    zsh.enable = true;
+    zsh.enable = false; # Enabling results in increased startup time
     dconf.enable = true;
     gnome-disks.enable = true;
     sway.enable = true;

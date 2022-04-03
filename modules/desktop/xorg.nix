@@ -2,8 +2,12 @@
 
 with lib;
 let
-  cfg = config.modules.desktop.windowManager.i3;
+  cfg = config.modules.desktop.xidlehook;
 in {
+
+  options.modules.desktop.xidlehook = {
+    enable = mkEnableOption "Enable xidlehook daemon";
+  };
 
   config = mkIf cfg.enable {
     services.xidlehook = {

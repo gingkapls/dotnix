@@ -10,8 +10,8 @@ with config.colorscheme.colors;
     " ${config.colorscheme.slug} scheme 
     
     " GUI color definitions
-    let s:gui00        = "${base00}"
-    let g:base16_gui00 = "${base00}"
+    let s:gui00        = "none"
+    let g:base16_gui00 = "none"
     let s:gui01        = "${base01}"
     let g:base16_gui01 = "${base01}"
     let s:gui02        = "${base02}"
@@ -44,8 +44,8 @@ with config.colorscheme.colors;
     let g:base16_gui0F = "${base0F}"
     
     " Terminal color definitions
-    let s:cterm00        = "00"
-    let g:base16_cterm00 = "00"
+    let s:cterm00        = "none"
+    let g:base16_cterm00 = "none"
     let s:cterm03        = "08"
     let g:base16_cterm03 = "08"
     let s:cterm05        = "07"

@@ -124,7 +124,7 @@ in {
             font-size: 16px;
             min-height: 0;
     	      font-weight: 700;
-            background-color: #${base02};
+            background-color: #${base00};
     	      padding: 0px 2px;
     	      /* margin: 1.8px 8px 1.8px 8px; */
           }
@@ -152,9 +152,11 @@ in {
             background-color: #FFFFFF;
           }
       
+        /* 
         label:focus {
           color: #${base02};
         }
+        */
   
         #workspaces button {
           padding: 8px 2px;

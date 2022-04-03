@@ -3,7 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  colorscheme = nix-colors.colorSchemes.rose-pine-dawn;
+  # colorscheme = nix-colors.colorSchemes.rose-pine-dawn;
 
   home = {
     username = "gin";
@@ -14,7 +14,7 @@
     gnome.nautilus
     coreutils tree jq
     pulseaudioLight
-    blender gimp krita inkscape imagemagick
+    blender gimp krita inkscape imagemagick gcolor3 kdenlive shotcut audacity
     zathura mpv imv nitrogen
     gh git git-crypt gnupg openssl
     playerctl pamixer pavucontrol
@@ -32,6 +32,7 @@
     tdesktop
     obsidian logseq
     rmlint lm_sensors
+    wezterm
   ];
 
     # This value determines the Home Manager release that your
@@ -61,17 +62,19 @@
       dunst.enable = false;
       mako.enable = true;
       waybar.enable = true;
+      xidlehook.enable = false;
     };
 
     shell = {
-      zsh.enable = false;
-      fish.enable = true;
+      zsh.enable = true;
+      fish.enable = false;
     };
 
     programs = {
       foot.enable = true;
       vscode.enable = true;
     };
+
   };
 
   services = {

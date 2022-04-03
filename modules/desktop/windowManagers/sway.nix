@@ -82,7 +82,8 @@ in
 
 
         # terminal = "${pkgs.alacritty}/bin/alacritty";
-        terminal = "${pkgs.foot}/bin/footclient";
+        terminal = "${pkgs.wezterm}/bin/wezterm";
+        # terminal = "${pkgs.foot}/bin/footclient";
         modifier = "Mod4";
   
         defaultWorkspace = "1";

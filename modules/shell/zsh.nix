@@ -13,25 +13,25 @@ in {
 
   config = mkIf cfg.enable {
     programs = {
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
+      # fzf = {
+      #   enable = true;
+      #   enableZshIntegration = true;
+      # };
 
-      nix-index = { 
-        enable = true;
-        enableZshIntegration = true;
-      };
+      # nix-index = { 
+      #   enable = true;
+      #   enableZshIntegration = true;
+      # };
 
-      starship = {
-        enable = true;
-        enableZshIntegration = true;
-      };
+      # starship = {
+      #   enable = true;
+      #   enableZshIntegration = true;
+      # };
 
-      zoxide = {
-        enable = true;
-        enableZshIntegration = true;
-      };
+      # zoxide = {
+      #   enable = true;
+      #   enableZshIntegration = true;
+      # };
 
       zsh = {
         enable = true;
@@ -58,7 +58,7 @@ in {
         '';
   
         initExtraFirst = ''
-          zmodload zsh/zprof
+          # zmodload zsh/zprof
           setopt nocaseglob
         '';
   
@@ -78,7 +78,7 @@ in {
           export KEYTIMEOUT=1
           ZSH_AUTOSUGGEST_STRATEGY=(history completion match_prev_cmd)
           eval "$(direnv hook zsh)"
-          zprof
+          # zprof
         '';
   
         plugins = [ 
