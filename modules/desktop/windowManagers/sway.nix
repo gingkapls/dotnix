@@ -46,6 +46,7 @@ in
         export QT_QPA_PLATFORM=wayland-egl
         export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
         export MOZ_ENABLE_WAYLAND=1
+        export MOZ_DISABLE_RDD_SANDBOX=1
         export CLUTTER_BACKEND=wayland
         export ECORE_EVAS_ENGINE=wayland-egl
         export ELM_ENGINE=wayland_egl
@@ -76,14 +77,14 @@ in
         output."*".bg = "$HOME/.dotnix/assets/wallpaper.png fill #${base01}";
 
         assigns = {
-          "0" = [ { app_id = "^firefox$"; }];
+          "1" = [ { app_id = "^firefox$"; }];
           "5" = [ { app_id = "^lollypop$"; }];
         };
 
 
         # terminal = "${pkgs.alacritty}/bin/alacritty";
-        terminal = "${pkgs.wezterm}/bin/wezterm";
-        # terminal = "${pkgs.foot}/bin/footclient";
+        # terminal = "${pkgs.wezterm}/bin/wezterm";
+        terminal = "${pkgs.foot}/bin/footclient";
         modifier = "Mod4";
   
         defaultWorkspace = "1";

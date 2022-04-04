@@ -8,7 +8,7 @@ with config.colorscheme.colors; {
 
     FZF_DEFAULT_OPTS = "--info inline --color=16";
 
-    LESS = "--use-colors";
+    # LESS = "--use-colors"; # Causes issues when used as a pager
 
     EDITOR = "nvim";
     VISUAL = "nvim";
