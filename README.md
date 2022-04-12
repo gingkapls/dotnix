@@ -1,5 +1,7 @@
 # Welcome traveller to the disarray that are my dotfiles!
 
+# I have switched over from NixOS and as a result this config is not maintained anymore. Stuff will probably go out-of-date eventually, sorry about that!
+
 ## Credits
 - [gammons/base16-obsidian](https://github.com/gammons/base16-obsidian)
 - [Misterio77/nix-colors](https://github.com/Misterio77/nix-colors)
