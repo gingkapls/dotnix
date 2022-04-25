@@ -29,12 +29,12 @@ with config.colorscheme.colors;
       | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
       | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
       | Terminal            | [Foot](https://codeberg.org/dnkl/foot) [Alacritty](https://github.com/alacritty/alacritty)                    |
-      | Terminal Font       | [Iosevka](https://github.com/be5invis/Iosevka)                                                                |
+      | Terminal Font       | [IBM Plex Mono](https://github.com/IBM/plex)                                                                |
       | PDF Viewer          | [Zathura](https://git.pwmt.org/pwmt/zathura)                                                                  |
       | Editor              | [Neovim](https://neovim.io/)                                                                                  |
       | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
       | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
-      | Colorscheme         | [${config.colorscheme.name}](http://chriskempson.com)                                                         |
+      | Colorscheme         | [${config.colorscheme.name}](https://github.com/savq/melange)                                                         |
 
       ## Color Palette
       |                                Colorscheme                                |                               ${config.colorscheme.name}                                     |
