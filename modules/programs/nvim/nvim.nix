@@ -1,20 +1,6 @@
 { config, pkgs, nixvim, nix-colors, ... }:
 
-let
-  #rose-pine = pkgs.vimUtils.buildVimPluginFrom2Nix {
-  #  pname = "rose-pine.nvim";
-  #  version = "v1.0.0";
-  #  src = pkgs.fetchFromGitHub {
-  #    owner = "rose-pine";
-  #    repo = "neovim";
-  #    rev = "v1.0.0";
-  #    sha256 = "m6l5yjQiX5kclw34xzGwbLmh10oL+4F0kKB/b+TOMQ4=";
-  #  };
-  #  meta.homepage = "https://github.com/rose-pine/neovim/";
-  #};
-  test = test;
-
-in {
+{
   # Neovim
 
   programs.nixvim = {
@@ -56,7 +42,10 @@ in {
 
     };
 
-    # extraPlugins = with pkgs.vimPlugins; [ rose-pine ];
+    extraPlugins = with pkgs.vimPlugins; [ 
+      # (import ./rose-pine.nix { inherit pkgs; })
+      (import ./melange.nix { inherit pkgs; })
+    ];
 
     options = {
       # Indentation
@@ -73,10 +62,15 @@ in {
       relativenumber = false;
       ttyfast = true;
       clipboard = "unnamedplus";
+
+      # Colors
       background = "${config.colorscheme.kind}";
+      termguicolors = true;
+
     };
 
-    colorscheme = "base16-${config.colorscheme.slug}";
+    # colorscheme = "base16-${config.colorscheme.slug}";
+    colorscheme = "melange";
 
   };
 
