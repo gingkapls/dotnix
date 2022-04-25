@@ -1,7 +1,5 @@
 # Welcome traveller to the disarray that are my dotfiles!
 
-# I have switched over from NixOS and as a result this config is not maintained anymore. Stuff will probably go out-of-date eventually, sorry about that!
-
 ## Credits
 - [gammons/base16-obsidian](https://github.com/gammons/base16-obsidian)
 - [Misterio77/nix-colors](https://github.com/Misterio77/nix-colors)
@@ -17,7 +15,7 @@
 | ------------------- | ------------------------------------------------------------------------------------------------------------- |
 | OS                  | [NixOS 21.11](https://nixos.org/)                                                                             |
 | Window Manager      | [Sway](https://github.com/swaywm/sway/) [i3-gaps](https://github.com/Airblader/i3)                            |
-| GTK Theme           | [Materia Rosé Pine Dawn](https://github.com/Misterio77/nix-colors)                                |
+| GTK Theme           | [Materia Melange](https://github.com/Misterio77/nix-colors)                                |
 | Icon Theme          | [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)                                       |
 | Cusor Theme         | [Capitaine Cursors](https://github.com/keeferrourke/capitaine-cursors)                                        |
 | UI Font             | [Inter](https://github.com/rsms/inter)                                                                        | 
@@ -27,16 +25,16 @@
 | Editor              | [Neovim](https://neovim.io/)                                                                                  |
 | Shell               | [Zsh](https://www.zsh.org/)                                                                                   |
 | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                                                           |
-| Colorscheme         | [Rosé Pine Dawn](http://chriskempson.com)                                                         |
+| Colorscheme         | [Melange](http://chriskempson.com)                                                         |
 
 ## Color Palette
-|                                Colorscheme                                |                               Rosé Pine Dawn                                     |
+|                                Colorscheme                                |                               Melange                                     |
 |---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| ![#faf4ed](https://via.placeholder.com/15/faf4ed/000000?text=+) `#faf4ed` | ![#1f1d2e](https://via.placeholder.com/15/1f1d2e/000000?text=+) `#1f1d2e`  |
-| ![#fffaf3](https://via.placeholder.com/15/fffaf3/000000?text=+) `#fffaf3` | ![#b4637a](https://via.placeholder.com/15/b4637a/000000?text=+) `#b4637a`  |
-| ![#f2e9de](https://via.placeholder.com/15/f2e9de/000000?text=+) `#f2e9de` | ![#ea9d34](https://via.placeholder.com/15/ea9d34/000000?text=+) `#ea9d34`  |
-| ![#9893a5](https://via.placeholder.com/15/9893a5/000000?text=+) `#9893a5` | ![#d7827e](https://via.placeholder.com/15/d7827e/000000?text=+) `#d7827e`  |
-| ![#6e6a86](https://via.placeholder.com/15/6e6a86/000000?text=+) `#6e6a86` | ![#286983](https://via.placeholder.com/15/286983/000000?text=+) `#286983`  |
-| ![#575279](https://via.placeholder.com/15/575279/000000?text=+) `#575279` | ![#56949f](https://via.placeholder.com/15/56949f/000000?text=+) `#56949f`  |
-| ![#555169](https://via.placeholder.com/15/555169/000000?text=+) `#555169` | ![#907aa9](https://via.placeholder.com/15/907aa9/000000?text=+) `#907aa9`  |
-| ![#26233a](https://via.placeholder.com/15/26233a/000000?text=+) `#26233a` | ![#c5c3ce](https://via.placeholder.com/15/c5c3ce/000000?text=+) `#c5c3ce`  |
+| ![#2a2520](https://via.placeholder.com/15/2a2520/000000?text=+) `#2a2520` | ![#b65c60](https://via.placeholder.com/15/b65c60/000000?text=+) `#b65c60`  |
+| ![#352f2a](https://via.placeholder.com/15/352f2a/000000?text=+) `#352f2a` | ![#f17c64](https://via.placeholder.com/15/f17c64/000000?text=+) `#f17c64`  |
+| ![#ebc06d](https://via.placeholder.com/15/ebc06d/000000?text=+) `#ebc06d` | ![#ebc06d](https://via.placeholder.com/15/ebc06d/000000?text=+) `#ebc06d`  |
+| ![#4d453e](https://via.placeholder.com/15/4d453e/000000?text=+) `#4d453e` | ![#78997a](https://via.placeholder.com/15/78997a/000000?text=+) `#78997a`  |
+| ![#9aacce](https://via.placeholder.com/15/9aacce/000000?text=+) `#9aacce` | ![#86a3a3](https://via.placeholder.com/15/86a3a3/000000?text=+) `#86a3a3`  |
+| ![#ece1d7](https://via.placeholder.com/15/ece1d7/000000?text=+) `#ece1d7` | ![#9aacce](https://via.placeholder.com/15/9aacce/000000?text=+) `#9aacce`  |
+| ![#ce9bcb](https://via.placeholder.com/15/ce9bcb/000000?text=+) `#ce9bcb` | ![#b380b0](https://via.placeholder.com/15/b380b0/000000?text=+) `#b380b0`  |
+| ![#c1a78e](https://via.placeholder.com/15/c1a78e/000000?text=+) `#c1a78e` | ![#88b3b2](https://via.placeholder.com/15/88b3b2/000000?text=+) `#88b3b2`  |

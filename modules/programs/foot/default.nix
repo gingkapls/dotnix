@@ -17,9 +17,10 @@ in {
     settings = {
       main = {
         term = "xterm-256color";
-        font = "Iosevka Medium:size=12";
-        font-bold = "Iosevka Heavy:size=12";
-        font-italic = "Iosevka Oblique:size=12";
+        font = "IBM Plex Mono:style=Medium:size=12";
+        font-bold = "IBM Plex Mono:style=Bold:size=12";
+        font-italic = "IBM Plex Mono:style=Italic:size=12";
+        font-bold-italic = "IBM Plex Mono:style=Bold Italic:size=12";
         dpi-aware = "yes";
         locked-title = "no";
         pad = "20x20";

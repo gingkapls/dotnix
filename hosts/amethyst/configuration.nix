@@ -332,6 +332,7 @@ in
     fonts = with pkgs; [ 
       inter
       iosevka
+      ibm-plex
       fira-code
       scientifica
       twemoji-color-font
@@ -347,7 +348,7 @@ in
       defaultFonts = {
         serif = [ "Paratype Pt Serif" ];
         sansSerif = [ "Inter" ];
-        monospace = [ "Iosevka Slab" ];
+        monospace = [ "IBM Plex Mono" ];
         emoji = [ "Twitter Color Emoji" ];
       };
     };
@@ -361,6 +362,10 @@ in
     gnome-disks.enable = true;
     sway.enable = true;
     adb.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
