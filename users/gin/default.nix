@@ -14,7 +14,7 @@
     gnome.nautilus
     coreutils tree jq
     pulseaudioLight
-    blender gimp krita inkscape imagemagick gcolor3 kdenlive shotcut audacity
+    blender darktable gimp krita inkscape imagemagick gcolor3 kdenlive shotcut audacity
     zathura mpv imv nitrogen
     gh git git-crypt gnupg openssl
     playerctl pamixer pavucontrol
