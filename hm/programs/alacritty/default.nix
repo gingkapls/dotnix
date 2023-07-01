@@ -4,7 +4,8 @@ with config.colorscheme.colors;
 with lib;
 let
   cfg = config.modules.programs.alacritty;
-#  mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
+ # mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
+ mono-font = "Iosevka";
 in {
   options.modules.programs.alacritty = {
     enable = mkEnableOption "Enable Alacritty the GPU Accelerated Terminal";
@@ -35,31 +36,31 @@ in {
           multiplier = 3;
         };
 
-        # font = {
-        #   normal = {
-        #     family = mono-font;
-        #     style = "Medium";
-        #   };
+        font = {
+          normal = {
+            family = mono-font;
+            style = "Medium";
+          };
 
-        #   bold = {
-        #     family = mono-font;
-        #     style = "Bold";
-        #   };
+          bold = {
+            family = mono-font;
+            style = "Bold";
+          };
 
-        #   italic = {
-        #     family = mono-font;
-        #     style = "Italic";
-        #   };
+          italic = {
+            family = mono-font;
+            style = "Italic";
+          };
 
-        #   bold_italic = {
-        #     family = mono-font;
-        #     style = "Bold-Italic";
-        #   };
+          bold_italic = {
+            family = mono-font;
+            style = "Bold-Italic";
+          };
 
-        #   size = 17.0;
+          size = 17.0;
 
-        #   use_think_strokes = false;
-        # };
+          use_think_strokes = false;
+        };
 
         colors = {
           cursor = {

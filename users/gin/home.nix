@@ -13,9 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     nix-colors.homeManagerModule
-    ../../hm/desktop
-    ../../hm/programs
-    ../../hm/shells
+    ../../hm
   ];
 
   colorScheme = nix-colors.colorSchemes.horizon-dark;
@@ -54,15 +52,31 @@
 
     packages = lib.attrValues {
     inherit (pkgs)
-    firefox
-    coreutils tree jq rename
-    zathura imagemagick mpv
+    # Utilities
+    coreutils tree jq rename gh
+    imagemagick imv
+    playerctl pamixer pavucontrol
     networkmanagerapplet
-    qbittorrent
-    ventoy aria2 rclone
+    ventoy aria2 rclone yt-dlp
     android-udev-rules scrcpy
+    inotifytools rmlint lm_sensors p7zip comma glib gsettings-desktop-schemas
+
+    # Applications
+    firefox google-chrome
+    qbittorrent
     tdesktop obsidian
-    rmlint lm_sensors p7zip comma glib gsettings-desktop-schemas;
+    zathura foliate calibre
+    mpv
+    wezterm
+    
+    # Dev stuff
+    oracle-instantclient;
+    inherit (pkgs.jetbrains) idea-community;
+
+    # LSPs
+    inherit (pkgs)
+    rust-analyzer
+    clang clang-tools
 
     inherit (pkgs.gnome)
     nautilus;
@@ -70,9 +84,28 @@
   };
 
   modules = {
-  	programs.alacritty.enable = true;
-  	programs.helix.enable = true;
-  	shells.zsh.enable = true;
+    desktop = {
+      windowManager.i3.enable = false;
+      windowManager.sway.enable = true;
+      picom.enable = false;
+      dunst.enable = false;
+      mako.enable = true;
+      waybar.enable = true;
+      xidlehook.enable = false;
+    };
+
+  	programs = {
+      alacritty.enable = true;
+      foot.enable = false;
+      vscode.enable = true;
+  	  helix.enable = true;
+    };
+
+  	shells = {
+      zsh.enable = true;
+      fish.enable = true;
+    };
+
   };
 
   # Add stuff for your user as you see fit:
@@ -102,12 +135,11 @@
       defaultApplications = let
       # imgViewer = "imv.desktop";
       # docViewer = "org.pwmt.zathura.desktop";
-
-      imgViewer = "org.gnome.eog.desktop";
       # docViewer = "org.gnome.Evince.desktop";
-      docViewer = "org.pwmt.zathura.desktop";
-      # editor = "nvim.desktop";
-      editor = "org.helix.desktop";
+        imgViewer = "org.gnome.eog.desktop";
+        docViewer = "org.pwmt.zathura.desktop";
+        editor = "org.helix.desktop";
+
       in {
         "image/jpeg"               = [ imgViewer ];
         "image/png"                = [ imgViewer ];
