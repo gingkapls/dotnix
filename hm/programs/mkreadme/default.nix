@@ -10,7 +10,6 @@ in {
     
     text = ''
       ## welcome to this mess and stuff
-      i dont use nixos anymore, so this config might become outdated after a while so yeah
       thansk <3
 
       ## Sway Rice

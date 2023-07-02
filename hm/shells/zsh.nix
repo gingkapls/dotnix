@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 # vim: set ft=nix:
 
 with lib;
@@ -17,9 +17,9 @@ in {
         enable = true;
         enableAutosuggestions = true;
         enableCompletion = true;
-        syntaxHighlighting.enable = false;
+        enableSyntaxHighlighting = false;
         enableVteIntegration = true;
-        dotDir = "/.config/zsh";
+        dotDir = ".config/zsh";
         autocd = true;
   
         history = {
@@ -73,19 +73,14 @@ in {
   
         plugins = [ 
           {
-            # Source fzf-tab
             name = "fzf-tab";
-            src = pkgs.fetchFromGitHub {
-              owner = "Aloxaf";
-              repo = "fzf-tab";
-              rev = "e8145d541a35d8a03df49fbbeefa50c4a0076bbf";
-              sha256 = "h/3XP/BiNnUgQI29gEBl6RFee77WDhFyvsnTi1eRbKg=";
-            };
+            src = inputs.fzf-tab.outPath;
+            file = "fzf-tab.plugin.zsh";
           }
   
           {
             name = "fast-syntax-highlighting";
-            src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/";
+            src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
           }
   
         ];

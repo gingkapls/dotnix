@@ -20,22 +20,22 @@
 
   nixpkgs = {
     # You can add overlays here
-    overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+    # overlays = [
+    #   # Add overlays your own flake exports (from overlays and pkgs dir):
+    #   outputs.overlays.additions
+    #   outputs.overlays.modifications
+    #   outputs.overlays.unstable-packages
 
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
+    #   # You can also add overlays exported from other flakes:
+    #   # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
+    #   # Or define it inline, for example:
+    #   # (final: prev: {
+    #   #   hi = final.hello.overrideAttrs (oldAttrs: {
+    #   #     patches = [ ./change-hello-to-hi.patch ];
+    #   #   });
+    #   # })
+    # ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
@@ -54,34 +54,54 @@
     inherit (pkgs)
     # Utilities
     coreutils tree jq rename gh
+    blender krita
     imagemagick imv
     playerctl pamixer pavucontrol
     networkmanagerapplet
     ventoy aria2 rclone yt-dlp
     android-udev-rules scrcpy
-    inotifytools rmlint lm_sensors p7zip comma glib gsettings-desktop-schemas
+    inotify-tools rmlint lm_sensors p7zip comma
+    glib gsettings-desktop-schemas
+
+    # LaTeX
+    pandoc; inherit (pkgs.texlive.combined) scheme-small;
+
+    # Fonts
+    inherit (pkgs)
+    curie
+    scientifica
+    ibm-plex
+    siji
+    fira-code
+    sf-pro-fonts
 
     # Applications
-    firefox google-chrome
+    google-chrome
     qbittorrent
     tdesktop obsidian
     zathura foliate calibre
+    lutris mangohud
     mpv
-    wezterm
+    wezterm;
+
+    inherit (pkgs.wineWowPackages)
+    waylandFull;
     
     # Dev stuff
-    oracle-instantclient;
+    # oracle-instantclient;
     inherit (pkgs.jetbrains) idea-community;
 
     # LSPs
     inherit (pkgs)
     rust-analyzer
-    clang clang-tools
+    clang clang-tools;
 
     inherit (pkgs.gnome)
     nautilus;
     };
   };
+
+  fonts.fontconfig.enable = true;
 
   modules = {
     desktop = {
@@ -112,7 +132,6 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;

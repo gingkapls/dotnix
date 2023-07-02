@@ -2,7 +2,8 @@
 
 let
 #  font = builtins.toString osConfig.fonts.fontconfig.defaultFonts.sansSerif;
-  font = "Inter";
+  font-regular = "SF Pro Text Regular";
+  font-title = "SF Pro Display Semi-Bold";
 in rec {
   home.packages = lib.attrValues {
     inherit (pkgs.gnomeExtensions)
@@ -58,15 +59,19 @@ in rec {
     };
 
     "org/gnome/desktop/interface" = {
-      document-font-name = "${font} Regular 13";
-
+      document-font-name = "${font-regular} 13";
       clock-show-weekday = true;
       clock-show-date = true;
     };
 
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "icon:minimize,maximize,close";
+      titlebar-font = "${font-title} 13";
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
       resize-with-right-button = true;
-      titlebar-font = "${font} Bold 13";
+      titlebar-font = "${font-title} 13";
       move-to-workspace-1          = ["<Shift><Super>1"];
       move-to-workspace-2          = ["<Shift><Super>2"];
       move-to-workspace-3          = ["<Shift><Super>3"];

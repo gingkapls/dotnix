@@ -9,8 +9,9 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
-    ./sway.nix
     ./fonts.nix
+    ./gnome.nix
+    ./sway.nix
     ./hardware-configuration.nix
   ];
 
@@ -102,7 +103,7 @@
   environment.systemPackages = lib.attrValues {
     inherit (pkgs)
     wget
-    home-manager
+    # home-manager
     nano
     neovim
     firefox
@@ -113,6 +114,7 @@
   programs = {
     adb.enable = true;
     dconf.enable = true;
+    steam.enable = true;
     xwayland.enable = true;
     zsh = {
       enable = true;
@@ -128,7 +130,7 @@
       openssh.authorizedKeys.keys = [
 
       ];
-      shell = pkgs.zsh;
+      shell = pkgs.nushellFull;
       extraGroups = [ "wheel" "networkmanager" "video" "adbusers" "docker"];
     };
   };
@@ -148,25 +150,18 @@
     };
   };
 
-    displayManager = {
-      lightdm.enable = false;
-      startx.enable = true;
-      gdm.enable = true;
-      # sddm.enable = true;
-    };
-
     windowManager.i3.enable = true;
 
-    desktopManager = {
-      gnome.enable = true;
-      # plasma5 = {
-        # enable = true;
-        # useQtScaling = true;
-      # };
-    };
   };
 
-
+  # Plasma
+  # services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.desktopManager.plasma5 = {
+    # enable = true;
+    # useQtScaling = false;
+  # };
+  # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  
   # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;

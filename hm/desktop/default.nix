@@ -18,8 +18,8 @@ in {
     enable = true;
 
     font = {
-      name = "Inter";
-      package = pkgs.inter;
+      name = "SF Pro Text Regular";
+      package = pkgs.sf-pro-fonts;
       size = 13;
     };
 
@@ -42,10 +42,10 @@ in {
 
     gtk3 = {
       bookmarks = [ "file:///mnt/data/files/Anime" "file:///mnt/data/files" "file:///mnt/data/games" ];
-      #extraConfig = {
-      #  "gtk-cursor-theme-size" = 32;
-      #  "gtk-cursor-theme-name" = "capitaine-cursors";
-      #};
+      extraConfig = {
+       "gtk-cursor-theme-size" = 16;
+       "gtk-cursor-theme-name" = "capitaine-cursors";
+      };
     };
 
   };

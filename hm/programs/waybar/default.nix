@@ -32,120 +32,118 @@ in {
           # modules-center = [  ];
           modules-right = [ "custom/recorder" "idle_inhibitor" "battery" "custom/wifi" "clock" ];
 
-          modules = {
-            "sway/workspaces" = {
-              # format =  "";
-              format =  "";
-              format-icons = {
-                "1" = "";
-                "2" = "";
-                "3" = "";
-                "4" = "";
-                "5" = "";
-                "6" = "";
-                "7" = " ";
-                "8" = " ";
-                "9" = " ";
-                "10" = " ";
-              };
-
-              persistent_workspaces = {
-                "1" = [];
-                "2" = [];
-                "3" = [];
-                "4" = [];
-                "5" = [];
-              };
+          "sway/workspaces" = {
+            # format =  "";
+            format =  "";
+            format-icons = {
+              "1" = "";
+              "2" = "";
+              "3" = "";
+              "4" = "";
+              "5" = "";
+              "6" = "";
+              "7" = " ";
+              "8" = " ";
+              "9" = " ";
+              "10" = " ";
             };
 
-            "wlr/taskbar" = {
-                format = "{icon}";
-                icon-size = 32;
-                on-click = "minimize-raise";
-                ignore-list = [
-                    "Alacritty"
-                ];
+            persistent_workspaces = {
+              "1" = [];
+              "2" = [];
+              "3" = [];
+              "4" = [];
+              "5" = [];
             };
-  
-            "sway/mode" = {
-            	format = "{}";
-            };
-  
-            "custom/playerctl" = {
-             	format = "{icon} {}";
-             	return-type = "json";
-             	on-click = "${pkgs.playerctl}/bin/playerctl -sp playerctld play-pause";
-             	on-click-middle = "${pkgs.playerctl}/bin/playerctl -sp playerctld previous";
-             	on-click-right = "${pkgs.playerctl}/bin/playerctl -sp playerctld next";
-                exec = "music-notifier";
-             	max-length = 30;
-             	format-icons = {
-                Playing = "";
-                Paused = "";
-             	};
-            };         
+          };
 
-            "custom/recorder" = {
-            	format = "{}";
-            	interval = "once";
-            	exec = "printf ''";
-            	tooltip = false;
-            	exec-if = "pgrep 'wf-recorder'";
-            	on-click = "wlrecord";
-            	signal = 8;
-            	};
-
-
-            "custom/wifi" = {
-              format = "";
-              max-length = 30;
-              on-click = "foot -e sh -c 'sleep .1 && nmtui'";
-            };
-
-            # "custom/switch-theme" = {
-            # 	format = "{}";
-            #     interval = "once";
-            #     exec = "switch-theme true";
-            # 	on-click = "switch-theme";
-            #     signal = 14;
-            # 	};
-
-            idle_inhibitor = {
+          "wlr/taskbar" = {
               format = "{icon}";
-              format-icons = {
-                activated = "";
-                deactivated = "";
-              };
-            };
-  
-            tray = {
-              # This does nothing
-              spacing = 12;
-            };
-  
-           clock = {
-              format = "{:%a, %d %R}";
-              format-alt = " {: %b %Y-%m-%d}";
-              tooltip-format = "<big>{: %Y %B}</big>\n<tt><big>{calendar}</big></tt>";
-              today-format = "<b><i><u>{}</u></i></b>";
-            };
-  
-            battery = {
-              states = {
-                warning = 30;
-                critical = 20;
-              };
+              icon-size = 32;
+              on-click = "minimize-raise";
+              ignore-list = [
+                  "Alacritty"
+              ];
+          };
+
+          "sway/mode" = {
+          	format = "{}";
+          };
+
+          "custom/playerctl" = {
+           	format = "{icon} {}";
+           	return-type = "json";
+           	on-click = "${pkgs.playerctl}/bin/playerctl -sp playerctld play-pause";
+           	on-click-middle = "${pkgs.playerctl}/bin/playerctl -sp playerctld previous";
+           	on-click-right = "${pkgs.playerctl}/bin/playerctl -sp playerctld next";
+              exec = "music-notifier";
+           	max-length = 30;
+           	format-icons = {
+              Playing = "";
+              Paused = "";
+           	};
+          };         
+
+          "custom/recorder" = {
+          	format = "{}";
+          	interval = "once";
+          	exec = "printf ''";
+          	tooltip = false;
+          	exec-if = "pgrep 'wf-recorder'";
+          	on-click = "wlrecord";
+          	signal = 8;
+          	};
+
+
+          "custom/wifi" = {
+            format = "";
+            max-length = 30;
+            on-click = "foot -e sh -c 'sleep .1 && nmtui'";
+          };
+
+          # "custom/switch-theme" = {
+          # 	format = "{}";
+          #     interval = "once";
+          #     exec = "switch-theme true";
+          # 	on-click = "switch-theme";
+          #     signal = 14;
+          # 	};
+
+          idle_inhibitor = {
             format = "{icon}";
-            format-charging = " {capacity}%";
-            format-plugged = "";
-            tooltip = true;
-            tooltip-format = "{timeTo} ({capacity}%)";
-            # "format-good" = "";
-            # "format-full" = "";
-            format-icons = ["" "" "" "" ""];
+            format-icons = {
+              activated = "";
+              deactivated = "";
             };
-        };
-      } ];
+          };
+
+          tray = {
+            # This does nothing
+            spacing = 12;
+          };
+
+         clock = {
+            format = "{:%a, %d %R}";
+            format-alt = " {: %b %Y-%m-%d}";
+            tooltip-format = "<big>{: %Y %B}</big>\n<tt><big>{calendar}</big></tt>";
+            today-format = "<b><i><u>{}</u></i></b>";
+          };
+
+          battery = {
+            states = {
+              warning = 30;
+              critical = 20;
+            };
+          format = "{icon}";
+          format-charging = " {capacity}%";
+          format-plugged = "";
+          tooltip = true;
+          tooltip-format = "{timeTo} ({capacity}%)";
+          # "format-good" = "";
+          # "format-full" = "";
+          format-icons = ["" "" "" "" ""];
+          };
+    } ];
 
       # Follows GTK Theme
       style = ''

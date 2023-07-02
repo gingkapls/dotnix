@@ -2,10 +2,10 @@
 
 with lib;
 let 
-  cfg = config.modules.shell.fish;
+  cfg = config.modules.shells.fish;
 in {
 
-  options.modules.shell.fish = {
+  options.modules.shells.fish = {
     enable = mkEnableOption "Enable Fish shell";
   };
 

@@ -8,10 +8,10 @@
       noto-fonts-cjk
       inter
       iosevka
-      ibm-plex
-      fira-code
-      scientifica
-      siji
+      # ibm-plex
+      # fira-code
+      # scientifica
+      # siji
       twemoji-color-font
       paratype-pt-serif
       material-icons

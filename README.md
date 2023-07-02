@@ -1,5 +1,4 @@
 ## welcome to this mess and stuff
-i dont use nixos anymore, so this config might become outdated after a while so yeah
 thansk <3
 
 ## Sway Rice
@@ -15,10 +14,10 @@ thansk <3
 | Desktop Environment | Gnome                                                                     |
 | GTK Theme           | Adwaita                                                  |
 | Icon Theme          | Adwaita                                              |
-| Cusor Theme         | Capitaine-cursors-white                                         |
-| UI Font             | Inter                                          |
+| Cusor Theme         | Capitaine-cursors                                         |
+| UI Font             |                                           |
 | Terminal            | Foot / Alacritty / Blackbox                                               |
-| Terminal Font       | Iosevka                                          |
+| Terminal Font       |                                           |
 | PDF Viewer          | Zathura / Evince                                                          |
 | Editor              | Neovim / Helix                                                            |
 | Shell               | Zsh                                                                       |
