@@ -65,6 +65,7 @@ in rec {
     };
 
     "org/gnome/desktop/wm/preferences" = {
+      resize-with-right-button = true;
       button-layout = "icon:minimize,maximize,close";
       titlebar-font = "${font-title} 13";
     };
