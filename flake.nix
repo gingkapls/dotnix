@@ -2,22 +2,22 @@
   description = "Your new nix config";
 
   inputs = {
-    # Nixpkgs
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # home-manager.url = "github:nix-community/home-manager/release-23.05";
+    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
+    nix-colors.url = "github:misterio77/nix-colors";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+
+
+    # Making sure inputs follow nixpkgs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    fzf-tab = {
-      url = "github:Aloxaf/fzf-tab";
-      flake = false;
+    nix-colors.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Non Flake Inputs
+    fzf-tab = { url = "github:Aloxaf/fzf-tab"; flake = false;
     };
 
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
-    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { self, nixpkgs, home-manager, nix-colors, ... }@inputs:
@@ -58,24 +58,31 @@
           modules = [
             # > Our main nixos configuration file <
             ./hosts/amethyst/configuration.nix
-
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {inherit self inputs outputs nix-colors; };
-                users.gin = {
-                  imports = [
-                    ./users/gin/home.nix
-                    # inputs.nixvim.homeManagerModules.nixvim
-                  ];
-                };
-              };
-            }
           ];
         };
         
       };
+
+      homeConfigurations = {
+        "gin@amethyst" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit self inputs outputs nix-colors; };
+          modules = [
+            ./users/gin/home.nix
+          ];
+        };
+
+        "gin@wsl" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit self inputs outputs nix-colors; };
+          modules = [
+            ./users/gin/wsl.nix
+            inputs.nix-index-database.hmModules.nix-index
+            inputs.nix-colors.homeManagerModules.default
+          ];
+        };
+      };
+
+      
     };
 }
