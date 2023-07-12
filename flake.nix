@@ -7,12 +7,14 @@
     home-manager.url = "github:nix-community/home-manager/master";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-index-database.url = "github:Mic92/nix-index-database";
+    nixvim.url = "github:pta2002/nixvim";
 
 
     # Making sure inputs follow nixpkgs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-colors.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-colors.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     # Non Flake Inputs
     fzf-tab = { url = "github:Aloxaf/fzf-tab"; flake = false;
@@ -20,7 +22,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-colors, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-colors, nixvim, nix-index-database, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -66,7 +68,7 @@
       homeConfigurations = {
         "gin@amethyst" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit self inputs outputs nix-colors; };
+          extraSpecialArgs = { inherit self inputs outputs nix-colors nixvim nix-index-database; };
           modules = [
             ./users/gin/home.nix
           ];
@@ -74,11 +76,12 @@
 
         "gin@wsl" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit self inputs outputs nix-colors; };
+          extraSpecialArgs = { inherit self inputs outputs nix-colors nixvim nix-index-database; };
           modules = [
             ./users/gin/wsl.nix
-            inputs.nix-index-database.hmModules.nix-index
-            inputs.nix-colors.homeManagerModules.default
+            nix-index-database.hmModules.nix-index
+            nix-colors.homeManagerModules.default
+            nixvim.homeManagerModules.nixvim
           ];
         };
       };

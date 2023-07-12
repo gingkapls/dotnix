@@ -16,7 +16,7 @@ in
     ./mako
     ./mkreadme
     ./mpv
-    # ./nvim
+    ./nvim
     ./obsidian
     ./swappy
     ./vscode

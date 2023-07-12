@@ -14,7 +14,7 @@
     # ./nvim.nix
     # nix-colors.homeManagerModule
     ../../hm/programs/helix
-    # ../../hm/programs/nvim
+    ../../hm/programs/nvim
     ../../hm/shells
   ];
 
