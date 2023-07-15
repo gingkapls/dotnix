@@ -23,7 +23,6 @@
       epiphany
       geary
       gnome-characters
-      totem
       tali
       iagno
       hitori

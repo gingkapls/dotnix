@@ -18,8 +18,10 @@ in {
     enable = true;
 
     font = {
-      name = "SF Pro Text Regular";
-      package = pkgs.sf-pro-fonts;
+      # name = "SF Pro Text Regular";
+      # package = pkgs.sf-pro-fonts;
+      name = "Inter";
+      package = pkgs.inter;
       size = 13;
     };
 

@@ -1,8 +1,8 @@
-{ config, nix-colors, ... }:
+{ config, nix-colors, osConfig, ... }:
 
 with config.colorscheme.colors;
 let 
-# font-mono = builtins.head(osConfig.fonts.fontconfig.defaultFonts.monospace);
+font-mono = builtins.head(osConfig.fonts.fontconfig.defaultFonts.monospace);
 in {
   xdg.configFile."wezterm/wezterm.lua".text = ''
     local wezterm = require 'wezterm';
@@ -15,7 +15,7 @@ in {
       initial_cols = 70,
       color_scheme = 'Gruvbox dark, medium (base16)',
     
-      font = wezterm.font("Iosevka", {weight="Medium"} ),
+      font = wezterm.font("${font-mono}", {weight="Medium"} ),
       font_size = 18,
 
       window_padding = {

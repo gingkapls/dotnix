@@ -12,7 +12,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    nix-colors.homeManagerModule
+    # nix-colors.homeManagerModule
     ../../hm
   ];
 
@@ -62,18 +62,7 @@
     android-udev-rules scrcpy
     inotify-tools rmlint lm_sensors p7zip comma
     glib gsettings-desktop-schemas
-
-    # LaTeX
-    pandoc; inherit (pkgs.texlive.combined) scheme-small;
-
-    # Fonts
-    inherit (pkgs)
-    curie
-    scientifica
-    ibm-plex
-    siji
-    fira-code
-    sf-pro-fonts
+    hyperfine
 
     # Applications
     google-chrome
@@ -82,7 +71,10 @@
     zathura foliate calibre
     lutris mangohud
     mpv
-    wezterm;
+    wezterm
+
+    # LaTeX
+    pandoc; inherit (pkgs.texlive.combined) scheme-small;
 
     inherit (pkgs.wineWowPackages)
     waylandFull;

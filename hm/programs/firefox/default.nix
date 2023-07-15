@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }:
+{ config, pkgs, libs, osConfig, ... }:
 
 {
   programs.firefox = {
@@ -9,15 +9,15 @@
         # userChrome = builtins.readFile ./userChrome.nix;
         settings = 
           let
-            # fonts = osConfig.fonts.fontconfig.defaultFonts;
+            fonts = osConfig.fonts.fontconfig.defaultFonts;
           in {
           # Customizations
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
           # Fonts
-          # "font.name.monospace.x-western" = builtins.toString fonts.monospace;
-          # "font.name.sans-serif.x-western" = builtins.toString fonts.sansSerif;
-          # "font.name.serif.x-western" = builtins.toString fonts.serif;
+          "font.name.monospace.x-western" = builtins.head fonts.monospace;
+          "font.name.sans-serif.x-western" = builtins.head fonts.sansSerif;
+          "font.name.serif.x-western" = builtins.head fonts.serif;
 
           # turn of google safebrowsing (it literally sends a sha sum of everything you download to google)
           "browser.safebrowsing.downloads.remote.block_dangerous" = false;

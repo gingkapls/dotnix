@@ -1,12 +1,12 @@
-{ config, pkgs, lib, nix-colors, ... }:
+{ config, pkgs, lib, nix-colors, osConfig, ... }:
 
 with config.colorscheme.colors;
 with lib;
 
 let 
   cfg = config.modules.desktop.mako;
-#  mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
-#  sans-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.sansSerif}";
+ font-mono = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
+ font-sans = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.sansSerif}";
 in {
   options.modules.desktop.mako = {
     enable = mkEnableOption "Enable mako the lightweight notification daemon for Wayland";
@@ -28,7 +28,7 @@ in {
       borderSize = 4;
       defaultTimeout = 5000;
 
-      # font = "${mono-font} 16";
+      font = "${font-sans} 16";
       format = "<b>%s</b>\\n%b";
       icons = true;
       maxIconSize = 96;

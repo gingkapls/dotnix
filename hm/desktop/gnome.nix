@@ -10,7 +10,7 @@ in rec {
     # bluetooth-quick-connect
     # blur-my-shell
     caffeine
-    # dash-to-dock
+    dash-to-dock
     dash-to-panel
     night-theme-switcher
     focus-changer
@@ -18,6 +18,7 @@ in rec {
     rounded-window-corners
     # search-light
     # gsconnect
+    useless-gaps
     user-themes;
   };
 
@@ -139,14 +140,14 @@ in rec {
     "org/gnome/desktop/background" = {
       # picture-uri = "file:///" + ../../assets/light.png;
       # picture-uri-dark = "file:///" + ../../assets/dark.png;
-      picture-uri = "file:///" + config.home.homeDirectory + "/.dotnix/assets/light.png";
-      picture-uri-dark = "file:///" + config.home.homeDirectory + "/.dotnix/assets/dark.png";
+      picture-uri = "file:///" + config.home.homeDirectory + "/Pictures/Wallpapers/light.png";
+      picture-uri-dark = "file:///" + config.home.homeDirectory + "/Pictures/Wallpapers/dark.png";
     };
 
     # Screensaver
     "org/gnome/desktop/screensaver" = {
       # picture-uri = "file:///" + ../../assets/light.png;
-      picture-uri = "file:///" + config.home.homeDirectory + "/.dotnix/assets/light.png";
+      picture-uri = "file:///" + config.home.homeDirectory + "/Pictures/Wallpapers/light.png";
     };
 
     # "org/gnome/shell/extensions/app-menu" = { enabled = false; };

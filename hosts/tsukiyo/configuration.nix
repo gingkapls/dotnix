@@ -62,7 +62,7 @@
   };
 
   networking = {
-    hostName = "amethyst";
+    hostName = "tsukiyo";
     useDHCP = false;
     interfaces = {
       enp6s0f1.useDHCP = true;
@@ -242,8 +242,10 @@
 
   services.openssh = {
     enable = false;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
   };
 
   time.timeZone = "Asia/Kolkata";

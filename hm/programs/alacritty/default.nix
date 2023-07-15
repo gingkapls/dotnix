@@ -1,11 +1,11 @@
-{ config, pkgs, lib, nix-colors, ... }: 
+{ config, pkgs, lib, nix-colors, osConfig, ... }: 
 
 with config.colorscheme.colors; 
 with lib;
 let
   cfg = config.modules.programs.alacritty;
- # mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
- mono-font = "Iosevka";
+ mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
+ # mono-font = "Iosevka";
 in {
   options.modules.programs.alacritty = {
     enable = mkEnableOption "Enable Alacritty the GPU Accelerated Terminal";
@@ -17,6 +17,7 @@ in {
       enable = true;
       settings = {
         window = {
+        decorations = "none";
           dimensions = {
             columns = 70;
             lines = 17;
@@ -29,8 +30,6 @@ in {
         };
 
         dynamic_padding = false;
-        decorations = "none";
-
         scrolling = {
           history = 10000;
           multiplier = 3;

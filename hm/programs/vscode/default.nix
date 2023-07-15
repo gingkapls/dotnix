@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nix-vscode-extensions, ... }:
 
 with lib;
 let 
@@ -13,12 +13,14 @@ in
 
     programs.vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [
         asvetliakov.vscode-neovim
         jnoortheen.nix-ide
+        github.github-vscode-theme
         ms-vscode.cpptools
-        matklad.rust-analyzer
+        rust-lang.rust-analyzer
         mvllow.rose-pine
+        wallabyjs.console-ninja
       ];
 
     };

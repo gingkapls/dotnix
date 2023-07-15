@@ -4,8 +4,7 @@ with config.colorscheme.colors;
 with lib;
 let
   cfg = config.modules.programs.foot;
-  # mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
-  # sans-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.sansSerif}";
+  font-mono = "${builtins.head osConfig.fonts.fontconfig.defaultFonts.monospace}";
 in {
   options.modules.programs.foot = {
     enable = mkEnableOption "Enable Foot, the lightweight terminal emulator for Wayland";
@@ -19,10 +18,10 @@ in {
       settings = {
         main = {
           term = "xterm-256color";
-          # font = "${mono-font}:style=Medium:size=11";
-          # font-bold = "${mono-font}:style=Bold:size=11";
-          # font-italic = "${mono-font}:style=Medium Italic:size=11";
-          # font-bold-italic = "${mono-font}:style=Bold Italic:size=11";
+          font = "${font-mono}:style=Medium:size=11";
+          font-bold = "${font-mono}:style=Bold:size=11";
+          font-italic = "${font-mono}:style=Medium Italic:size=11";
+          font-bold-italic = "${font-mono}:style=Bold Italic:size=11";
           dpi-aware = "yes";
           locked-title = "no";
           pad = "25x25";
