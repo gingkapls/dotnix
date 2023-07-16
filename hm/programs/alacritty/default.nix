@@ -4,7 +4,7 @@ with config.colorscheme.colors;
 with lib;
 let
   cfg = config.modules.programs.alacritty;
- mono-font = "${builtins.toString osConfig.fonts.fontconfig.defaultFonts.monospace}";
+ mono-font = "${builtins.head osConfig.fonts.fontconfig.defaultFonts.monospace}";
  # mono-font = "Iosevka";
 in {
   options.modules.programs.alacritty = {

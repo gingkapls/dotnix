@@ -13,7 +13,8 @@
       fira-code
       scientifica
       siji
-      twemoji-color-font
+      # twemoji-color-font
+      twitter-color-emoji
       paratype-pt-serif
       material-icons
       merriweather

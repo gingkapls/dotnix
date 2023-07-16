@@ -160,7 +160,7 @@
     # enable = true;
     # useQtScaling = false;
   # };
-  # programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  # programs.ssh.askPassword = lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
   
   # Sound
   sound.enable = true;
@@ -209,10 +209,10 @@
       nvidiaBusId = "PCI:1:0:0";
     };
 
-    # powerManagement = {
-    #   enable = true;
-    #   finegrained = true;
-    # };
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
   };
 
   # Power Key

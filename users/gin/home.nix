@@ -55,7 +55,7 @@
     # Utilities
     coreutils tree jq rename gh
     blender krita
-    imagemagick imv
+    imagemagick imv gcolor3
     playerctl pamixer pavucontrol
     networkmanagerapplet
     ventoy aria2 rclone yt-dlp
