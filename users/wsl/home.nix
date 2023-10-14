@@ -11,8 +11,6 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-    # nix-colors.homeManagerModule
     ../../hm/programs/helix
     ../../hm/programs/nvim
     ../../hm/shells
@@ -68,13 +66,12 @@
 
     packages = lib.attrValues {
     inherit (pkgs)
+
     # Utilities
     coreutils tree jq rename gh
     ventoy aria2 rclone yt-dlp
     inotify-tools rmlint lm_sensors p7zip comma
-
-    # LaTeX
-    pandoc; inherit (pkgs.texlive.combined) scheme-small;
+    pandoc;
 
     # LSPs
     inherit (pkgs)
@@ -110,6 +107,9 @@
       enable = true;
       userEmail = "73906888+gingkapls@users.noreply.github.com";
       userName = "gin";
+      extraConfig = {
+        init.defaultBranch = "master";
+      };
     };
   };
 
@@ -161,7 +161,7 @@
 
     userDirs = {
       enable = true;
-      createDirectories = true;
+      createDirectories = false;
     };
 
   };

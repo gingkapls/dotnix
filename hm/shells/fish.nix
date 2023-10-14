@@ -20,6 +20,12 @@ in {
           perl-rename = "perl-rename -i";
         };
 
+        functions = {
+          chrome = {
+            body = ''chrome.exe "\\\\\wsl.localhost\\Alpine\\$PWD\\$argv"'';
+          };
+        };
+
         interactiveShellInit = with config.colorscheme.colors;"
         set -g fish_greeting
         fish_vi_key_bindings 
