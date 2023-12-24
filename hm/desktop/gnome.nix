@@ -61,6 +61,7 @@ in rec {
 
     "org/gnome/desktop/interface" = {
       document-font-name = "${font-regular} 13";
+      text-scaling-factor = 1.10;
       clock-show-weekday = true;
       clock-show-date = true;
     };
@@ -121,7 +122,8 @@ in rec {
     
     "org/gnome/desktop/input-sources" = {
       sources = lib.hm.gvariant.mkTuple ["xkb" "us"];
-      xkb-options = ["caps:swapescape" "compose:ralt"];
+      # xkb-options = ["caps:swapescape" "compose:ralt"];
+      xkb-options = ["compose:ralt"];
     };    
 
     # Media Keys
@@ -132,7 +134,7 @@ in rec {
     # Custom Keybindings
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "alacritty";
+      command = "kgx";
       name = "Launch Terminal";
     };
 

@@ -3,5 +3,5 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   # example = pkgs.callPackage ./example { };
-  apple-fonts = pkgs.callPackage ./apple-fonts.nix { };
+  # apple-fonts = pkgs.callPackage ./apple-fonts.nix { };
 }

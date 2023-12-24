@@ -35,6 +35,9 @@
     ];
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-25.9.0" # For Obsidian
+      ];
     };
   };
 
@@ -130,7 +133,7 @@
       openssh.authorizedKeys.keys = [
 
       ];
-      shell = pkgs.nushellFull;
+      shell = pkgs.zsh;
       extraGroups = [ "wheel" "networkmanager" "video" "adbusers" "docker"];
     };
   };
@@ -139,7 +142,8 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    xkbOptions = "caps:swapescape, compose:ralt";
+    # xkbOptions = "caps:swapescape, compose:ralt";
+    xkbOptions = "compose:ralt";
     libinput = {
       enable = true;
       mouse.middleEmulation = false;

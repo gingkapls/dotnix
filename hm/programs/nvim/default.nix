@@ -39,10 +39,14 @@ with config.colorscheme.colors;
 
       lsp = {
         enable = true;
-	  servers = {
-	    rust-analyzer.enable = true;
-	    rnix-lsp.enable = true;
-	  };
+    	  servers = {
+    	    rnix-lsp.enable = true;
+    	    rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
+    	  };
       };
 
       luasnip = {
@@ -51,33 +55,33 @@ with config.colorscheme.colors;
 
     };
 
-    maps = {
-      # For luasnips
-      insert."<Tab>" = {
-        silent = true;
-        expr = true;
-        action = "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'";
-      };
+    # maps = {
+    #   # For luasnips
+    #   insert."<Tab>" = {
+    #     silent = true;
+    #     expr = true;
+    #     action = "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'";
+    #   };
 
-      insert."<S-Tab>" = {
-        silent = true;
-        noremap = true;
-        action = "<cmd>lua require'luasnip'.jump(-1)<Cr>";
-      };
+    #   insert."<S-Tab>" = {
+    #     silent = true;
+    #     noremap = true;
+    #     action = "<cmd>lua require'luasnip'.jump(-1)<Cr>";
+    #   };
 
-      select."<Tab>" = {
-        silent = true;
-        noremap = true;
-        action = "<cmd>lua require('luasnip').jump(1)<Cr>";
-      };
+    #   select."<Tab>" = {
+    #     silent = true;
+    #     noremap = true;
+    #     action = "<cmd>lua require('luasnip').jump(1)<Cr>";
+    #   };
 
-      select."<S-Tab>" = {
-        silent = true;
-        noremap = true;
-        action = "<cmd>lua require('luasnip').jump(-1)<Cr>";
-      };
+    #   select."<S-Tab>" = {
+    #     silent = true;
+    #     noremap = true;
+    #     action = "<cmd>lua require('luasnip').jump(-1)<Cr>";
+    #   };
 
-    };
+    # };
 
     extraPlugins = with pkgs.vimPlugins; [ 
       limelight-vim

@@ -18,11 +18,24 @@ in
         jnoortheen.nix-ide
         github.github-vscode-theme
         ms-vscode.cpptools
+        esbenp.prettier-vscode
         rust-lang.rust-analyzer
         mvllow.rose-pine
         wallabyjs.console-ninja
       ];
 
+      userSettings = {
+        "editor.fontLigatures" = true;
+        "editor.formatOnSave" = true;
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+
+        "window.titleBarStyle" = "custom";
+        "window.zoomLevel" = 1.5;
+
+        "extensions.experimental.affinity" = {
+          "asvetliakov.vscode-neovim" = 1;
+        };
+      };
     };
   };
 

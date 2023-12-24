@@ -58,7 +58,8 @@ in
           };
 
           "type:keyboard" = {
-            "xkb_options" = "caps:swapescape,compose:ralt";
+            # "xkb_options" = "caps:swapescape,compose:ralt";
+            "xkb_options" = "compose:ralt";
 	          "repeat_rate" = "40";
           };
         };

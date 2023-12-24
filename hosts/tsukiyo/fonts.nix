@@ -2,9 +2,9 @@
 
 {
   fonts = {
-    fonts = lib.attrValues {
+    packages = lib.attrValues {
       inherit (pkgs)
-      apple-fonts
+      # apple-fonts
       noto-fonts
       noto-fonts-cjk
       inter

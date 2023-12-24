@@ -163,7 +163,7 @@
         "application/epub+zip"     = [ docViewer ];
         "application/json"         = [ editor ];
         "application/x-yaml"       = [ editor ];
-        "text/html"                = [ "firefox.desktop" ];
+        "text/html"                = [ "google-chrome.desktop" ];
         "inode/directory"          = [ "org.gnome.Nautilus.desktop" ];
       };
 
