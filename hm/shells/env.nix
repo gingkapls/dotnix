@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 # vim: set ft=nix:
 
-with config.colorscheme.colors; {
+with config.colorscheme.palette; {
   home.sessionVariables = {
 
     BEMENU_OPTS = "-H27 --fn 'Inter Medium 14' --nb '#${base00}' --nf '#${base03}' --fb '#${base00}' --ff '#${base08}' --hb '#${base00}' --hf '#${base08}' --tb '#${base00}' --tf '#${base05}' --scb '#${base00}' --scf '#${base05}'  --no-overlap --prompt= ";

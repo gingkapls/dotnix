@@ -1,6 +1,6 @@
 { config, nix-colors, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 {
   home.file."Obsidian-base16-default" = {
     target = "${config.home.homeDirectory}/Documents/Obsidian/.obsidian/themes/base16-default.css";

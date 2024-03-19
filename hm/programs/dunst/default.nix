@@ -1,6 +1,6 @@
 { config, pkgs, nix-colors, lib, ... }:
 
-with config.colorscheme.colors; 
+with config.colorscheme.palette; 
 let
   cfg = config.modules.desktop.dunst;
 in {

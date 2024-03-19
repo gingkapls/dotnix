@@ -1,6 +1,6 @@
 { config, nix-colors, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 {
   xdg.configFile."swaylock/config".text = ''
     image="${config.home.homeDirectory}/.dotnix/assets/wallpaper.png"

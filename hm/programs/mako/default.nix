@@ -1,6 +1,6 @@
 { config, pkgs, lib, nix-colors, osConfig, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 with lib;
 
 let 

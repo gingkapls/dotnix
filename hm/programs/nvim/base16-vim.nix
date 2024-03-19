@@ -1,6 +1,6 @@
 { config, lib, nix-colors, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 {
   xdg.configFile."nvim/colors/base16-${config.colorscheme.slug}.vim".text = ''
     " vi:syntax=vim

@@ -1,6 +1,6 @@
 { config, pkgs, nix-colors, ... }:
 
-with config.colorscheme.colors; 
+with config.colorscheme.palette; 
 {
     programs.i3status = {
       enable = true; 

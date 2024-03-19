@@ -1,6 +1,6 @@
 { config, osConfig, pkgs, lib, nix-colors, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 with lib;
 let
   cfg = config.modules.programs.foot;

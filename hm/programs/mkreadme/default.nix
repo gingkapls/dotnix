@@ -1,7 +1,7 @@
 { config, lib, nix-colors, ... }:
 
 let
-  colors = config.colorscheme.colors;
+  colors = config.colorscheme.palette;
 #  fonts = osConfig.fonts.fontconfig.defaultFonts;
 in {
   home.file."README-md" = {

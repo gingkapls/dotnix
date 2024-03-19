@@ -1,6 +1,6 @@
 { config, lib, pkgs, nixvim, nix-colors, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 
 {
   programs.nixvim = {

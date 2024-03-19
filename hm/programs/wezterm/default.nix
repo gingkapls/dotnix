@@ -1,6 +1,6 @@
 { config, nix-colors, osConfig, ... }:
 
-with config.colorscheme.colors;
+with config.colorscheme.palette;
 let 
 font-mono = builtins.head(osConfig.fonts.fontconfig.defaultFonts.monospace);
 in {
