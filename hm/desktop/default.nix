@@ -58,14 +58,14 @@ in {
     style = {
       package = pkgs.adwaita-qt;
       name = "adwaita";
-      # name = "${ if config.colorscheme.kind == "light" then "adwaita" else "adwaita-dark" }";
+      # name = "${ if config.colorscheme.variant == "light" then "adwaita" else "adwaita-dark" }";
     };
   };
 
   home = {
     pointerCursor = {
     name = "Capitaine-cursors";
-      # name = "${if config.colorscheme.kind == "dark" then "Capitaine-cursors-white" else "Capitaine-cursors"}";
+      # name = "${if config.colorscheme.variant == "dark" then "Capitaine-cursors-white" else "Capitaine-cursors"}";
       package = pkgs.capitaine-cursors;
 
       x11 = {

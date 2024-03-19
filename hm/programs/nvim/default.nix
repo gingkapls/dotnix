@@ -34,7 +34,9 @@ with config.colorscheme.colors;
 
       goyo = {
         enable = true;
-        showLineNumbers = false;
+        settings = {
+          linenr = false;
+        };
       };
 
       lsp = {
@@ -110,7 +112,7 @@ with config.colorscheme.colors;
       conceallevel = 1;
 
       # Colors
-      background = "${config.colorscheme.kind}";
+      background = "${config.colorscheme.variant}";
       termguicolors = true;
 
     };

@@ -72,11 +72,14 @@
       wlan0.useDHCP = true;
     };
 
-    networkmanager.enable = true;
-    wireless.iwd = {
+    networkmanager = {
       enable = true;
-      settings.Settings.Autoconnect = true;
+      # wifi.backend = "iwd";
     };
+    # wireless.iwd = {
+      # enable = true;
+      # settings.Settings.Autoconnect = true;
+    # };
 
     firewall.enable = false;
   };
@@ -102,6 +105,9 @@
     };
   };
 
+  ## linux-firmware
+  # hardware.enableRedistributableFirmware = true;
+
   # Packages
   environment.systemPackages = lib.attrValues {
     inherit (pkgs)
@@ -119,10 +125,11 @@
     dconf.enable = true;
     steam.enable = true;
     xwayland.enable = true;
-    zsh = {
-      enable = true;
-      enableCompletion = false;
-    };
+    # zsh = {
+    #   enable = true;
+    #   enableCompletion = false;
+    # };
+    fish.enable = true;
   };
 
   # Users
@@ -133,7 +140,7 @@
       openssh.authorizedKeys.keys = [
 
       ];
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       extraGroups = [ "wheel" "networkmanager" "video" "adbusers" "docker"];
     };
   };
@@ -141,9 +148,11 @@
   # X Configuration
   services.xserver = {
     enable = true;
-    layout = "us";
+    xkb = {
+      layout = "us";
+      options = "compose:ralt";
+    };
     # xkbOptions = "caps:swapescape, compose:ralt";
-    xkbOptions = "compose:ralt";
     libinput = {
       enable = true;
       mouse.middleEmulation = false;
@@ -208,14 +217,17 @@
   hardware.nvidia = {
     modesetting.enable = true;
     prime = {
-      offload.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
     };
 
     powerManagement = {
-      enable = true;
-      finegrained = true;
+      enable = false;
+      finegrained = false;
     };
   };
 

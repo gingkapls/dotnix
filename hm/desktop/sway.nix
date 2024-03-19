@@ -85,6 +85,7 @@ in
           { command = "${pkgs.waybar}/bin/waybar"; always = false; }
           { command = "${pkgs.foot}/bin/foot --server"; always = false; }
           { command = "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"; always = false; }
+          { command = "${pkgs.gammastep}/bin/gammastep -O 4000K"; always = false; }
           # { command = "i3-floating-decor"; }
           # { command = "music-notifier"; }
           { command = "swayidle -w \\

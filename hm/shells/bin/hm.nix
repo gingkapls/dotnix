@@ -32,6 +32,9 @@ pkgs.writeShellScriptBin "hm"
                 *) printf "???\n";;
             esac;;
 
+        "boot")
+            _nix boot;;
+            
         "test")
             _nix test;;
 

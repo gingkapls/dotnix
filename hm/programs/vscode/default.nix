@@ -17,7 +17,8 @@ in
         asvetliakov.vscode-neovim
         jnoortheen.nix-ide
         github.github-vscode-theme
-        ms-vscode.cpptools
+        # ms-vscode.cpptools
+        ms-vscode.live-server
         esbenp.prettier-vscode
         rust-lang.rust-analyzer
         mvllow.rose-pine

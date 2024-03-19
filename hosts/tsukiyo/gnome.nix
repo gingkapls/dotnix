@@ -19,7 +19,6 @@
   inherit (pkgs.gnome)
       gnome-music
       gnome-terminal
-      gedit
       epiphany
       geary
       gnome-characters
@@ -28,7 +27,9 @@
       hitori
       atomix;
 
-      inherit (pkgs) gnome-tour;
+      inherit (pkgs)
+      gnome-tour
+      gedit;
   };
 
 }

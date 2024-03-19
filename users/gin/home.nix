@@ -16,7 +16,7 @@
     ../../hm
   ];
 
-  colorScheme = nix-colors.colorSchemes.horizon-dark;
+  colorscheme = nix-colors.colorSchemes.horizon-dark;
 
   nixpkgs = {
     # You can add overlays here
@@ -63,15 +63,22 @@
     inotify-tools rmlint lm_sensors p7zip comma
     glib gsettings-desktop-schemas
     hyperfine
+    gammastep
 
     # Applications
     google-chrome
-    qbittorrent
+    qbittorrent-qt5 transmission-gtk
     tdesktop obsidian
     zathura foliate calibre
     lutris mangohud
     mpv
     wezterm
+    # yuzu
+    write_stylus
+    xournalpp
+    anki
+    android-studio
+    bottles
 
     # LaTeX
     pandoc; inherit (pkgs.texlive.combined) scheme-small;
@@ -108,7 +115,7 @@
 
   	programs = {
       alacritty.enable = true;
-      foot.enable = false;
+      foot.enable = true;
       vscode.enable = true;
   	  helix.enable = true;
     };
@@ -141,39 +148,43 @@
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps = {
-      enable = true;
-      defaultApplications = let
+    mimeApps = let 
       # imgViewer = "imv.desktop";
       # docViewer = "org.pwmt.zathura.desktop";
-      # docViewer = "org.gnome.Evince.desktop";
-        imgViewer = "org.gnome.eog.desktop";
-        docViewer = "org.pwmt.zathura.desktop";
-        editor = "org.helix.desktop";
-
-      in {
-        "image/jpeg"               = [ imgViewer ];
-        "image/png"                = [ imgViewer ];
-        "image/gif"                = [ imgViewer ];
-        "image/svg+xml"            = [ imgViewer ];
-        "video/mp4"                = [ "mpv.desktop" ];
-        "video/x-matroska"         = [ "mpv.desktop" ];
-        "image/vnd.djvu+multipage" = [ docViewer ];
-        "application/pdf"          = [ docViewer ];
-        "application/epub+zip"     = [ docViewer ];
-        "application/json"         = [ editor ];
-        "application/x-yaml"       = [ editor ];
-        "text/html"                = [ "google-chrome.desktop" ];
-        "inode/directory"          = [ "org.gnome.Nautilus.desktop" ];
+      docViewer = "org.gnome.Evince.desktop";
+      imgViewer = "org.gnome.Loupe.desktop";
+      editor = "org.helix.desktop";
+    in {
+      enable = true;
+      defaultApplications = {
+        "image/jpeg"                 = [ imgViewer ];
+        "image/png"                  = [ imgViewer ];
+        "image/gif"                  = [ imgViewer ];
+        "image/svg+xml"              = [ imgViewer ];
+        "video/mp4"                  = [ "mpv.desktop" ];
+        "video/x-matroska"           = [ "mpv.desktop" ];
+        "image/vnd.djvu+multipage  " = [ docViewer ];
+        "application/pdf"            = [ docViewer ];
+        "application/epub+zip"       = [ "com.github.johnfactotum.Foliate.desktop" ];
+        "application/json"           = [ editor ];
+        "application/x-yaml"         = [ editor ];
+        "text/html"                  = [ "firefox.desktop" ];
+        "application/html+xml"       = [ "firefox.desktop" ];
+        "inode/directory"            = [ "org.gnome.Nautilus.desktop" ];
       };
 
       associations = {
         added = {
-          "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+          "inode/directory"          = [ "org.gnome.Nautilus.desktop" ];
+          "image/jpeg"               = [ imgViewer ];
+          "image/png"                = [ imgViewer ];
         };
         
         removed = {
-          "inode/directory" = [ "code.desktop" ];
+          "inode/directory"          = [ "code.desktop" ];
+          "image/jpeg"               = [ "wine-extension-jfif.desktop" ];
+          "image/png"                = [ "wine-extension-png.desktop" ];
+          "application/html+xml"     = [ "calibre-ebook-edit.desktop" ];
         };
       };
     

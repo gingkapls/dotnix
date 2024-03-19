@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nix-colors, ... }:
+{ config, osConfig, pkgs, lib, nix-colors, ... }:
 
 with config.colorscheme.colors;
 with lib;
@@ -18,10 +18,10 @@ in {
       settings = {
         main = {
           term = "xterm-256color";
-          font = "${font-mono}:style=Medium:size=11";
-          font-bold = "${font-mono}:style=Bold:size=11";
-          font-italic = "${font-mono}:style=Medium Italic:size=11";
-          font-bold-italic = "${font-mono}:style=Bold Italic:size=11";
+          font = "${font-mono}:style=Medium:size=13";
+          font-bold = "${font-mono}:style=Bold:size=13";
+          font-italic = "${font-mono}:style=Medium Italic:size=13";
+          font-bold-italic = "${font-mono}:style=Bold Italic:size=13";
           dpi-aware = "yes";
           locked-title = "no";
           pad = "25x25";

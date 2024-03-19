@@ -16,6 +16,7 @@ in rec {
     focus-changer
     # just-perfection
     rounded-window-corners
+    steal-my-focus-window
     # search-light
     # gsconnect
     useless-gaps
@@ -134,7 +135,7 @@ in rec {
     # Custom Keybindings
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "kgx";
+      command = "kgx --tab";
       name = "Launch Terminal";
     };
 
