@@ -26,12 +26,15 @@ in
       ];
 
       userSettings = {
-        "editor.fontLigatures" = true;
+        "editor.fontLigatures" = false;
         "editor.formatOnSave" = true;
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        "editor.cursorSmoothCaretAnimation" = "explicit";
+        "console-ninja.featureSet" = "Community";
 
         "window.titleBarStyle" = "custom";
         "window.zoomLevel" = 1.5;
+        "terminal.integrated.env.linux" = {};
 
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;

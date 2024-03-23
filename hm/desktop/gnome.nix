@@ -80,14 +80,14 @@ in rec {
       move-to-workspace-2          = ["<Shift><Super>2"];
       move-to-workspace-3          = ["<Shift><Super>3"];
       move-to-workspace-4          = ["<Shift><Super>4"];
-      switch-applications          = ["<Super>Tab"];
+      # switch-applications          = ["<Super>Tab"];
       switch-applications-backward = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
       switch-to-workspace-1        = ["<Super>1"];
       switch-to-workspace-2        = ["<Super>2"];
       switch-to-workspace-3        = ["<Super>3"];
       switch-to-workspace-4        = ["<Super>4"];
-      switch-windows               = ["<Alt>Tab"];
-      switch-windows-backward      = ["<Shift><Alt>Tab"];
+      switch-windows               = ["<Super>Tab"];
+      switch-windows-backward      = ["<Shift><Super>Tab"];
       toggle-fullscreen            = ["<Shift><Super>f"];
       toggle-maximized             = ["<Super>f"];
       close                        = ["<Super>q"];
@@ -135,7 +135,7 @@ in rec {
     # Custom Keybindings
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "kgx --tab";
+      command = "kgx";
       name = "Launch Terminal";
     };
 
