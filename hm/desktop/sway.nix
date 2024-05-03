@@ -43,6 +43,8 @@ in
       #   "--unsupported-gpu"
       # ];
 
+      checkConfig = false;
+
       config = rec {
         workspaceAutoBackAndForth = true;
         window = {
@@ -64,7 +66,7 @@ in
           };
         };
 
-        output."*".bg = "$HOME/.dotnix/assets/wallpaper.png fill #${base01}";
+        output."*".bg = "${config.home.homeDirectory}/.dotnix/assets/wallpaper.png fill #${base01}";
 
         assigns = {
           "1" = [ { app_id = "^firefox$"; }];
@@ -176,7 +178,7 @@ in
             "${modifier}+d" = "exec ${runner}";
             "${modifier}+m" = "exec meme-menu";
             "${modifier}+Shift+r" = "reload";
-            "${modifier}+Shift+c" = "restart";
+            # "${modifier}+Shift+c" = "restart";
             "${modifier}+grave" = "exec ${pkgs.mako}/bin/makoctl restore";
   
             ## Changing Focus
@@ -222,10 +224,10 @@ in
             "${modifier}+Shift+0"  = "move container to workspace number 10, workspace number 10";
   
             # Layout
-            "${modifier}+e" = "layout toggle tabbed split";
+            "${modifier}+w" = "layout toggle tabbed split";
             "${modifier}+f" = "fullscreen";
             "${modifier}+s" = "floating toggle";
-            "${modifier}+c" = "layout toggle stacking split";
+            # "${modifier}+c" = "layout toggle stacking split";
             "${modifier}+space" = "focus mode_toggle";
   
             # Scratchpad
@@ -256,6 +258,14 @@ in
             "Ctrl+Shift+Print" = screenshot "select-window";
             "Ctrl+Mod1+Print" = screenshot "ocr";
             "--whole-window Mod1+button1" = screenshot "color-picker";
+
+            # For external keyboard
+            "${modifier}+Shift+c" = screenshot "screen";
+            "${modifier}+Ctrl+c" = screenshot "select";
+            "${modifier}+Shift+w" = screenshot "window";
+            # "Ctrl+Shift+Print" = screenshot "select-window";
+            # "${modifier}+Ctrl+o" = screenshot "ocr";
+
 
             # Screenrecords
             "${modifier}+Print" = screenrecord "screen";
