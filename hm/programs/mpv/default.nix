@@ -19,8 +19,8 @@
     };
 
     config = {
-      geometry = "50%:50%";
-      autofit-larger = "90%x90%";
+      geometry = "50%";
+      autofit-larger = "50%";
       keep-open = "yes";
       ontop = "yes";
       hwdec = "auto";
