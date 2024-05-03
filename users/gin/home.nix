@@ -54,7 +54,7 @@
     inherit (pkgs)
     # Utilities
     coreutils tree jq rename gh
-    blender krita
+    blender krita inkscape
     imagemagick imv gcolor3
     playerctl pamixer pavucontrol
     networkmanagerapplet
@@ -79,9 +79,10 @@
     anki
     android-studio
     bottles
+    libreoffice;
 
     # LaTeX
-    pandoc; inherit (pkgs.texlive.combined) scheme-small;
+    # pandoc; inherit (pkgs.texlive.combined) scheme-small;
 
     inherit (pkgs.wineWowPackages)
     waylandFull;
