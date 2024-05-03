@@ -74,12 +74,20 @@
 
     networkmanager = {
       enable = true;
-      # wifi.backend = "iwd";
+      wifi = {
+        macAddress = "permanent";
+        scanRandMacAddress = false;
+      };
+      wifi.backend = "iwd";
+
     };
-    # wireless.iwd = {
-      # enable = true;
-      # settings.Settings.Autoconnect = true;
-    # };
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        IPv6.Enabled = true;
+        Settings.Autoconnect = true;
+      };
+    };
 
     firewall.enable = false;
   };
@@ -90,13 +98,16 @@
       configurationLimit = 10;
     };
 
+    # Random kernel panics
+    # crashDump.enable = true;
+
     kernelPackages = pkgs.linuxPackages;
 
     supportedFilesystems = [ "btrfs" "ntfs" ];
     kernelParams = [
-      "quiet"
-      "loglevel=3"
-      "systemd.show_status=0"
+      # "quiet"
+      # "loglevel=3"
+      # "systemd.show_status=0"
     ];
 
     tmp = {
