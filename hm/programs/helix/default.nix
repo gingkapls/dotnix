@@ -14,7 +14,7 @@ in {
       settings = {
         # General
         # theme = "base16_transparent";
-        theme = "github_dark_tritanopia";
+        theme = "everforest_dark";
 
         # Editor
         editor = {
@@ -35,6 +35,70 @@ in {
         };
 
       };
+
+      extraPackages = with pkgs.nodePackages; [
+        typescript-language-server
+        vscode-langservers-extracted
+      ];
+
+      languages = {
+        language-server = {
+          typescript-language-server = with pkgs.nodePackages; {
+             command = "${typescript-language-server}/bin/typescript-language-server";
+             args = [ "--stdio" ];
+            config.tsserver.path = "${typescript}/bin/tsserver";
+          };
+
+
+          eslint = {
+            command = "vscode-eslint-language-server";
+            args = [ "--stdio" ];
+            config = {
+              format = false;
+              packageManages = "npm";
+              nodePath = "";
+              workingDirectory.mode = "auto";
+              onIgnoredFiles = "off";
+              run = "onType";
+              validate = "on";
+              useESLintClass = false;
+              experimental = { };
+              codeAction = {
+                disableRuleComment = {
+                  enable = true;
+                  location = "separateLine";
+                };
+                showDocumentation.enable = true;
+              };
+            };
+          };
+          vscode-css-language-server.config.provideFormatter = false;
+          vscode-html-language-server.config.provideFormatter = false;
+        };
+
+
+        language = [
+          {
+            name = "javascript";
+            auto-format = false;
+            language-servers = [
+              "efm-prettier"
+              { name = "typescript-language-server"; except-features = [ "format" ]; }
+              { name = "eslint"; except-features = [ "format" ]; }
+            ];
+          }
+          {
+            name = "html";
+            language-servers = [ "vscode-html-language-server" "efm-prettier" ];
+          }
+          {
+            name = "css";
+            language-servers = [ "vscode-css-language-server" "efm-prettier" ];
+          }
+        ];
+
+      };
+
     };
   };
 
