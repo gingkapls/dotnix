@@ -92,7 +92,7 @@ with config.colorscheme.palette;
       # (import ./melange.nix { inherit pkgs; })
     ];
 
-    options = {
+    opts = {
       # Indentation
       autoindent = true;
       tabstop = 8;
