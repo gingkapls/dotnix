@@ -31,7 +31,8 @@
 
       defaultFonts = {
         serif = [ "New York" ];
-        sansSerif = [ "SF Pro Display" ];
+        # sansSerif = [ "SF Pro Display" ];
+        sansSerif = [ "Inter" ];
         monospace = [ "Comic Mono"];
         emoji = [ "Twitter Color Emoji" ];
       };
