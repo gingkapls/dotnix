@@ -1,20 +1,21 @@
-{ config, pkgs, lib, ... }:
+{ config, osConfig, pkgs, lib, ... }:
 
 let
-#  font = builtins.toString osConfig.fonts.fontconfig.defaultFonts.sansSerif;
-  font-regular = "SF Pro Text Regular";
-  font-title = "SF Pro Display Semi-Bold";
+  font-sans = builtins.head osConfig.fonts.fontconfig.defaultFonts.sansSerif;
+  font-serif = builtins.head osConfig.fonts.fontconfig.defaultFonts.serif;
+  font-mono = builtins.head osConfig.fonts.fontconfig.defaultFonts.monospace;
 in rec {
   home.packages = lib.attrValues {
     inherit (pkgs.gnomeExtensions)
     # bluetooth-quick-connect
-    # blur-my-shell
+    blur-my-shell
     caffeine
     dash-to-dock
     dash-to-panel
     night-theme-switcher
     focus-changer
-    # just-perfection
+    paperwm
+    just-perfection
     rounded-window-corners
     steal-my-focus-window
     # search-light
@@ -27,18 +28,26 @@ in rec {
     "org/gnome/shell".enabled-extensions = (map (extension: extension.extensionUuid) home.packages)
     ++
     [
-      "native-window-placement@gnome-shell-extensions.gcampax.github.com"
+      "caffeine@patapon.info"
       "places-menu@gnome-shell-extensions.gcampax.github.com"
-      "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+      "nightthemeswitcher@romainvigier.fr"
+      "paperwm@paperwm.github.com"
+      "steal-my-focus-window@steal-my-focus-window"
+      "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
     ];
      
     "org/gnome/shell".disabled-extensions = 
     [
+      "dash-to-panel@jderose9.github.com"
       "dash-to-dock@micxgx.gmail.com"
+      "native-window-placement@gnome-shell-extensions.gcampax.github.com"
+      "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
       "window-list@gnome-shell-extensions.gcampax.github.com"
       "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       "apps-menu@gnome-shell-extensions.gcampax.github.com"
       "user-theme@gnome-shell-extensions.gcampax.github.com"
+      "useless-gaps@pimsnel.com"
+      "focus-changer@heartmire"
     ];
 
     "org/gnome/shell/extensions/auto-move-windows" = {
@@ -60,8 +69,45 @@ in rec {
       trans-panel-opacity = 0.25;
     };
 
+    "org/gnome/shell/extensions/paperwm" = {
+      horizontal-margin = 10;
+      minimap-scale = 0.0;
+      open-window-position = 0;
+      gesture-workspace-fingers=0;
+      restore-attach-modal-dialogs= "";
+      restore-edge-tiling = "";
+      restore-keybinds = "{}";
+      restore-workspaces-only-on-primary= " ";
+      show-workspace-indicator = false; # The values are reversed upstream for some reason
+      use-default-background = true;
+      vertical-margin = 10;
+      vertical-margin-bottom = 10;
+      window-gap = 20;
+      window-switcher-preview-scale = 0.15;
+      winprops = [ "{\"wm_class\":\"mpv\",\"scratch_layer\":true}"];
+    };
+
+   "org/gnome/shell/extensions/paperwm/keybindings" = {
+      close-window            = ["<Super>BackSpace" "<Super>q"];
+      move-down               = ["<Shift><Super>j"];
+      move-left               = ["<Shift><Super>h"];
+      move-right              = ["<Shift><Super>l"];
+      move-up                 = ["<Shift><Super>k"];
+      new-window              = ["<Super>n"];
+      switch-down             = ["<Super>Down" "<Super>j"];
+      switch-left             = ["<Super>Left" "<Super>h"];
+      switch-next-loop        = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      switch-right            = ["<Super>Right" "<Super>l"];
+      switch-up               = ["<Super>Up" "<Super>k"];
+      toggle-maximize-width   = ["<Super>f" "<Super>w"];
+      toggle-scratch          = ["<Super>a"];
+      switch-up-workspace     = ["<Super>bracketleft"];
+      switch-down-workspace   = ["<Super>bracketright"];
+    };
+
     "org/gnome/desktop/interface" = {
-      document-font-name = "${font-regular} 13";
+      document-font-name = "${font-sans} 13";
+      monospace-font-name = "${font-mono} 13";
       text-scaling-factor = 1.10;
       clock-show-weekday = true;
       clock-show-date = true;
@@ -70,38 +116,40 @@ in rec {
     "org/gnome/desktop/wm/preferences" = {
       resize-with-right-button = true;
       button-layout = "icon:minimize,maximize,close";
-      titlebar-font = "${font-title} 13";
+      titlebar-font = "${font-serif} Bold 13";
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      resize-with-right-button = true;
-      titlebar-font = "${font-title} 13";
-      move-to-workspace-1          = ["<Shift><Super>1"];
-      move-to-workspace-2          = ["<Shift><Super>2"];
-      move-to-workspace-3          = ["<Shift><Super>3"];
-      move-to-workspace-4          = ["<Shift><Super>4"];
-      # switch-applications          = ["<Super>Tab"];
-      switch-applications-backward = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
-      switch-to-workspace-1        = ["<Super>1"];
-      switch-to-workspace-2        = ["<Super>2"];
-      switch-to-workspace-3        = ["<Super>3"];
-      switch-to-workspace-4        = ["<Super>4"];
-      switch-windows               = ["<Super>Tab"];
-      switch-windows-backward      = ["<Shift><Super>Tab"];
-      toggle-fullscreen            = ["<Shift><Super>f"];
-      toggle-maximized             = ["<Super>f"];
-      close                        = ["<Super>q"];
-      unmaximize                   = ["<Shift><Super>j"];
-      maximize                     = ["<Shift><Super>k"];
-      minimize                     = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      resize-with-right-button        = true;
+      titlebar-font                   = "${font-serif} 13";
+      move-to-workspace-1             = ["<Shift><Super>1"];
+      move-to-workspace-2             = ["<Shift><Super>2"];
+      move-to-workspace-3             = ["<Shift><Super>3"];
+      move-to-workspace-4             = ["<Shift><Super>4"];
+      # switch-applications           = ["<Super>Tab"];
+      switch-applications-backward    = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      switch-to-workspace-1           = ["<Super>1"];
+      switch-to-workspace-2           = ["<Super>2"];
+      switch-to-workspace-3           = ["<Super>3"];
+      switch-to-workspace-4           = ["<Super>4"];
+      switch-windows                  = ["<Super>Tab"];
+      switch-windows-backward         = ["<Shift><Super>Tab"];
+      toggle-fullscreen               = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      toggle-maximized                = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      close                           = ["<Super>q"];
+      unmaximize                      = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      maximize                        = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      minimize                        = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
     };
 
     "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left            = ["<Shift><Super>h"];
-      toggle-tiled-right           = ["<Shift><Super>l"];
+      toggle-tiled-left               = ["<Shift><Super>h"];
+      toggle-tiled-right              = ["<Shift><Super>l"];
     };
 
     "org/gnome/shell/keybindings" = {
+      toggle-overview         = ["<Super>s"];
+      toggle-quick-settings   = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
       switch-to-application-1 = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
       switch-to-application-2 = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
       switch-to-application-3 = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
