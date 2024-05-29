@@ -36,14 +36,18 @@ in {
         	compinit -C;
         fi;
         '';
+
   
-        initExtraFirst = ''
-          # zmodload zsh/zprof
-          setopt nocaseglob
-          setopt PROMPT_SUBST
-        '';
+        ## this causes ridiculously long load times for some reason
+        # initExtraFirst = ''
+        #   # zmodload zsh/zprof
+        #   setopt nocaseglob
+        #   setopt PROMPT_SUBST
+        # '';
   
         initExtra = ''
+          setopt nocaseglob
+          setopt PROMPT_SUBST
           zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
           # Enable vim mode
           bindkey -v
