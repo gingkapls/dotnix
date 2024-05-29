@@ -14,7 +14,7 @@ in {
       settings = {
         # General
         # theme = "base16_transparent";
-        theme = "everforest_dark";
+        theme = "everblush";
 
         # Editor
         editor = {
