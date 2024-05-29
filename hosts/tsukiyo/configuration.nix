@@ -136,10 +136,10 @@
     dconf.enable = true;
     steam.enable = true;
     xwayland.enable = true;
-    # zsh = {
-    #   enable = true;
-    #   enableCompletion = false;
-    # };
+    zsh = {
+      enable = true;
+      enableCompletion = false;
+    };
     fish.enable = true;
   };
 
@@ -151,7 +151,7 @@
       openssh.authorizedKeys.keys = [
 
       ];
-      shell = pkgs.fish;
+      shell = pkgs.zsh;
       extraGroups = [ "wheel" "networkmanager" "video" "adbusers" "docker"];
     };
   };
