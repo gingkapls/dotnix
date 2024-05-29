@@ -32,4 +32,8 @@
       gedit;
   };
 
+  environment.systemPackages = lib.attrValues {
+    inherit (pkgs.gnome)
+      gnome-tweaks;
+  };
 }
