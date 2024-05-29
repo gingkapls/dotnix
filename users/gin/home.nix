@@ -64,15 +64,20 @@
     glib gsettings-desktop-schemas
     hyperfine
     gammastep
+    ulauncher
+    localsend
+    pciutils usbutils
 
     # Applications
     google-chrome
+    gnome-network-displays
     qbittorrent-qt5 transmission-gtk
     tdesktop obsidian
     zathura foliate calibre
     lutris mangohud
     mpv
     wezterm
+    blackbox-terminal
     # yuzu
     write_stylus
     xournalpp
