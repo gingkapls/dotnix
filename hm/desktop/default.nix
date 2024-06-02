@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./gnome.nix
+    ./hyprland.nix
     ./i3.nix
     ./i3status.nix
     ./picom.nix

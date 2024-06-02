@@ -11,8 +11,9 @@
     # ./users.nix
     ./fonts.nix
     ./gnome.nix
-    ./sway.nix
     ./hardware-configuration.nix
+    ./hyprland.nix
+    ./sway.nix
   ];
 
   nixpkgs = {
@@ -164,19 +165,20 @@
       options = "compose:ralt";
     };
     # xkbOptions = "caps:swapescape, compose:ralt";
-    libinput = {
-      enable = true;
-      mouse.middleEmulation = false;
-
-    touchpad = {
-      naturalScrolling = true;
-      disableWhileTyping = true;
-    };
-  };
-
     windowManager.i3.enable = true;
 
   };
+
+    services.libinput = {
+      enable = true;
+      mouse.middleEmulation = false;
+
+      touchpad = {
+        naturalScrolling = true;
+        disableWhileTyping = true;
+      };
+    };
+
 
   # Plasma
   # services.xserver.displayManager.sddm.enable = true;

@@ -69,7 +69,7 @@
     pciutils usbutils
 
     # Applications
-    google-chrome
+    google-chrome vivaldi
     gnome-network-displays
     qbittorrent-qt5 transmission-gtk
     tdesktop obsidian
@@ -112,6 +112,7 @@
     desktop = {
       windowManager.i3.enable = false;
       windowManager.sway.enable = true;
+      windowManager.hyprland.enable = false;
       picom.enable = false;
       dunst.enable = false;
       mako.enable = true;

@@ -49,10 +49,14 @@
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
+
       # Reusable nixos modules you might want to export
       nixosModules = import ./modules/nixos;
+
       # Reusable home-manager modules you might want to export
       homeManagerModules = import ./modules/home-manager;
+
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
       nixosConfigurations = {
         tsukiyo = nixpkgs.lib.nixosSystem {
