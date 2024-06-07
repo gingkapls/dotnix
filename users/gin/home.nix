@@ -124,7 +124,10 @@
       alacritty.enable = true;
       foot.enable = true;
       vscode.enable = true;
-  	  helix.enable = true;
+  	  helix = {
+        enable = true;
+        theme = "github_dark_dimmed";
+      };
     };
 
   	shells = {

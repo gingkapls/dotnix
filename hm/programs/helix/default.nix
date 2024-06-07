@@ -5,6 +5,10 @@ let
 in {
   options.modules.programs.helix = {
     enable = lib.mkEnableOption "Enable Helix the postmodern cli editor";
+    theme = lib.mkOption {
+      type = lib.types.str;
+      default = "default";
+    };
   };
  
   config = lib.mkIf cfg.enable {
@@ -13,8 +17,7 @@ in {
       enable = true;
       settings = {
         # General
-        # theme = "base16_transparent";
-        theme = "everblush";
+        theme = cfg.theme;
 
         # Editor
         editor = {

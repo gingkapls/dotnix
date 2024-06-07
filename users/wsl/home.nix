@@ -23,7 +23,7 @@
     # To make nix3 commands consistent with your flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
-    package = pkgs.nix;
+    package = pkgs.nixFlakes;
 
     settings = {
       experimental-features = "nix-command flakes";
@@ -59,31 +59,32 @@
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "gin";
     homeDirectory = "/home/gin";
 
     packages = lib.attrValues {
-    inherit (pkgs)
+      inherit (pkgs)
 
-    # Utilities
-    coreutils tree jq rename gh
-    ventoy aria2 rclone yt-dlp
-    inotify-tools rmlint lm_sensors p7zip comma
-    pandoc;
+      # Utilities
+      coreutils tree jq rename gh
+      ventoy aria2 rclone yt-dlp
+      inotify-tools rmlint lm_sensors p7zip comma
+      # pandoc;
 
-    # LSPs
-    inherit (pkgs)
-    rust-analyzer
-    clang clang-tools;
+      # LSPs
+      # rust-analyzer
+      clang clang-tools;
     };
   };
 
 
   modules = {
   	programs = {
-  	  helix.enable = true;
+  	  helix = {
+        enable = true;
+        theme = "rose_pine_dawn";
+      };
     };
 
   	shells = {
