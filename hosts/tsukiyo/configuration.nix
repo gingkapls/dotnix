@@ -67,26 +67,20 @@
 
   networking = {
     hostName = "tsukiyo";
-    useDHCP = false;
+    # useDHCP = true;
     interfaces = {
       enp6s0f1.useDHCP = true;
       wlan0.useDHCP = true;
     };
 
+    wireless.iwd.enable = true;
+
     networkmanager = {
       enable = true;
       wifi = {
-        macAddress = "permanent";
+        powersave = false;
+        backend = "iwd";
         scanRandMacAddress = false;
-      };
-      wifi.backend = "iwd";
-
-    };
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        IPv6.Enabled = true;
-        Settings.Autoconnect = true;
       };
     };
 
@@ -102,7 +96,7 @@
     # Random kernel panics
     # crashDump.enable = true;
 
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     supportedFilesystems = [ "btrfs" "ntfs" ];
     kernelParams = [
@@ -112,13 +106,13 @@
     ];
 
     tmp = {
-      useTmpfs = true;
+      useTmpfs = false;
       cleanOnBoot = true;
     };
   };
 
-  ## linux-firmware
-  # hardware.enableRedistributableFirmware = true;
+  # linux-firmware
+  hardware.enableAllFirmware= true;
 
   # Packages
   environment.systemPackages = lib.attrValues {
@@ -149,9 +143,6 @@
     gin = {
       initialPassword = "123456";
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-
-      ];
       shell = pkgs.zsh;
       extraGroups = [ "wheel" "networkmanager" "video" "adbusers" "docker"];
     };
@@ -207,10 +198,6 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    # settings = {
-    #   General = {
-    #   };
-    # };
   };
 
   # Graphics
@@ -244,11 +231,17 @@
     };
   };
 
+  # Drawing tablet
+  hardware.opentabletdriver.enable = true;
+
   # Power Key
   services.logind = {
     lidSwitch = "suspend";
     extraConfig = "HandlePowerKey=ignore";
   };
+
+  # Power Management
+  services.power-profiles-daemon.enable = false;
 
   # System Services
   zramSwap.enable = true;
