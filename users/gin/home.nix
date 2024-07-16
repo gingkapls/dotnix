@@ -55,7 +55,7 @@
     # Utilities
     coreutils tree jq rename gh
     blender krita inkscape
-    imagemagick imv gcolor3
+    imagemagick imv gcolor3 amberol
     playerctl pamixer pavucontrol
     networkmanagerapplet
     ventoy aria2 rclone yt-dlp
@@ -82,24 +82,12 @@
     write_stylus
     xournalpp
     anki
-    android-studio
+    # android-studio
     bottles
     libreoffice;
 
-    # LaTeX
-    # pandoc; inherit (pkgs.texlive.combined) scheme-small;
-
     inherit (pkgs.wineWowPackages)
     waylandFull;
-    
-    # Dev stuff
-    # oracle-instantclient;
-    inherit (pkgs.jetbrains) idea-community;
-
-    # LSPs
-    inherit (pkgs)
-    rust-analyzer
-    clang clang-tools;
 
     inherit (pkgs.gnome)
     nautilus;
