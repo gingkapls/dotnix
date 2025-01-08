@@ -36,6 +36,7 @@
     ];
     config = {
       allowUnfree = true;
+      input-fonts.acceptLicense = true;
       permittedInsecurePackages = [
         "electron-25.9.0" # For Obsidian
       ];
@@ -73,13 +74,10 @@
       wlan0.useDHCP = true;
     };
 
-    wireless.iwd.enable = true;
-
     networkmanager = {
       enable = true;
       wifi = {
         powersave = false;
-        backend = "iwd";
         scanRandMacAddress = false;
       };
     };
@@ -93,10 +91,16 @@
       configurationLimit = 10;
     };
 
-    # Random kernel panics
-    # crashDump.enable = true;
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+    extraModprobeConfig = ''
+      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+      blacklist nouveau
+      options nouveau modeset=0
+    '';
 
     kernelPackages = pkgs.linuxPackages_latest;
+    blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"];
 
     supportedFilesystems = [ "btrfs" "ntfs" ];
     kernelParams = [
@@ -143,7 +147,7 @@
     gin = {
       initialPassword = "123456";
       isNormalUser = true;
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       extraGroups = [ "wheel" "networkmanager" "video" "adbusers" "docker"];
     };
   };
@@ -180,7 +184,7 @@
   # programs.ssh.askPassword = lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
   
   # Sound
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -201,7 +205,7 @@
   };
 
   # Graphics
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = lib.attrValues {
       inherit (pkgs)
@@ -210,26 +214,29 @@
         vaapiVdpau
         libvdpau-va-gl;
     };
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   open = false;
+  #   package = config.boot.kernelPackages.nvidiaPackages.beta;
 
-    powerManagement = {
-      enable = false;
-      finegrained = false;
-    };
-  };
+  #   prime = {
+  #     offload = {
+  #       enable = true;
+  #       enableOffloadCmd = true;
+  #     };
+  #     intelBusId = "PCI:0:2:0";
+  #     nvidiaBusId = "PCI:1:0:0";
+  #   };
+
+  #   powerManagement = {
+  #     enable = false;
+  #     finegrained = false;
+  #   };
+  # };
 
   # Drawing tablet
   hardware.opentabletdriver.enable = true;
@@ -244,13 +251,25 @@
   services.power-profiles-daemon.enable = false;
 
   # System Services
-  zramSwap.enable = true;
+  zramSwap.enable = false;
   services = {
     dbus.enable = true;
   };
 
   # Power Management
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      charger = {
+        governor = "performance";
+        "energy_performance_preference" = "performance";
+        scaling_min_freq = 800000;
+        scaling_max_freq = 3100000;
+        turbo = "auto";
+      };
+    };
+  };
+
   services.undervolt = {
     enable = true;
     coreOffset = -150;
