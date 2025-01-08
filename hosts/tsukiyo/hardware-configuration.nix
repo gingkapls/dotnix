@@ -42,7 +42,7 @@
       options = [ "subvol=games,noatime,compress-force=zstd:1,space_cache=v2" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/dev/disk/by-label/swap"; }  ];
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   nixpkgs.hostPlatform = "x86_64-linux";
