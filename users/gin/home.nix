@@ -54,8 +54,9 @@
     inherit (pkgs)
     # Utilities
     coreutils tree jq rename gh
-    blender krita inkscape
-    imagemagick imv gcolor3 amberol
+    krita inkscape
+    droidcam cheese guvcview
+    imagemagick imv gcolor3 amberol 
     playerctl pamixer pavucontrol
     networkmanagerapplet
     ventoy aria2 rclone yt-dlp
@@ -64,33 +65,29 @@
     glib gsettings-desktop-schemas
     hyperfine
     gammastep
-    ulauncher
     localsend
     pciutils usbutils
 
     # Applications
-    google-chrome vivaldi
+    google-chrome
     gnome-network-displays
-    qbittorrent-qt5 transmission-gtk
+    qbittorrent transmission_4-gtk
     tdesktop obsidian
     zathura foliate calibre
     lutris mangohud
     mpv
     wezterm
     blackbox-terminal
-    # yuzu
     write_stylus
     xournalpp
     anki
-    # android-studio
+    nautilus
     bottles
     libreoffice;
 
     inherit (pkgs.wineWowPackages)
     waylandFull;
 
-    inherit (pkgs.gnome)
-    nautilus;
     };
   };
 
@@ -134,6 +131,15 @@
     enable = true;
     userEmail = "73906888+gingkapls@users.noreply.github.com";
     userName = "gin";
+  };
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-backgroundremoval
+      droidcam-obs
+    ];
+
   };
 
   services = {
