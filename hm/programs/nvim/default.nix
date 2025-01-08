@@ -4,7 +4,7 @@ with config.colorscheme.palette;
 
 {
   programs.nixvim = {
-    enable = true;
+    enable = false;
 
     globals = {
       limelight_conceal_ctermfg = "#${base03}";
@@ -42,7 +42,7 @@ with config.colorscheme.palette;
       lsp = {
         enable = true;
     	  servers = {
-    	    rnix-lsp.enable = true;
+    	    rnix-lsp.enable = false;
     	    rust-analyzer = {
             enable = true;
             installCargo = false;
