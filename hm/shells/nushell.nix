@@ -25,7 +25,7 @@
       ]
     }
     '';
-    package = pkgs.nushellFull;
+    package = pkgs.nushell;
     # environmentVariables = {
    # };
   };

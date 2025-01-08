@@ -35,7 +35,7 @@ pkgs.writeShellScriptBin "wlrecord" ''
   	pkill --signal=SIGINT wf-recorder && ${pkgs.libnotify}/bin/notify-send "Recording Complete"
   	while [ ! -z "$(pgrep -x wf-recorder)" ]; do wait; done; pkill -RTMIN+8 waybar ## Waiting for wf-recorder to stop 
   
-  	name="$(${pkgs.gnome.zenity}/bin/zenity --entry --text "enter a filename")" 
+  	name="$(${pkgs.zenity}/bin/zenity --entry --text "enter a filename")" 
   	printf "$name"
     [ ! -z "$name" ] && mv "$filepath/tmp.mp4" "$filepath/$(date +%F_%T) $name.mp4" || mv "$filepath/tmp.mp4" "$filepath/$(date +%F_%T).mp4" 
   	#perl-rename "s/\.(mkv|mp4)$/ $name$&/" "$(ls -td /mnt/data/files/Videos/Recordings/* | head -n1)" ## this was so dumb
