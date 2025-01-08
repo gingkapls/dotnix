@@ -4,26 +4,27 @@
   fonts = {
     packages = lib.attrValues {
       inherit (pkgs)
-      # apple-fonts
-      noto-fonts
-      noto-fonts-cjk
+      cm_unicode
+      comic-mono
+      cozette
+      fira-code
+      font-awesome
+      gohufont
+      ibm-plex
       inter
       iosevka
-      ibm-plex
-      fira-code
-      scientifica
-      siji
-      # twemoji-color-font
-      twitter-color-emoji
-      paratype-pt-serif
+      lmmath
       material-icons
       merriweather
       merriweather-sans
-      font-awesome
-      comic-mono
-      lmmath
-      cm_unicode;
-    };
+      noto-fonts
+      noto-fonts-cjk-sans
+      paratype-pt-serif
+      scientifica
+      siji
+      input-fonts
+      twitter-color-emoji;
+      };
 
     fontconfig = {
       enable = true;
@@ -31,9 +32,8 @@
 
       defaultFonts = {
         serif = [ "New York" ];
-        # sansSerif = [ "SF Pro Display" ];
         sansSerif = [ "Inter" ];
-        monospace = [ "Comic Mono"];
+        monospace = [ "Input Mono"];
         emoji = [ "Twitter Color Emoji" ];
       };
     };
