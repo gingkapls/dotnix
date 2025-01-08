@@ -16,8 +16,9 @@ in rec {
     focus-changer
     paperwm
     just-perfection
-    rounded-window-corners
+    # rounded-window-corners
     steal-my-focus-window
+    luminus-shell
     # search-light
     # gsconnect
     useless-gaps
@@ -31,9 +32,10 @@ in rec {
       "caffeine@patapon.info"
       "places-menu@gnome-shell-extensions.gcampax.github.com"
       "nightthemeswitcher@romainvigier.fr"
-      "paperwm@paperwm.github.com"
       "steal-my-focus-window@steal-my-focus-window"
       "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+      "paperwm@paperwm.github.com"
+      "light-style@gnome-shell-extensions.gcampax.github.com"
     ];
      
     "org/gnome/shell".disabled-extensions = 
@@ -72,6 +74,7 @@ in rec {
     "org/gnome/shell/extensions/paperwm" = {
       horizontal-margin = 10;
       minimap-scale = 0.0;
+      disable-top-bar-styling = true;
       open-window-position = 0;
       gesture-workspace-fingers=0;
       restore-attach-modal-dialogs= "";
@@ -84,7 +87,11 @@ in rec {
       vertical-margin-bottom = 10;
       window-gap = 20;
       window-switcher-preview-scale = 0.15;
-      winprops = [ "{\"wm_class\":\"mpv\",\"scratch_layer\":true}"];
+      winprops = [ 
+        "{\"wm_class\":\"mpv\",\"scratch_layer\":true}"
+        "{\"wm_class\":\"gcolor3\",\"scratch_layer\":true}"
+        "{\"wm_class\":\"firefox\",\"title\": \"Picture-in-Picture\", \"scratch_layer\":true}"
+      ];
     };
 
    "org/gnome/shell/extensions/paperwm/keybindings" = {

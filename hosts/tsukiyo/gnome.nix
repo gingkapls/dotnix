@@ -15,8 +15,12 @@
     sushi.enable = true;
   };
 
+  environment.variables = {
+    GTK_USE_PORTAL = 1;
+  };
+
   environment.gnome.excludePackages = lib.attrValues {
-  inherit (pkgs.gnome)
+  inherit (pkgs)
       gnome-music
       gnome-terminal
       epiphany
@@ -25,15 +29,13 @@
       tali
       iagno
       hitori
-      atomix;
-
-      inherit (pkgs)
+      atomix
       gnome-tour
       gedit;
   };
 
   environment.systemPackages = lib.attrValues {
-    inherit (pkgs.gnome)
+    inherit (pkgs)
       gnome-tweaks;
   };
 }
