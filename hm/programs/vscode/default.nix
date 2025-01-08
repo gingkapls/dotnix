@@ -15,15 +15,22 @@ in
     programs.vscode = {
       enable = true;
       extensions = with nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace; [
+        # Util
         asvetliakov.vscode-neovim
+
+        # LSPs
         jnoortheen.nix-ide
-        github.github-vscode-theme
-        # ms-vscode.cpptools
         ms-vscode.live-server
-        esbenp.prettier-vscode
         rust-lang.rust-analyzer
+
+        # Formatters and Linters
+        esbenp.prettier-vscode
+        dbaeumer.vscode-eslint
+
+        # Themes
+        antfu.theme-vitesse
         mvllow.rose-pine
-        wallabyjs.console-ninja
+        github.github-vscode-theme
       ];
 
       # userSettings = {
@@ -31,8 +38,6 @@ in
         # "editor.formatOnSave" = true;
         # "editor.defaultFormatter" = "esbenp.prettier-vscode";
         # "editor.fontFamily" = "${font-mono}";
-
-        # "console-ninja.featureSet" = "Community";
 
         # "window.titleBarStyle" = "custom";
         # "window.zoomLevel" = 1.5;
