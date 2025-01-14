@@ -95,21 +95,25 @@ in rec {
     };
 
    "org/gnome/shell/extensions/paperwm/keybindings" = {
-      close-window            = ["<Super>BackSpace" "<Super>q"];
-      move-down               = ["<Shift><Super>j"];
-      move-left               = ["<Shift><Super>h"];
-      move-right              = ["<Shift><Super>l"];
-      move-up                 = ["<Shift><Super>k"];
-      new-window              = ["<Super>n"];
-      switch-down             = ["<Super>Down" "<Super>j"];
-      switch-left             = ["<Super>Left" "<Super>h"];
-      switch-next-loop        = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
-      switch-right            = ["<Super>Right" "<Super>l"];
-      switch-up               = ["<Super>Up" "<Super>k"];
-      toggle-maximize-width   = ["<Super>f" "<Super>w"];
-      toggle-scratch          = ["<Super>a"];
-      switch-up-workspace     = ["<Super>bracketleft"];
-      switch-down-workspace   = ["<Super>bracketright"];
+      close-window                 = ["<Super>BackSpace" "<Super>q"];
+      move-down                    = ["<Shift><Super>j"];
+      move-left                    = ["<Shift><Super>h"];
+      move-right                   = ["<Shift><Super>l"];
+      move-up                      = ["<Shift><Super>k"];
+      new-window                   = ["<Super>n"];
+      switch-down                  = ["<Super>Down" "<Super>j"];
+      switch-left                  = ["<Super>Left" "<Super>h"];
+      switch-next-loop             = lib.hm.gvariant.mkEmptyArray lib.hm.gvariant.type.string;
+      switch-right                 = ["<Super>Right" "<Super>l"];
+      switch-up                    = ["<Super>Up" "<Super>k"];
+      toggle-maximize-width        = ["<Super>f" "<Super>w"];
+      toggle-scratch               = ["<Super>a"];
+      switch-up-workspace          = ["<Super>bracketleft"];
+      switch-down-workspace        = ["<Super>bracketright"];
+      previous-workspace           = ['<Super>Tab'];
+      previous-workspace-backward  = ['<Shift><Super>Tab'];
+      live-alt-tab                 = ['<Alt>Tab'];
+      live-alt-tab-backward        = ['<Shift><Alt>Tab'];
     };
 
     "org/gnome/desktop/interface" = {
