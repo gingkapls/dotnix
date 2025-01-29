@@ -110,10 +110,10 @@ in rec {
       toggle-scratch               = ["<Super>a"];
       switch-up-workspace          = ["<Super>bracketleft"];
       switch-down-workspace        = ["<Super>bracketright"];
-      previous-workspace           = ['<Super>Tab'];
-      previous-workspace-backward  = ['<Shift><Super>Tab'];
-      live-alt-tab                 = ['<Alt>Tab'];
-      live-alt-tab-backward        = ['<Shift><Alt>Tab'];
+      previous-workspace           = ["<Super>Tab"];
+      previous-workspace-backward  = ["<Shift><Super>Tab"];
+      live-alt-tab                 = ["<Alt>Tab"];
+      live-alt-tab-backward        = ["<Shift><Alt>Tab"];
     };
 
     "org/gnome/desktop/interface" = {
