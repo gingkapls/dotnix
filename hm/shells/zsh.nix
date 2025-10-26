@@ -19,13 +19,14 @@ in {
         enableCompletion = true;
         syntaxHighlighting.enable = false;
         enableVteIntegration = true;
-        dotDir = ".config/zsh";
+        dotDir = config.xdg.configHome + "/zsh";
         autocd = true;
   
         history = {
           save = 50000;
           share = false;
           ignoreSpace = true;
+          path = config.xdg.configHome + "/zsh/zsh_history";
         };
   
         completionInit = ''
@@ -37,14 +38,18 @@ in {
         fi;
         '';
 
-  
         ## this causes ridiculously long load times for some reason
         # initExtraFirst = ''
-        #   # zmodload zsh/zprof
         #   setopt nocaseglob
         #   setopt PROMPT_SUBST
         # '';
   
+        loginExtra = "
+          if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ];
+            then . $HOME/.nix-profile/etc/profile.d/nix.sh;
+          fi
+        ";
+
         initExtra = ''
           setopt nocaseglob
           setopt PROMPT_SUBST
@@ -68,11 +73,9 @@ in {
           (( ''${+aliases[run-help]} )) && unalias run-help
           alias help=run-help
 
-          eval "$(direnv hook zsh)"
           PROMPT='
           ''${PWD/\/home\/gin/~}
           ; '
-          # zprof
         '';
   
         plugins = [ 

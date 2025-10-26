@@ -97,7 +97,7 @@
         #   ];
         # };
 
-        "gin@momiji" = home-manager.lib.homeManagerConfiguration {
+        "gin@Momiji" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit self inputs outputs nix-colors nixvim nix-index-database; };
           modules = [

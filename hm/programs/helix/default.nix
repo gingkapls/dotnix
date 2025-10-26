@@ -98,6 +98,10 @@ in {
             name = "css";
             language-servers = [ "vscode-css-language-server" "efm-prettier" ];
           }
+          {
+            name = "rust";
+            language-servers = [ "rust-analyzer" ];
+          }
         ];
 
       };

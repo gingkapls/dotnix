@@ -14,6 +14,7 @@
     # ./nvim.nix
     # nix-colors.homeManagerModule
     ../../hm
+    ../../hm/shells/bin/
   ];
 
   colorscheme = nix-colors.colorSchemes.horizon-dark;
@@ -59,7 +60,7 @@
     imagemagick imv gcolor3 amberol 
     playerctl pamixer pavucontrol
     networkmanagerapplet
-    ventoy aria2 rclone yt-dlp
+    aria2 rclone yt-dlp
     android-udev-rules scrcpy
     inotify-tools rmlint lm_sensors p7zip comma
     glib gsettings-desktop-schemas

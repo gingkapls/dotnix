@@ -126,7 +126,7 @@
 
   imports = [
     ./env.nix
-    ./bin
+    # ./bin
     ./zsh.nix
     ./fish.nix
     ./nushell.nix

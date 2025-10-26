@@ -8,28 +8,26 @@ pkgs.writeShellScriptBin "hm"
 
     _nix() {
         nixos-rebuild "$1" --flake "''${FLAKE_DIR}/#''${host}" --use-remote-sudo
-        ${pkgs.libnotify.out}/bin/notify-send "nixos $1 complete"
+        # ${pkgs.libnotify.out}/bin/notify-send "nixos $1 complete"
     }
 
     _hm() {
         home-manager "$1" --flake "''${FLAKE_DIR}/#''${user}@''${host}"
-        ${pkgs.libnotify.out}/bin/notify-send "home-manager $1 complete"
+        # ${pkgs.libnotify.out}/bin/notify-send "home-manager $1 complete"
     }
 
 
     case "$1" in
         "switch")
             case "$2" in
-                "nix") _nix switch ;;
-                "hm") _hm switch;;
-                *) printf "???\n";;
+                "nix") _nix switch;;
+                *) _hm switch;;
             esac;;
 
         "build")
             case "$2" in
                 "nix") _nix build;; 
-                "hm") _hm build;;
-                *) printf "???\n";;
+                *) _hm build;;
             esac;;
 
         "boot")

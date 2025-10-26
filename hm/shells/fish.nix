@@ -22,9 +22,19 @@ in {
 
         functions = {
           chrome = {
-            body = ''chrome.exe "\\\\\wsl.localhost\\Alpine\\$PWD\\$argv"'';
+            body = ''explorer.exe $argv[1]'';
+          };
+
+          dls = {
+            body = ''spotdl --max-retries 5 --output "$MUSIC_DIR/{artist}/{album}/{track-number} - {title}.{output-ext}" "$argv[1]"'';
           };
         };
+
+        loginShellInit = "
+          if test -e $HOME/.nix-profile/etc/profile.d/nix.sh;
+            source $HOME/.nix-profile/etc/profile.d/nix.fish;
+          end; 
+        ";
 
         interactiveShellInit = with config.colorscheme.palette;"
         set -g fish_greeting

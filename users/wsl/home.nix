@@ -23,7 +23,7 @@
     # To make nix3 commands consistent with your flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
 
     settings = {
       experimental-features = "nix-command flakes";
@@ -63,19 +63,36 @@
     username = "gin";
     homeDirectory = "/home/gin";
 
-    packages = lib.attrValues {
-      inherit (pkgs)
+    sessionVariables = {
+      MUSIC_DIR = "/mnt/c/Users/gin/Music";
+    };
 
+    packages = 
+    let
+    hm = (import ../../hm/shells/bin/hm.nix { inherit config pkgs; });
+    dls = (import ../../hm/shells/bin/dls.nix { inherit pkgs; });
+      in
+      with pkgs; [
       # Utilities
       coreutils tree jq rename gh
-      ventoy aria2 rclone yt-dlp
+      aria2 rclone
+      yt-dlp spotdl
       inotify-tools rmlint lm_sensors p7zip comma
-      # pandoc;
+      neovim
+      epy
+      jpegoptim optipng
+      imagemagick
+      ffmpeg
+      # pandoc
 
       # LSPs
       # rust-analyzer
-      clang clang-tools;
-    };
+      # clang clang-tools
+
+      # shell scripts
+      hm
+      dls
+    ];
   };
 
 
@@ -83,7 +100,7 @@
   	programs = {
   	  helix = {
         enable = true;
-        theme = "rose_pine_dawn";
+        theme = "onedark";
       };
     };
 
@@ -111,6 +128,25 @@
       extraConfig = {
         init.defaultBranch = "master";
       };
+    };
+
+    tmux = {
+      enable = true;
+      clock24 = true;
+      mouse = true;
+      newSession = true;
+      shortcut = "f";
+      terminal = "tmux-256color";
+      keyMode = "vi";
+      escapeTime = 0;
+      sensibleOnTop = true;
+      extraConfig = ''
+        set -ag terminal-overrides ",xterm-256color:RGB"
+        bind-key j select-pane -D
+        bind-key k select-pane -U
+        bind-key h select-pane -L
+        bind-key l select-pane -R
+      '';
     };
   };
 
