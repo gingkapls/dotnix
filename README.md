@@ -1,6 +1,13 @@
 ## welcome to this mess and stuff
 thansk <3
 
+> [!NOTE]
+> I have switched from Nix and NixOS to Fedora, and don't use this config anymore.
+>
+> It still works, but with how fast things change in the nix land, there will be a lot of deprecations over time and I can see it becoming obsolete in the near future.
+>
+> I'll keep this up for archival purposes, but consider it unmaintained now (not that I maintained it any better before lol).
+
 ## Sway Rice
 ![sway rice](./assets/sway-rice.png "sway rice")
 
