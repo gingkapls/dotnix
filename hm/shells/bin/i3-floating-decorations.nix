@@ -1,6 +1,6 @@
 { pkgs }:
 
-pkgs.writers.writePython3Bin "i3-floating-decorations" { libraries = [ pkgs.python39Packages.i3ipc ]; } ''
+pkgs.writers.writePython3Bin "i3-floating-decorations" { libraries = [ pkgs.python314Packages.i3ipc ]; } ''
     import i3ipc
     
     i3 = i3ipc.Connection()

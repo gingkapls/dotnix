@@ -16,21 +16,21 @@ with config.colorscheme.palette;
       nix.enable = true;
       nvim-autopairs.enable = true;
 
-      lualine = {
-        enable = false;
+      # lualine = {
+      #   enable = false;
+      #
+      #   sectionSeparators = {
+      #     left = "" ;
+      #     right = "" ;
+      #   };
 
-        sectionSeparators = {
-          left = "" ;
-          right = "" ;
-        };
+      #   componentSeparators = {
+      #     left = "" ;
+      #     right = "" ;
+      #   };
 
-        componentSeparators = {
-          left = "" ;
-          right = "" ;
-        };
-
-        theme = "base16";
-      };
+      #   theme = "base16";
+      # };
 
       goyo = {
         enable = true;

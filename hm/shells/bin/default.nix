@@ -2,7 +2,7 @@
 
 {
     home.packages = [
-      (import ./dls.nix { inherit config pkgs; })
+      (import ./dls.nix { inherit pkgs; })
       (import ./hm.nix { inherit config pkgs; })
       (import ./i3-floating-decorations.nix { inherit pkgs; })
       (import ./likeSong.nix { inherit pkgs; })

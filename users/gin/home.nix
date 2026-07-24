@@ -14,7 +14,7 @@
     # ./nvim.nix
     # nix-colors.homeManagerModule
     ../../hm
-    ../../hm/shells/bin/
+    (import ../../hm/shells/bin { inherit config pkgs; })
   ];
 
   colorscheme = nix-colors.colorSchemes.horizon-dark;
@@ -61,7 +61,7 @@
     playerctl pamixer pavucontrol
     networkmanagerapplet
     aria2 rclone yt-dlp
-    android-udev-rules scrcpy
+    scrcpy
     inotify-tools rmlint lm_sensors p7zip comma
     glib gsettings-desktop-schemas
     hyperfine
@@ -73,21 +73,23 @@
     google-chrome
     gnome-network-displays
     qbittorrent transmission_4-gtk
-    tdesktop obsidian
+    telegram-desktop obsidian
     zathura foliate calibre
+    pear-desktop
     lutris mangohud
     mpv
     wezterm
     blackbox-terminal
-    write_stylus
+    styluslabs-write-bin
     xournalpp
     anki
     nautilus
     bottles
+    faugus-launcher
     libreoffice;
 
-    inherit (pkgs.wineWowPackages)
-    waylandFull;
+    # inherit (pkgs.wineWowPackages)
+    # waylandFull;
 
     };
   };
@@ -109,8 +111,8 @@
   	programs = {
       alacritty.enable = true;
       foot.enable = true;
-      vscode.enable = true;
-  	  helix = {
+      # vscode.enable = true;
+      helix = {
         enable = true;
         theme = "github_dark_dimmed";
       };

@@ -39,18 +39,20 @@ in {
 
       };
 
-      extraPackages = with pkgs.nodePackages; [
-        typescript-language-server
-        vscode-langservers-extracted
-      ];
+      # packages now top-level
+      # extraPackages = with pkgs.nodePackages; [
+      #  typescript-language-server
+      #  vscode-langservers-extracted
+      # ];
 
       languages = {
         language-server = {
-          typescript-language-server = with pkgs.nodePackages; {
-             command = "${typescript-language-server}/bin/typescript-language-server";
-             args = [ "--stdio" ];
-            config.tsserver.path = "${typescript}/bin/tsserver";
-          };
+## nodepacakges redundant
+          # typescript-language-server = with pkgs.nodePackages; {
+          #    command = "${typescript-language-server}/bin/typescript-language-server";
+          #    args = [ "--stdio" ];
+          #   config.tsserver.path = "${typescript}/bin/tsserver";
+          # };
 
 
           eslint = {

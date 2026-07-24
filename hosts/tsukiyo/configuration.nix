@@ -86,6 +86,10 @@
   };
 
   boot = {
+    zswap = {
+      enable = true;
+    };
+
     loader.systemd-boot = {
       enable = true;
       configurationLimit = 10;
@@ -100,7 +104,7 @@
     '';
 
     kernelPackages = pkgs.linuxPackages_latest;
-    blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"];
+    blacklistedKernelModules = [ "nouveau" ];
 
     supportedFilesystems = [ "btrfs" "ntfs" ];
     kernelParams = [
@@ -131,7 +135,8 @@
   };
 
   programs = {
-    adb.enable = true;
+    # obsolete
+    #  adb.enable = true;
     dconf.enable = true;
     steam.enable = true;
     xwayland.enable = true;
@@ -210,33 +215,34 @@
     extraPackages = lib.attrValues {
       inherit (pkgs)
         intel-media-driver
-        vaapiIntel
-        vaapiVdpau
+        intel-vaapi-driver
+        libva-vdpau-driver
         libvdpau-va-gl;
     };
     enable32Bit = true;
   };
 
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.nvidia = {
-  #   modesetting.enable = true;
-  #   open = false;
-  #   package = config.boot.kernelPackages.nvidiaPackages.beta;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    # 1050ti not supported anymore
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
 
-  #   prime = {
-  #     offload = {
-  #       enable = true;
-  #       enableOffloadCmd = true;
-  #     };
-  #     intelBusId = "PCI:0:2:0";
-  #     nvidiaBusId = "PCI:1:0:0";
-  #   };
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
 
-  #   powerManagement = {
-  #     enable = false;
-  #     finegrained = false;
-  #   };
-  # };
+    powerManagement = {
+      enable = true;
+      finegrained = false;
+    };
+  };
 
   # Drawing tablet
   hardware.opentabletdriver.enable = true;
@@ -244,7 +250,8 @@
   # Power Key
   services.logind = {
     lidSwitch = "suspend";
-    extraConfig = "HandlePowerKey=ignore";
+    # obsolete
+    # extraConfig = "HandlePowerKey=ignore";
   };
 
   # Power Management
