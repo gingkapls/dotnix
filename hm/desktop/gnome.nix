@@ -155,6 +155,7 @@ in rec {
       "has-seen-first-hint" = true;
       "hide-text" = false;
       "hover-delay" = 500;
+      "scroll-action" = "volume";
       "pill-dynamic-width" = false;
       "pill-height" = 64;
       "popup-custom-width" = 360;

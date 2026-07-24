@@ -91,9 +91,9 @@ in {
         enableFishIntegration = true;
       };
 
-      # direnv = {
-      #   enableFishIntegration = true;
-      # };
+      direnv = {
+        enableFishIntegration = true;
+      };
 
     };
 

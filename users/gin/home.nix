@@ -100,7 +100,7 @@
     desktop = {
       windowManager.i3.enable = false;
       windowManager.sway.enable = true;
-      windowManager.hyprland.enable = false;
+      windowManager.hyprland.enable = true;
       picom.enable = false;
       dunst.enable = false;
       mako.enable = true;

@@ -14,7 +14,7 @@
     starship = {
       enable = true;
       settings = {
-        format = "$username";
+        format = "$username$character";
         username = {
           format = "[$user]($style) ";
           show_always = true;

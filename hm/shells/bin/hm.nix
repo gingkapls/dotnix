@@ -36,6 +36,6 @@ pkgs.writeShellScriptBin "hm"
         "test")
             _nix test;;
 
-        *) ${pkgs.helix.out}/bin/hx "''${FLAKE_DIR}";;
+        *) ${pkgs.neovim.out}/bin/nvim "''${FLAKE_DIR}";;
     esac
 ''

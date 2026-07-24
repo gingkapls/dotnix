@@ -3,7 +3,6 @@
 
 with config.colorscheme.palette; {
   home.sessionVariables = {
-
     BEMENU_OPTS = "-H27 --fn 'Inter Medium 14' --nb '#${base00}' --nf '#${base03}' --fb '#${base00}' --ff '#${base08}' --hb '#${base00}' --hf '#${base08}' --tb '#${base00}' --tf '#${base05}' --scb '#${base00}' --scf '#${base05}'  --no-overlap --prompt= ";
 
     # FZF
@@ -17,8 +16,8 @@ with config.colorscheme.palette; {
 
     FVWM_USERDIR = "${config.home.homeDirectory}/.config/fvwm";
 
-    EDITOR = "hx";
-    VISUAL = "hx";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
 
     # Wayland
     NIXOS_OZONE_WL = 1;
