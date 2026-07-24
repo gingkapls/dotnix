@@ -8,20 +8,23 @@ in rec {
   home.packages = lib.attrValues {
     inherit (pkgs.gnomeExtensions)
     # bluetooth-quick-connect
+    appindicator
     blur-my-shell
     caffeine
     dash-to-dock
     dash-to-panel
+    dynamic-music-pill
     night-theme-switcher
     focus-changer
     paperwm
     just-perfection
+    light-style
     # rounded-window-corners
     steal-my-focus-window
-    luminus-shell
+    # luminus-shell
     # search-light
     # gsconnect
-    useless-gaps
+    # useless-gaps
     user-themes;
   };
 
@@ -35,20 +38,18 @@ in rec {
       "steal-my-focus-window@steal-my-focus-window"
       "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
       "paperwm@paperwm.github.com"
+      "user-theme@gnome-shell-extensions.gcampax.github.com"
       "light-style@gnome-shell-extensions.gcampax.github.com"
     ];
      
     "org/gnome/shell".disabled-extensions = 
     [
       "dash-to-panel@jderose9.github.com"
-      "dash-to-dock@micxgx.gmail.com"
       "native-window-placement@gnome-shell-extensions.gcampax.github.com"
       "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
       "window-list@gnome-shell-extensions.gcampax.github.com"
       "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
       "apps-menu@gnome-shell-extensions.gcampax.github.com"
-      "user-theme@gnome-shell-extensions.gcampax.github.com"
-      "useless-gaps@pimsnel.com"
       "focus-changer@heartmire"
     ];
 
@@ -69,6 +70,102 @@ in rec {
       dot-style-focused = "METRO";
       trans-use-custom-opacity = true;
       trans-panel-opacity = 0.25;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      "rounded-blur-found" = false;
+      "settings-version" = 2;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      "brightness" = 0.6;
+      "sigma" = 30;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      "pipeline" = "pipeline_default";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab" = {
+      "pipeline" = "pipeline_default";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      "blur" = true;
+      "brightness" = 0.6;
+      "override-background" = true;
+      "pipeline" = "pipeline_default_rounded";
+      "sigma" = 30;
+      "static-blur" = true;
+      "style-dash-to-dock" = 0;
+      "show-mounts" = false;
+      "show-mounts-only-mounted" = false;
+      "show-trash" = false;
+   };
+
+    "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
+      "compatibility" = false;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
+      "pipeline" = "pipeline_default";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      "pipeline" = "pipeline_default";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      "brightness" = 0.6;
+      "corner-radius" = 0;
+      "force-light-text" = true;
+      "pipeline" = "pipeline_default";
+      "sigma" = 30;
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/screenshot" =  {
+      "pipeline" = "pipeline_default";
+    };
+
+    "org/gnome/shell/extensions/blur-my-shell/window-list" = {
+      "brightness" = 0.59999999999999998;
+      "sigma" = 30;
+    };
+
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      "apply-custom-theme" = false;
+      "background-opacity" = 0.8;
+      "custom-theme-shrink" = true;
+      "dash-max-icon-size" = 64;
+      "dock-fixed" = true;
+      "dock-position" = "BOTTOM";
+      "height-fraction" = 0.9;
+      "hot-keys" = false;
+      "show-icons-emblems" = false;
+      "show-icons-notifications-counter" = true;
+    };
+
+    "org/gnome/shell/extensions-dynamic-music-pill" = {
+      "action-hover" = "toggle_menu";
+      "action-middle-click" = "none";
+      "action-right-click" = "open_app";
+      "always-show-pill" = true;
+      "enable-lyrics" = false;
+      "enable-transparency" = true;
+      "has-seen-first-hint" = true;
+      "hide-text" = false;
+      "hover-delay" = 500;
+      "pill-dynamic-width" = false;
+      "pill-height" = 64;
+      "popup-custom-width" = 360;
+      "sync-accent-color" = false;
+      "transparency-art" = false;
+      "transparency-strength" = 90;
+      "transparency-text" = false;
+      "transparency-vis" = false;
+      "vertical-offset" = -1;
+      "visualizer-height" = 28;
+      "visualizer-style" = 2;
     };
 
     "org/gnome/shell/extensions/paperwm" = {
