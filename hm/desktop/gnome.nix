@@ -103,7 +103,6 @@ in rec {
       brightness = 0.6;
       override-background = true;
       pipeline = "pipeline_default_rounded";
-      dash-max-icon-size = 48;
       sigma = 30;
       static-blur = true;
       style-dash-to-dock = 1;
@@ -145,7 +144,7 @@ in rec {
       apply-custom-theme = false;
       background-opacity = 0.8;
       custom-theme-shrink = false;
-      dash-max-icon-size = 64;
+      dash-max-icon-size = 48;
       dock-fixed = true;
       dock-position = "BOTTOM";
       height-fraction = 0.9;
