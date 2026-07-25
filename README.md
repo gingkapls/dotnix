@@ -1,13 +1,6 @@
 ## welcome to this mess and stuff
 thansk <3
 
-> [!NOTE]
-> I have switched from Nix and NixOS to Fedora, and don't use this config anymore.
->
-> It still works, but with how fast things change in the nix land, there will be a lot of deprecations over time and I can see it becoming obsolete in the near future.
->
-> I'll keep this up for archival purposes, but consider it unmaintained now (not that I maintained it any better before lol).
-
 ## Sway Rice
 ![sway rice](./assets/sway-rice.png "sway rice")
 
@@ -16,24 +9,25 @@ thansk <3
 
 |                     |                                                                           |
 | ------------------- | ------------------------------------------------------------------------- |
-| OS                  | NixOS 23.05                                                               |
+| OS                  | NixOS 26.11                                                               |
 | Window Manager      | Sway / i3-gaps                                                            |
 | Desktop Environment | Gnome                                                                     |
 | GTK Theme           | Adwaita                                                  |
 | Icon Theme          | Adwaita                                              |
 | Cusor Theme         | Capitaine-cursors                                         |
-| UI Font             |                                           |
+| UI Font             | Inter                         			|
 | Terminal            | Foot / Alacritty / Blackbox                                               |
-| Terminal Font       |                                           |
+| Terminal Font       | Input Mono                         			|
 | PDF Viewer          | Zathura / Evince                                                          |
 | Editor              | Neovim / Helix                                                            |
 | Shell               | Zsh                                                                       |
-| Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                       |
+| Light Wallpaper     | [Wallpaper](https://w.wallhaven.cc/full/je/wallhaven-jexkwm.jpg "light theme wallpaper")   |
+| Dark Wallpaper      | [Wallpaper](https://w.wallhaven.cc/full/zp/wallhaven-zp5z2w.png "dark theme wallpaper")     |
 | Colorscheme         | Horizon Dark                                                |
 
 ## Color Palette
-|                    Colorscheme                       |              Horizon Dark               |
-|:----------------------------------------------------:|:-----------------------------------------------------:|
+|                           Colorscheme                              |                    Horizon Dark                	 |
+|:------------------------------------------------------------------:|:-------------------------------------------------------------------:|
 | $$\textcolor{#1C1E26}{\text{████}}$$ `#1C1E26` |  $$\textcolor{#E93C58}{\text{████}}$$ `#E93C58` |
 | $$\textcolor{#232530}{\text{████}}$$ `#232530` |  $$\textcolor{#E58D7D}{\text{████}}$$ `#E58D7D` |
 | $$\textcolor{#2E303E}{\text{████}}$$ `#2E303E` |  $$\textcolor{#EFB993}{\text{████}}$$ `#EFB993` |

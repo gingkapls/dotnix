@@ -1,8 +1,8 @@
-{ config, lib, nix-colors, ... }:
+{ osConfig, config, lib, nix-colors, ... }:
 
 let
   colors = config.colorscheme.palette;
-#  fonts = osConfig.fonts.fontconfig.defaultFonts;
+  fonts = osConfig.fonts.fontconfig.defaultFonts;
 in {
   home.file."README-md" = {
     target = "${config.xdg.cacheHome}/README.md";
@@ -20,24 +20,25 @@ in {
       
       |                     |                                                                           |
       | ------------------- | ------------------------------------------------------------------------- |
-      | OS                  | NixOS 23.05                                                               |
+      | OS                  | NixOS ${builtins.substring 0 5 lib.version}                                                               |
       | Window Manager      | Sway / i3-gaps                                                            |
       | Desktop Environment | Gnome                                                                     |
       | GTK Theme           | ${config.gtk.theme.name}                                                  |
       | Icon Theme          | ${config.gtk.iconTheme.name}                                              |
       | Cusor Theme         | ${config.home.pointerCursor.name}                                         |
-      | UI Font             |                                           |
+      | UI Font             | ${builtins.head fonts.sansSerif}                         			|
       | Terminal            | Foot / Alacritty / Blackbox                                               |
-      | Terminal Font       |                                           |
+      | Terminal Font       | ${builtins.head fonts.monospace}                         			|
       | PDF Viewer          | Zathura / Evince                                                          |
       | Editor              | Neovim / Helix                                                            |
       | Shell               | Zsh                                                                       |
-      | Wallpaper           | [Wallpaper](./assets/wallpaper.png)                                       |
+      | Light Wallpaper     | [Wallpaper](${config.wallpapers.light-url.url} "light theme wallpaper")   |
+      | Dark Wallpaper      | [Wallpaper](${config.wallpapers.dark-url.url} "dark theme wallpaper")     |
       | Colorscheme         | ${config.colorscheme.name}                                                |
 
       ## Color Palette
-      |                    Colorscheme                       |              ${config.colorscheme.name}               |
-      |:----------------------------------------------------:|:-----------------------------------------------------:|
+      |                           Colorscheme                              |                    ${config.colorscheme.name}                	 |
+      |:------------------------------------------------------------------:|:-------------------------------------------------------------------:|
       | $$\textcolor{#${colors.base00}}{\text{████}}$$ `#${colors.base00}` |  $$\textcolor{#${colors.base08}}{\text{████}}$$ `#${colors.base08}` |
       | $$\textcolor{#${colors.base01}}{\text{████}}$$ `#${colors.base01}` |  $$\textcolor{#${colors.base09}}{\text{████}}$$ `#${colors.base09}` |
       | $$\textcolor{#${colors.base02}}{\text{████}}$$ `#${colors.base02}` |  $$\textcolor{#${colors.base0A}}{\text{████}}$$ `#${colors.base0A}` |

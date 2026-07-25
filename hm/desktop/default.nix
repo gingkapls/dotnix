@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, lib, pkgs, ... }: 
 
 with config.colorscheme;
 let 
@@ -15,65 +15,105 @@ in {
     ./xorg.nix
   ];
 
-  gtk = {
-    enable = true;
-
-    font = {
-      # name = "SF Pro Text Regular";
-      # package = pkgs.sf-pro-fonts;
-      name = "Inter";
-      package = pkgs.inter;
-      size = 13;
+  options.wallpapers = with lib.types; {
+    light-url = {
+      url = lib.mkOption { type = str; };
+      sha256 = lib.mkOption { type = str; };
     };
 
-    theme = {
-      name = "Adwaita";
+    dark-url = {
+      url = lib.mkOption { type = str; };
+      sha256 = lib.mkOption { type = str; };
     };
 
-    iconTheme = {
-      # name = "WhiteSur";
-      name = "Adwaita";
-      # package = pkgs.whitesur-icon-theme.override {
-        # boldPanelIcons = true;
-      # };
+    light = lib.mkOption {
+      type = path;
+      readOnly = true;
+      default = (pkgs.fetchurl config.wallpapers.light-url).outPath;
     };
 
-    gtk2.extraConfig = "
-      gtk-cursor-theme-name=\"capitaine-cursors\"
-      gtk-cursor-theme-size=32
-    ";
+    dark = lib.mkOption {
+      type = path;
+      readOnly = true;
+      default = (pkgs.fetchurl config.wallpapers.dark-url).outPath;
+    };
+  };
 
-    gtk3 = {
-      bookmarks = [ "file:///mnt/data/files/Anime" "file:///mnt/data/files" "file:///mnt/data/games" ];
-      extraConfig = {
-       "gtk-cursor-theme-size" = 16;
-       "gtk-cursor-theme-name" = "capitaine-cursors";
+
+
+  config = {
+    wallpapers = {
+      light-url = {
+	url = "https://w.wallhaven.cc/full/je/wallhaven-jexkwm.jpg";
+	sha256 = "1gpjnnkvnmcg07aah0g4ixw90pcpq50abx5nrf0rhsdjbvzh1324";
+      };
+
+      dark-url = {
+	url = "https://w.wallhaven.cc/full/zp/wallhaven-zp5z2w.png";
+	sha256 = "1v45vgpdnsg0c6j552l3vgannyp1kw5w96f8zwv6gv3x570f185n";
       };
     };
 
-  };
-
-  qt = {
-    enable = true;
-    platformTheme.name = "adwaita";
-    style = {
-      package = pkgs.adwaita-qt;
-      name = "adwaita";
-      # name = "${ if config.colorscheme.variant == "light" then "adwaita" else "adwaita-dark" }";
+    gtk = {
+      enable = true;
+  
+      font = {
+        # name = "SF Pro Text Regular";
+        # package = pkgs.sf-pro-fonts;
+        name = "Inter";
+        package = pkgs.inter;
+        size = 13;
+      };
+  
+      theme = {
+        name = "Adwaita";
+      };
+  
+      iconTheme = {
+        # name = "WhiteSur";
+        name = "Adwaita";
+        # package = pkgs.whitesur-icon-theme.override {
+          # boldPanelIcons = true;
+        # };
+      };
+  
+      gtk2.extraConfig = "
+        gtk-cursor-theme-name=\"capitaine-cursors\"
+        gtk-cursor-theme-size=32
+      ";
+  
+      gtk3 = {
+        bookmarks = [ "file:///mnt/data/files/Anime" "file:///mnt/data/files" "file:///mnt/data/games" ];
+        extraConfig = {
+         "gtk-cursor-theme-size" = 16;
+         "gtk-cursor-theme-name" = "capitaine-cursors";
+        };
+      };
+  
     };
-  };
-
-  home = {
-    pointerCursor = {
-    name = "Capitaine-cursors";
-      # name = "${if config.colorscheme.variant == "dark" then "Capitaine-cursors-white" else "Capitaine-cursors"}";
-      package = pkgs.capitaine-cursors;
-
-      x11 = {
-        defaultCursor = "capitaine-cursors";
-        enable = true;
+  
+    qt = {
+      enable = true;
+      platformTheme.name = "adwaita";
+      style = {
+        package = pkgs.adwaita-qt;
+        name = "adwaita";
+        # name = "${ if config.colorscheme.variant == "light" then "adwaita" else "adwaita-dark" }";
       };
     };
-  };
+  
+    home = {
+      pointerCursor = {
+      name = "Capitaine-cursors";
+        # name = "${if config.colorscheme.variant == "dark" then "Capitaine-cursors-white" else "Capitaine-cursors"}";
+        package = pkgs.capitaine-cursors;
+  
+        x11 = {
+          defaultCursor = "capitaine-cursors";
+          enable = true;
+        };
+      };
+    };
+	};
 
 }

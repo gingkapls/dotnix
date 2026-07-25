@@ -60,6 +60,14 @@ in rec {
       ];
     };
 
+    "org/gnome/shell/extensions/just-perfection" = {
+      accent-color-icon = false;
+      accessibility-menu = false;
+      power-icon = false;
+      ripple-box = false;
+      startup-status = 0;
+    };
+
     "org/gnome/shell/extensions/dash-to-panel" = {
       animate-appicon-hover = true;
       animate-appicon-hover-animation-type = "SIMPLE";
@@ -73,100 +81,100 @@ in rec {
     };
 
     "org/gnome/shell/extensions/blur-my-shell" = {
-      "rounded-blur-found" = false;
-      "settings-version" = 2;
+      rounded-blur-found = false;
+      settings-version = 2;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
-      "brightness" = 0.6;
-      "sigma" = 30;
+      brightness = 0.6;
+      sigma = 30;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      "pipeline" = "pipeline_default";
+      pipeline = "pipeline_default";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab" = {
-      "pipeline" = "pipeline_default";
+      pipeline = "pipeline_default";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
-      "blur" = true;
-      "brightness" = 0.6;
-      "override-background" = true;
-      "pipeline" = "pipeline_default_rounded";
-      "sigma" = 30;
-      "static-blur" = true;
-      "style-dash-to-dock" = 0;
-      "show-mounts" = false;
-      "show-mounts-only-mounted" = false;
-      "show-trash" = false;
+      blur = true;
+      brightness = 0.6;
+      override-background = true;
+      pipeline = "pipeline_default_rounded";
+      sigma = 30;
+      static-blur = true;
+      style-dash-to-dock = 1;
+      show-mounts = false;
+      show-mounts-only-mounted = false;
+      show-trash = false;
    };
 
     "org/gnome/shell/extensions/blur-my-shell/hidetopbar" = {
-      "compatibility" = false;
+      compatibility = false;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
-      "pipeline" = "pipeline_default";
+      pipeline = "pipeline_default";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      "pipeline" = "pipeline_default";
+      pipeline = "pipeline_default";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/panel" = {
-      "brightness" = 0.6;
-      "corner-radius" = 0;
-      "force-light-text" = true;
-      "pipeline" = "pipeline_default";
-      "sigma" = 30;
+      brightness = 0.6;
+      corner-radius = 0;
+      force-light-text = true;
+      pipeline = "pipeline_default";
+      sigma = 30;
     };
 
     "org/gnome/shell/extensions/blur-my-shell/screenshot" =  {
-      "pipeline" = "pipeline_default";
+      pipeline = "pipeline_default";
     };
 
     "org/gnome/shell/extensions/blur-my-shell/window-list" = {
-      "brightness" = 0.59999999999999998;
-      "sigma" = 30;
+      brightness = 0.59999999999999998;
+      sigma = 30;
     };
 
     "org/gnome/shell/extensions/dash-to-dock" = {
-      "apply-custom-theme" = false;
-      "background-opacity" = 0.8;
-      "custom-theme-shrink" = true;
-      "dash-max-icon-size" = 64;
-      "dock-fixed" = true;
-      "dock-position" = "BOTTOM";
-      "height-fraction" = 0.9;
-      "hot-keys" = false;
-      "show-icons-emblems" = false;
-      "show-icons-notifications-counter" = true;
+      apply-custom-theme = false;
+      background-opacity = 0.8;
+      custom-theme-shrink = true;
+      dash-max-icon-size = 64;
+      dock-fixed = true;
+      dock-position = "BOTTOM";
+      height-fraction = 0.9;
+      hot-keys = false;
+      show-icons-emblems = false;
+      show-icons-notifications-counter = true;
     };
 
     "org/gnome/shell/extensions-dynamic-music-pill" = {
-      "action-hover" = "toggle_menu";
-      "action-middle-click" = "none";
-      "action-right-click" = "open_app";
-      "always-show-pill" = true;
-      "enable-lyrics" = false;
-      "enable-transparency" = true;
-      "has-seen-first-hint" = true;
-      "hide-text" = false;
-      "hover-delay" = 500;
-      "scroll-action" = "volume";
-      "pill-dynamic-width" = false;
-      "pill-height" = 64;
-      "popup-custom-width" = 360;
-      "sync-accent-color" = false;
-      "transparency-art" = false;
-      "transparency-strength" = 90;
-      "transparency-text" = false;
-      "transparency-vis" = false;
-      "vertical-offset" = -1;
-      "visualizer-height" = 28;
-      "visualizer-style" = 2;
+      action-hover = "toggle_menu";
+      action-middle-click = "none";
+      action-right-click = "open_app";
+      always-show-pill = true;
+      enable-lyrics = false;
+      enable-transparency = true;
+      has-seen-first-hint = true;
+      hide-text = false;
+      hover-delay = 500;
+      scroll-action = "volume";
+      pill-dynamic-width = false;
+      pill-height = 64;
+      popup-custom-width = 360;
+      sync-accent-color = false;
+      transparency-art = false;
+      transparency-strength = 90;
+      transparency-text = false;
+      transparency-vis = false;
+      vertical-offset = -1;
+      visualizer-height = 28;
+      visualizer-style = 2;
     };
 
     "org/gnome/shell/extensions/paperwm" = {
@@ -174,12 +182,18 @@ in rec {
       minimap-scale = 0.0;
       disable-top-bar-styling = true;
       open-window-position = 0;
+      edge-preview=scaler = 0.20;
       gesture-workspace-fingers=0;
       restore-attach-modal-dialogs= "";
       restore-edge-tiling = "";
       restore-keybinds = "{}";
       restore-workspaces-only-on-primary= " ";
+      selection-border-size = 4;
       show-workspace-indicator = false; # The values are reversed upstream for some reason
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
+      show-window-position-bar = false;
+      show-workspace-indicator = false;
       use-default-background = true;
       vertical-margin = 10;
       vertical-margin-bottom = 10;
@@ -298,16 +312,14 @@ in rec {
 
     # Wallpaper
     "org/gnome/desktop/background" = {
-      # picture-uri = "file:///" + ../../assets/light.png;
-      # picture-uri-dark = "file:///" + ../../assets/dark.png;
-      picture-uri = "file:///" + config.home.homeDirectory + "/Pictures/Wallpapers/light.png";
-      picture-uri-dark = "file:///" + config.home.homeDirectory + "/Pictures/Wallpapers/dark.png";
+      picture-uri = config.wallpapers.light;
+      picture-uri-dark = config.wallpapers.dark;
     };
 
     # Screensaver
     "org/gnome/desktop/screensaver" = {
-      # picture-uri = "file:///" + ../../assets/light.png;
-      picture-uri = "file:///" + config.home.homeDirectory + "/Pictures/Wallpapers/light.png";
+      picture-uri = config.wallpapers.light;
+      picture-uri-dark = config.wallpapers.dark;
     };
 
     # "org/gnome/shell/extensions/app-menu" = { enabled = false; };

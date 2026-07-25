@@ -108,7 +108,7 @@
       xidlehook.enable = false;
     };
 
-  	programs = {
+    programs = {
       alacritty.enable = true;
       foot.enable = true;
       # vscode.enable = true;
@@ -118,11 +118,10 @@
       };
     };
 
-  	shells = {
+    shells = {
       zsh.enable = true;
       fish.enable = true;
     };
-
   };
 
   # Add stuff for your user as you see fit:
