@@ -103,6 +103,7 @@ in rec {
       brightness = 0.6;
       override-background = true;
       pipeline = "pipeline_default_rounded";
+      dash-max-icon-size = 48;
       sigma = 30;
       static-blur = true;
       style-dash-to-dock = 1;
@@ -143,7 +144,7 @@ in rec {
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = false;
       background-opacity = 0.8;
-      custom-theme-shrink = true;
+      custom-theme-shrink = false;
       dash-max-icon-size = 64;
       dock-fixed = true;
       dock-position = "BOTTOM";
@@ -167,7 +168,7 @@ in rec {
       pill-dynamic-width = false;
       pill-height = 64;
       popup-custom-width = 360;
-      sync-accent-color = false;
+      sync-accent-color = true;
       transparency-art = false;
       transparency-strength = 90;
       transparency-text = false;
