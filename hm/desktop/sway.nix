@@ -66,7 +66,7 @@ in
           };
         };
 
-        output."*".bg = "${config.home.homeDirectory}/.dotnix/assets/wallpaper.png fill #${base01}";
+        output."*".bg = "${config.wallpapers.light} fill #${base01}";
 
         assigns = {
           "1" = [ { app_id = "^firefox$"; }];

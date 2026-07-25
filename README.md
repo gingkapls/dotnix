@@ -1,10 +1,10 @@
 ## welcome to this mess and stuff
 thansk <3
 
-## Sway Rice
+## sway
 ![sway rice](./assets/sway-rice.png "sway rice")
 
-## shameless macos clone
+## gnome
 ![gnome rice](./assets/gnome-rice.png "gnome rice")
 
 |                     |                                                                           |

@@ -182,9 +182,9 @@ in rec {
       minimap-scale = 0.0;
       disable-top-bar-styling = true;
       open-window-position = 0;
-      edge-preview=scaler = 0.20;
-      gesture-workspace-fingers=0;
-      restore-attach-modal-dialogs= "";
+      edge-preview-scaler = 0.20;
+      gesture-workspace-fingers = 0;
+      restore-attach-modal-dialogs = "";
       restore-edge-tiling = "";
       restore-keybinds = "{}";
       restore-workspaces-only-on-primary= " ";
@@ -193,7 +193,6 @@ in rec {
       show-focus-mode-icon = false;
       show-open-position-icon = false;
       show-window-position-bar = false;
-      show-workspace-indicator = false;
       use-default-background = true;
       vertical-margin = 10;
       vertical-margin-bottom = 10;
