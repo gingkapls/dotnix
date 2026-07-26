@@ -132,6 +132,24 @@
     firefox
     git
     vulkan-loader vulkan-tools;
+
+    # Thumbnailers
+    inherit (pkgs)
+    ffmpeg-headless
+    ffmpegthumbnailer
+    # For more newer AVIF specific support usually not needed if libheif is installed
+    libavif
+    
+    # For JXL(JPEG XL) support
+    libjxl
+    
+    # For WebP support
+    webp-pixbuf-loader;
+
+    inherit (pkgs.libheif)
+    # For general HEIF container support (this includes the AVIF file format) 
+    bin # provides heif-thumbnailer (the program that generates HEIF thumbnails)
+    out; # provides heif.thumbnailer (allows for the viewing of HEIF thumbnails)
   };
 
   programs = {

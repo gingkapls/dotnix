@@ -87,10 +87,6 @@
     bottles
     faugus-launcher
     libreoffice;
-
-    # inherit (pkgs.wineWowPackages)
-    # waylandFull;
-
     };
   };
 
