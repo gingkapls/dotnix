@@ -159,6 +159,7 @@
       # docViewer = "org.pwmt.zathura.desktop";
       docViewer = "org.gnome.Evince.desktop";
       imgViewer = "org.gnome.Loupe.desktop";
+      videoPlayer = "mpv.desktop";
       editor = "org.helix.desktop";
     in {
       enable = true;
@@ -167,9 +168,10 @@
         "image/png"                  = [ imgViewer ];
         "image/gif"                  = [ imgViewer ];
         "image/svg+xml"              = [ imgViewer ];
-        "video/mp4"                  = [ "mpv.desktop" ];
-        "video/x-matroska"           = [ "mpv.desktop" ];
-        "image/vnd.djvu+multipage  " = [ docViewer ];
+        "video/mp4"                  = [ videoPlayer ];
+        "video/vnd.avi"              = [ videoPlayer ];
+        "video/x-matroska"           = [ videoPlayer ];
+        "image/vnd.djvu+multipage"   = [ docViewer ];
         "application/pdf"            = [ docViewer ];
         "application/epub+zip"       = [ "com.github.johnfactotum.Foliate.desktop" ];
         "application/json"           = [ editor ];
