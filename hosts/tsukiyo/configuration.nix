@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     ./hyprland.nix
     ./sway.nix
+    ./niri.nix
   ];
 
   nixpkgs = {

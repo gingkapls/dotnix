@@ -86,6 +86,7 @@
     nautilus
     bottles
     faugus-launcher
+    protontricks
     libreoffice;
     };
   };
@@ -97,9 +98,10 @@
       windowManager.i3.enable = false;
       windowManager.sway.enable = true;
       windowManager.hyprland.enable = true;
+      windowManager.niri.enable = true;
       picom.enable = false;
       dunst.enable = false;
-      mako.enable = true;
+      mako.enable = false;
       waybar.enable = true;
       xidlehook.enable = false;
     };

@@ -9,6 +9,7 @@ in {
     ./hyprland.nix
     ./i3.nix
     ./i3status.nix
+    ./niri.nix
     ./picom.nix
     ./sway.nix
     ./swaylock.nix

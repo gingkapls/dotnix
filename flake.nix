@@ -9,12 +9,14 @@
     nixvim.url = "github:pta2002/nixvim";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    dms.url = "github:AvengeMedia/DankMaterialShell/stable";
 
 
     # Making sure inputs follow nixpkgs
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    dms.inputs.nixpkgs.follows = "nixpkgs";
 
     # Non Flake Inputs
     fzf-tab = { url = "github:Aloxaf/fzf-tab"; flake = false;
@@ -22,7 +24,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-colors, nixvim, nix-index-database, nix-vscode-extensions, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-colors, nixvim, nix-index-database, nix-vscode-extensions, dms, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -76,6 +78,7 @@
                     nix-index-database.hmModules.nix-index
                     nix-colors.homeManagerModules.default
                     nixvim.homeManagerModules.nixvim
+              			inputs.dms.homeModules.dank-material-shell
 		              ];
 		            };
 		          };
