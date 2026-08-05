@@ -37,5 +37,20 @@
   environment.systemPackages = lib.attrValues {
     inherit (pkgs)
       gnome-tweaks;
+
+    inherit (pkgs.gnomeExtensions)
+      appindicator
+      blur-my-shell
+      caffeine
+      dash-to-dock
+      dash-to-panel
+      dynamic-music-pill
+      night-theme-switcher
+      focus-changer
+      paperwm
+      just-perfection
+      light-style
+      steal-my-focus-window
+      user-themes;
   };
 }

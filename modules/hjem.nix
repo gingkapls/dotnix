@@ -1,11 +1,11 @@
-{ ... }: {
+{ pkgs, ... }: {
   hjem.users.gin = {
       user = "gin";
       directory = "/home/gin";
       clobberFiles = true;
   };
 
-  users.user.gin.packages = with pkgs; [
+  users.users.gin.packages = with pkgs; [
     # Utilities
     coreutils tree jq rename gh
     krita inkscape
@@ -21,6 +21,7 @@
     gammastep
     localsend
     pciutils usbutils
+    helix
 
     # Applications
     google-chrome
