@@ -12,16 +12,16 @@ in
     config = mkIf cfg.enable {
       home.packages = with pkgs; [
         wl-clipboard
-        mako
         fuzzel
         bemenu
         slurp swappy grim
         wf-recorder 
         xwayland-satellite
+        noctalia
       ];
 
       programs.dank-material-shell = {
-      	enable = true;
+      	enable = false;
         systemd = {
           enable = true;             # Systemd service for auto-start
           restartIfChanged = true;   # Auto-restart dms.service when dank-material-shell changes

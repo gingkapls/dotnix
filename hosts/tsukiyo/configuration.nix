@@ -104,7 +104,7 @@
       options nouveau modeset=0
     '';
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     blacklistedKernelModules = [ "nouveau" ];
 
     supportedFilesystems = [ "btrfs" "ntfs" ];

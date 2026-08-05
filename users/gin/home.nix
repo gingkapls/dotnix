@@ -78,6 +78,7 @@
     pear-desktop
     lutris mangohud
     mpv
+    kitty
     wezterm
     blackbox-terminal
     styluslabs-write-bin
@@ -97,7 +98,7 @@
     desktop = {
       windowManager.i3.enable = false;
       windowManager.sway.enable = true;
-      windowManager.hyprland.enable = true;
+      windowManager.hyprland.enable = false;
       windowManager.niri.enable = true;
       picom.enable = false;
       dunst.enable = false;
