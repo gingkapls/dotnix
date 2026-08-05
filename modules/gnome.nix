@@ -10,7 +10,7 @@
   services.gnome = {
     gnome-initial-setup.enable = false;
     gnome-keyring.enable = true;
-    core-utilities.enable = true;
+    core-apps.enable = true;
     games.enable = false;
     sushi.enable = true;
   };

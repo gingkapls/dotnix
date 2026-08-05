@@ -1,4 +1,4 @@
-{ config, ... } :
+{ config, lib, pkgs, ... } :
 
 {
   programs = {
@@ -18,5 +18,16 @@
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       };
     };
+  };
+
+  users.users.gin.packages = lib.attrValues {
+    inherit (pkgs)
+      wl-clipboard
+      fuzzel
+      bemenu
+      slurp swappy grim
+      wf-recorder 
+      xwayland-satellite
+      noctalia;
   };
 }

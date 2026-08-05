@@ -1,4 +1,4 @@
-{ config, ... } :
+{ config, lib, pkgs, ... } :
 
 {
   programs.sway = {
@@ -11,6 +11,16 @@
     extraOptions = [
       "--unsupported-gpu"
     ];
+
+    extraPackages = lib.attrValues {
+      inherit (pkgs)
+        swaylock swayidle
+        wl-clipboard
+        mako
+        bemenu
+        slurp swappy grim
+        wf-recorder;
+    };
 
     extraSessionCommands = ''
       export XDG_SESSION_DESKTOP=sway
