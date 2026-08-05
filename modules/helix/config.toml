@@ -1,0 +1,18 @@
+theme = "noctalia"
+
+[editor]
+auto-pairs = false
+line-number = "relative"
+true-color = true
+
+[editor.indent-guides]
+character = "┆"
+render = true
+skip-levels = 1
+
+[editor.lsp]
+display-messages = true
+
+[editor.soft-wrap]
+enable = true
+

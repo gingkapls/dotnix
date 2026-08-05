@@ -22,7 +22,7 @@
         tsukiyo = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./modules/tsukiyo
+            ./modules/tsukiyo.nix
             inputs.hjem.nixosModules.default
           ];
         };
