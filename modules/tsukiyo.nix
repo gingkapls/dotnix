@@ -4,9 +4,11 @@
     ./gnome.nix
     ./hardware-configuration.nix
     ./hjem.nix
+    ./helix
     ./hyprland.nix
     ./sway.nix
     ./niri.nix
+    ./zsh
   ];
 
   nixpkgs = {
@@ -171,18 +173,9 @@
       };
     };
 
-
-  # Plasma
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5 = {
-    # enable = true;
-    # useQtScaling = false;
-  # };
-  # programs.ssh.askPassword = lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
-  
   # Sound
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -204,12 +197,13 @@
   # Graphics
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
+    extraPackages = lib.attrValues {
+      inherit (pkgs)
         intel-media-driver
         intel-vaapi-driver
         libva-vdpau-driver
         libvdpau-va-gl;
-    ];
+    };
     enable32Bit = true;
   };
 
@@ -240,7 +234,7 @@
 
   # Power Key
   services.logind = {
-    lidSwitch = "suspend";
+    settings.Login.HandleLidSwitch = "suspend";
   };
 
   # Power Management

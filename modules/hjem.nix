@@ -1,8 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, config, lib, ... }: {
   hjem.users.gin = {
-      user = "gin";
-      directory = "/home/gin";
-      clobberFiles = true;
+    user = "gin";
+    directory = "/home/gin";
+    clobberFiles = true;
+
+    environment.sessionVariables = {
+      EDITOR = lib.getExe pkgs.helix;
+      VISUAL = lib.geteExe pkgs.helix;
+      ZDOTDIR = config.hjem.users.gin.xdg.config.directory + "./zsh";
+    };
   };
 
   users.users.gin.packages = with pkgs; [
@@ -22,6 +28,12 @@
     localsend
     pciutils usbutils
     helix
+
+    # Shell utils
+    zoxide
+    direnv
+    fzf
+    starship
 
     # Applications
     google-chrome
