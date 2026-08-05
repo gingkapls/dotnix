@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... } :
 
 {
+  imports = [
+    ../noctalia
+  ];
+
   programs = {
     niri = {
       enable = true;
@@ -20,14 +24,18 @@
     };
   };
 
-  users.users.gin.packages = lib.attrValues {
-    inherit (pkgs)
-      wl-clipboard
-      fuzzel
-      bemenu
-      slurp swappy grim
-      wf-recorder 
-      xwayland-satellite
-      noctalia;
+  hjem.users.gin.xdg.config.files = {
+      "niri/config.kdl".source = ./config.kdl;
   };
+
+  users.users.gin.packages = lib.attrValues {
+      inherit (pkgs)
+        wl-clipboard
+        fuzzel
+        bemenu
+        slurp swappy grim
+        wf-recorder 
+        xwayland-satellite
+        noctalia;
+    };
 }

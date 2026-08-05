@@ -63,5 +63,4 @@
     noctalia
     firefox
   ];
-
 }

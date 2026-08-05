@@ -3,11 +3,14 @@
     ./fonts.nix
     ./gnome.nix
     ./hardware-configuration.nix
-    ./hjem.nix
     ./helix
+    ./hjem.nix
     ./hyprland.nix
+    ./kitty
+    ./mpv
+    ./niri
     ./sway.nix
-    ./niri.nix
+    ./wezterm
     ./zsh
   ];
 
