@@ -1,0 +1,10 @@
+[theme.templates]
+enable_builtin_templates   = true
+enable_community_templates = true
+builtin_ids                = []
+community_ids              = []
+
+[theme.templates.user.zathura]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/zathura/zathurarc"
+output_path = "$XDG_CONFIG_HOME/zathura/noctaliarc"
+post_hook = "bash '{{ config_dir }}/templates/zathura/apply.sh'"

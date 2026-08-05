@@ -16,8 +16,6 @@
       inherit (pkgs)
         swaylock swayidle
         wl-clipboard
-        mako
-        bemenu
         slurp swappy grim
         wf-recorder;
     };

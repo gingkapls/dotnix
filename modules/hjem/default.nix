@@ -42,7 +42,6 @@
     zoxide
     direnv
     fzf
-    starship
 
     # Applications
     google-chrome

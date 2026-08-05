@@ -1,15 +1,13 @@
 ## welcome to this mess and stuff
 
-## sway
-![sway rice](./assets/sway-rice.png "sway rice")
-
-## gnome
-![gnome rice](./assets/gnome-rice.png "gnome rice")
+## niri
+![niri rice](./assets/niri-rice.png "niri rice with noctalia shell")
 
 |                     |                                                                                                       |
 | ------------------- |-------------------------------------------------------------------------------------------------------|
 | OS                  | NixOS 26.11                                                                                           |
 | Window Manager      | Niri                                                                                                  |
+| Shell               | Noctalia                                                                                              |
 | GTK Theme           | Adwaita                                                                                               |
 | Icon Theme          | Adwaita                                                                                               |
 | Cusor Theme         | Adwaita-cursors                                                                                       |

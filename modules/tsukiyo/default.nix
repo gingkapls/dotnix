@@ -14,6 +14,7 @@
     ../niri
     ../sway
     ../wezterm
+    ../zathura
     ../zsh
   ];
 
