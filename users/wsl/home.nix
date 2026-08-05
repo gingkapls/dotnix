@@ -100,7 +100,7 @@
   	programs = {
   	  helix = {
         enable = true;
-        theme = "onedark";
+        theme = "noctalia";
       };
     };
 
