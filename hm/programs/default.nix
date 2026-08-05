@@ -7,22 +7,9 @@ let
 in   
 {
   imports = [
-    ./alacritty
     ./easyeffects
-    ./dunst
     ./firefox
-    ./foot
-    ./helix
     ./mako
-    ./mkreadme
-    ./mpv
-    ./nvim
-    ./obsidian
-    ./swappy
     ./vscode
-    ./wezterm
-    ./waybar
-    ./zathura
-    # more
   ];
 }

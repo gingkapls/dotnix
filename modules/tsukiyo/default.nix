@@ -1,17 +1,19 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
-    ./fonts.nix
-    ./gnome.nix
+    ../fish
+    ../fonts
+    ../git
+    ../gnome
     ./hardware-configuration.nix
-    ./helix
-    ./hjem.nix
-    ./hyprland.nix
-    ./kitty
-    ./mpv
-    ./niri
-    ./sway.nix
-    ./wezterm
-    ./zsh
+    ../helix
+    ../hjem
+    ../hyprland
+    ../kitty
+    ../mpv
+    ../niri
+    ../sway
+    ../wezterm
+    ../zsh
   ];
 
   nixpkgs = {
