@@ -17,8 +17,7 @@
 | PDF Viewer          | Zathura                                                                                               |
 | Editor              | Neovim / Helix                                                                                        |
 | Shell               | Zsh                                                                                                   |
-| Light Wallpaper     | [Wallpaper](https://w.wallhaven.cc/full/je/wallhaven-jexkwm.jpg "light theme wallpaper")              |
-| Dark Wallpaper      | [Wallpaper](https://w.wallhaven.cc/full/zp/wallhaven-zp5z2w.png "dark theme wallpaper")               |
+| Wallpaper           | [Wallpaper](https://wallhaven.cc/w/1qr11v "wallpaper")                                                |
 
 ## Credits
 - [Misterio77/nix-starter-config](https://github.com/Misterio77/nix-starter-config/blob/minimal/configuration.nix)
