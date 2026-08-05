@@ -7,7 +7,18 @@
     environment.sessionVariables = {
       EDITOR = lib.getExe pkgs.helix;
       VISUAL = lib.geteExe pkgs.helix;
-      ZDOTDIR = config.hjem.users.gin.xdg.config.directory + "./zsh";
+      ZDOTDIR = "${config.hjem.users.gin.xdg.config.directory}/zsh";
+
+      # FZF
+      FZF_DEFAULT_OPTS = "--info inline --color=16 --preview '${pkgs.bat}/bin/bat {}'";
+      FZF_DEFAULT_COMMAND = "${pkgs.fd}/bin/fd --type f --strip-cwd-prefix --hidden --follow --exclude '.git' --exclude '.wine' --exclude '.cache'";
+      FZF_CTRL_T_COMMAND = "${config.hjem.users.gin.environment.sessionVariables.FZF_DEFAULT_COMMAND}";
+
+      QT_SCALE_FACTOR = "1.2";
+
+      # Wayland
+      NIXOS_OZONE_WL = 1;
+      ANKI_WAYLAND = 1;
     };
   };
 
@@ -15,16 +26,14 @@
     # Utilities
     coreutils tree jq rename gh
     krita inkscape
-    droidcam cheese guvcview
-    imagemagick imv gcolor3 amberol 
-    playerctl pamixer pavucontrol
+    imagemagick imv amberol 
+    playerctl
     networkmanagerapplet
     aria2 rclone yt-dlp
     scrcpy
     inotify-tools rmlint lm_sensors p7zip comma
     glib gsettings-desktop-schemas
     hyperfine
-    gammastep
     localsend
     pciutils usbutils
     helix
@@ -37,16 +46,13 @@
 
     # Applications
     google-chrome
-    gnome-network-displays
-    qbittorrent transmission_4-gtk
+    firefox
+    qbittorrent
     telegram-desktop obsidian
-    zathura foliate calibre
+    zathura foliate
     pear-desktop
-    lutris mangohud
+    mangohud
     mpv
-    kitty
-    wezterm
-    blackbox-terminal
     styluslabs-write-bin
     xournalpp
     anki
@@ -55,12 +61,5 @@
     faugus-launcher
     protontricks
     libreoffice
-
-    wl-clipboard
-    fuzzel
-    wf-recorder 
-    xwayland-satellite
-    noctalia
-    firefox
   ];
 }

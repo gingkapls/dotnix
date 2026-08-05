@@ -1,6 +1,7 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
     ../fish
+    ../firefox
     ../fonts
     ../git
     ../gnome
@@ -112,7 +113,6 @@
     # home-manager
     nano
     neovim
-    firefox
     git
     vulkan-loader vulkan-tools
 

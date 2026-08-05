@@ -12,11 +12,13 @@ environment {
   QT_QPA_PLATFORMTHEME_QT6 "gtk3"
   GTK_IM_MODULE "simple"
   EDITOR "hx"
+  NIXOS_OZONE_WL "1"
+  ANKI_WAYLAND "1"
 }
 
 debug {
-    ignore-drm-device "/dev/dri/renderD129"
     render-drm-device "/dev/dri/renderD128"
+    ignore-drm-device "/dev/dri/renderD129"
 }
 
 
