@@ -1,0 +1,45 @@
+dynamic_padding = false
+dynamic_title = true
+save_to_clipboard = true
+
+[cursor]
+live_config_reload = true
+style = "Block"
+unfocused_hollow = true
+
+[font]
+size = 17.0
+
+[font.bold]
+family = "Input Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Input Mono"
+style = "Bold-Italic"
+
+[font.italic]
+family = "Input Mono"
+style = "Italic"
+
+[font.normal]
+family = "Input Mono"
+style = "Medium"
+
+[mouse]
+hide_when_typing = false
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+decorations = "none"
+
+[window.dimensions]
+columns = 70
+lines = 17
+
+[window.padding]
+x = 20
+y = 20

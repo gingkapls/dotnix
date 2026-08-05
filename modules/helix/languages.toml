@@ -1,0 +1,47 @@
+[[language]]
+auto-format = false
+language-servers = ["efm-prettier", { except-features = ["format"], name = "typescript-language-server" }, { except-features = ["format"], name = "eslint" }]
+name = "javascript"
+
+[[language]]
+language-servers = ["vscode-html-language-server", "efm-prettier"]
+name = "html"
+
+[[language]]
+language-servers = ["vscode-css-language-server", "efm-prettier"]
+name = "css"
+
+[[language]]
+language-servers = ["rust-analyzer"]
+name = "rust"
+
+[language-server.eslint]
+args = ["--stdio"]
+command = "vscode-eslint-language-server"
+
+[language-server.eslint.config]
+format = false
+nodePath = ""
+onIgnoredFiles = "off"
+packageManages = "npm"
+run = "onType"
+useESLintClass = false
+validate = "on"
+
+[language-server.eslint.config.codeAction.disableRuleComment]
+enable = true
+location = "separateLine"
+
+[language-server.eslint.config.codeAction.showDocumentation]
+enable = true
+
+[language-server.eslint.config.experimental]
+
+[language-server.eslint.config.workingDirectory]
+mode = "auto"
+
+[language-server.vscode-css-language-server.config]
+provideFormatter = false
+
+[language-server.vscode-html-language-server.config]
+provideFormatter = false
