@@ -28,7 +28,6 @@
     krita inkscape
     imagemagick imv amberol 
     playerctl
-    networkmanagerapplet
     aria2 rclone yt-dlp
     scrcpy
     inotify-tools rmlint lm_sensors p7zip comma
