@@ -32,9 +32,9 @@
       inherit (pkgs)
         wl-clipboard
         fuzzel
-        bemenu
         slurp swappy grim
-        wf-recorder 
+        gpu-screen-recorder
+        wf-recorder
         xwayland-satellite
         noctalia;
     };

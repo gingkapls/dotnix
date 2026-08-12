@@ -252,8 +252,9 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        // left 64
-        // right 64
+        // Don't peek edges of adjacent windows
+        left 0
+        right 0
         // top 64
         // bottom 64
     }
@@ -649,5 +650,4 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-include "niri_custom_colors.kdl"
 include "noctalia.kdl"
