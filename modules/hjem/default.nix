@@ -45,8 +45,10 @@
     # Applications
     google-chrome
     firefox
+		qutebrowser
     qbittorrent
-    telegram-desktop obsidian
+    telegram-desktop discord arrpc
+		obsidian
     zathura foliate
     pear-desktop
     mangohud

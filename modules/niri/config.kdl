@@ -265,6 +265,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-at-startup "noctalia"
+spawn-sh-at-startup "arrpc"
 
 layer-rule {
   match namespace="^noctalia-backdrop"
@@ -336,6 +337,11 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    // imv 
+    match app-id="^imv$" 
+    open-floating true
+}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
