@@ -22,7 +22,8 @@
     };
   };
 
-  users.users.gin.packages = with pkgs; [
+  users.users.gin.packages = builtins.attrValues {
+		inherit (pkgs)
     # Utilities
     coreutils tree jq rename gh
     krita inkscape
@@ -51,6 +52,7 @@
 		obsidian
     zathura foliate
     pear-desktop
+		songrec
     mangohud
     mpv
     styluslabs-write-bin
@@ -60,6 +62,6 @@
     bottles
     faugus-launcher
     protontricks
-    libreoffice
-  ];
+    libreoffice;
+  };
 }
