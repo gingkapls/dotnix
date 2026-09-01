@@ -100,6 +100,8 @@
       configurationLimit = 10;
     };
 
+    kernel.sysctl."kernel.unprivileged_userns_clone" = 1;
+
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
     extraModprobeConfig = ''
@@ -147,6 +149,7 @@
     
     # For WebP support
     webp-pixbuf-loader
+    steam-run
 
     # For general HEIF container support (this includes the AVIF file format) 
     libheif.bin # provides heif-thumbnailer (the program that generates HEIF thumbnails)

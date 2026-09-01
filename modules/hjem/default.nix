@@ -37,11 +37,14 @@
     localsend
     pciutils usbutils
     helix
+    vscodium
 
     # Shell utils
     zoxide
     direnv
     fzf
+    fd
+    ripgrep
 
     # Applications
     google-chrome

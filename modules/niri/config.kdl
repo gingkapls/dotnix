@@ -19,6 +19,11 @@ environment {
 debug {
     // render-drm-device "/dev/dri/renderD128"
     // ignore-drm-device "/dev/dri/renderD129"
+
+    // For external monitor
+    ignore-drm-device "/dev/dri/renderD128"
+    render-drm-device "/dev/dri/renderD129"
+    wait-for-frame-completion-before-queueing
 }
 
 
